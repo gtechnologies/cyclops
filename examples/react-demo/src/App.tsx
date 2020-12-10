@@ -10,8 +10,18 @@ function App() {
 		<div className="App">
 			<h1>hello</h1>
 			<View
-				style={{ height: 100, width: 100, backgroundColor: 'red' }}
-			></View>
+				style={{
+					height: 100,
+					width: 100,
+					backgroundColor: 'red',
+					justifyContent: 'center',
+					flexDirection: 'row',
+				}}
+			>
+				<View
+					style={{ height: 10, width: 10, backgroundColor: 'yellow' }}
+				></View>
+			</View>
 		</div>
 	);
 }

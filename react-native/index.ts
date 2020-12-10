@@ -1,1 +1,1 @@
-export { View } from 'src/View/View.native';
+export { View } from '../src/View/View.native';

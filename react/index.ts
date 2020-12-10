@@ -1,1 +1,1 @@
-export { View } from 'src/View/View.web';
+export { View } from '../src/View/View.web';
