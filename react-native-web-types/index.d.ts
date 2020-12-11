@@ -5,6 +5,7 @@ export {
 	ActivityIndicatorProps,
 } from './exports/ActivityIndicator';
 export { default as CheckBox, CheckBoxProps } from './exports/CheckBox';
+export { default as Image, ImageProps } from './exports/Image';
 export {
 	default as ProgressBar,
 	ProgressBarProps,
@@ -17,6 +18,8 @@ export {
 	default as SafeAreaView,
 	SafeAreaViewProps,
 } from './exports/SafeAreaView';
+export { default as Switch, SwitchProps } from './exports/Switch';
+export { default as Text, TextProps } from './exports/Text';
 export {
 	default as TouchableOpacity,
 	TouchableOpacityProps,
