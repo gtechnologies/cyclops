@@ -1,2 +1,1 @@
-export { View } from '../src/View/View.web';
-export { Button } from '../src/Button/Button.web';
+export { View } from '../src/components/View/View.web';
