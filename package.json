@@ -25,7 +25,7 @@
 	"devDependencies": {
 		"@types/react": "^17.0.0",
 		"@types/react-native": "^0.63.37",
-		"@types/react-native-web": "npm:@types/react-native@^0.63.37",
+		"@types/react-native-web": "./react-native-web-types",
 		"prettier": "2.2.1"
 	},
 	"dependencies": {

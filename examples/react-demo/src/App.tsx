@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 //import { View } from '../../../react-native';
-import { View } from 'cyclops/react';
+import { View, Button } from 'cyclops/web';
 
 function App() {
 	return (
@@ -16,11 +16,14 @@ function App() {
 					backgroundColor: 'red',
 					justifyContent: 'center',
 					flexDirection: 'row',
-				}}
+        }}
 			>
 				<View
 					style={{ height: 10, width: 10, backgroundColor: 'yellow' }}
 				></View>
+        <Button onClick={() => {
+          alert('hiya')
+        }}></Button>
 			</View>
 		</div>
 	);

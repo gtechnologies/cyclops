@@ -1,0 +1,24 @@
+{
+	"name": "@types/react-native-web",
+	"title": "@types/react-native-web",
+	"version": "0.0.1",
+	"description": "Types for react-native-web",
+	"main": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"react",
+		"react-native",
+		"cyclops"
+	],
+	"readmeFilename": "README.md",
+	"peerDependencies": {},
+	"devDependencies": {
+		"prettier": "2.2.1"
+	},
+	"dependencies": {
+		"typescript": "^4.1.2"
+	},
+	"types": "index.d.ts"
+}
