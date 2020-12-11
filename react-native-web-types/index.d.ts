@@ -1,5 +1,8 @@
-import React from "react";
-import { ViewProps, ViewStyle } from './exports/View';
+import React from 'react';
 
-export class View extends React.PureComponent<ViewProps> {}
-export {ViewProps, ViewStyle}
+export {
+	default as TouchableOpacity,
+	TouchableOpacityProps,
+} from './exports/TouchableOpacity';
+export { TouchableWithoutFeedbackProps } from './exports/TouchableWithoutFeedback';
+export { default as View, ViewProps, ViewStyle } from './exports/View';
