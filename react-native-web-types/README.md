@@ -11,6 +11,8 @@ Generally, most files written in Flow can be converted to TypeScript using Khan 
 
 # // TODO
 
+-   Filter for "forwardPropsList"
+
 ## Convert UI Components
 
 -   FlatList
