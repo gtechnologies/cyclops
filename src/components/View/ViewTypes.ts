@@ -1,3 +1,5 @@
 import { ViewProps as RNWViewProps } from 'react-native-web';
 
-export type ViewProps = RNWViewProps & {};
+import { AlignItems } from '../../styles/Alignment';
+
+export type ViewProps = RNWViewProps & AlignItems & {};
