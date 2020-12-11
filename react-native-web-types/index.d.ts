@@ -4,8 +4,13 @@ export {
 	default as ActivityIndicator,
 	ActivityIndicatorProps,
 } from './exports/ActivityIndicator';
+export { default as Button, ButtonProps } from './exports/Button';
 export { default as CheckBox, CheckBoxProps } from './exports/CheckBox';
 export { default as Image, ImageProps } from './exports/Image';
+export {
+	default as ImageBackground,
+	ImageBackgroundProps,
+} from './exports/ImageBackground';
 export {
 	default as ProgressBar,
 	ProgressBarProps,
@@ -20,6 +25,7 @@ export {
 } from './exports/SafeAreaView';
 export { default as Switch, SwitchProps } from './exports/Switch';
 export { default as Text, TextProps } from './exports/Text';
+export { default as TextInput, TextInputProps } from './exports/TextInput';
 export {
 	default as TouchableOpacity,
 	TouchableOpacityProps,

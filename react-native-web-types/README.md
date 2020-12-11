@@ -9,4 +9,16 @@ Generally, most files written in Flow can be converted to TypeScript using Khan 
 
 `type ViewStyle = $PropertyType<ViewProps, 'style'>;` -> `type ViewStyle = ViewProps['style'];`
 
+# // TODO
+
+## Convert UI Components
+
+-   FlatList
+
+## Convert Other Files
+
 # Known Issues
+
+# Questions
+
+-   Should we convert all React.Component to React.PureComponent?
