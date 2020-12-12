@@ -12,7 +12,7 @@ export const View = (props: NativeViewProps) => {
 		props.alignItemsV,
 	);
 	return (
-		<RNView style={{ ...alignStyle }} {...props}>
+		<RNView {...props} style={{ ...alignStyle, ...props.style }}>
 			{props.children}
 		</RNView>
 	);
