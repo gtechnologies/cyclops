@@ -1,20 +1,19 @@
-import { View as RNWView } from 'react-native-web';
+import { View as RNView } from 'react-native';
 import React from 'react';
 
 import { getAlignStyle } from '../../styles/Alignment';
 
-import { ViewProps } from './ViewTypes';
-import { ViewStyle } from 'react-native-web';
+import { NativeViewProps } from './ViewTypes';
 
-export const View = (props: ViewProps) => {
+export const View = (props: NativeViewProps) => {
 	let alignStyle = getAlignStyle(
 		props.style,
 		props.alignItemsH,
 		props.alignItemsV,
 	);
 	return (
-		<RNWView style={{ ...alignStyle }} {...props}>
+		<RNView style={{ ...alignStyle }} {...props}>
 			{props.children}
-		</RNWView>
+		</RNView>
 	);
 };
