@@ -5,6 +5,15 @@
  * @format
  */
 
+const path = require('path');
+
+const cyclopsPath = path.resolve(__dirname + '/../../../cyclops');
+
+const symbolicLinkModules = {
+  cyclops: cyclopsPath,
+};
+const watchFolders = [cyclopsPath];
+
 module.exports = {
   transformer: {
     getTransformOptions: async () => ({
@@ -14,4 +23,8 @@ module.exports = {
       },
     }),
   },
+  resolver: {
+    symbolicLinkModules,
+  },
+  watchFolders,
 };

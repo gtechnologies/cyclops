@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
+import {SafeAreaView, StatusBar} from 'react-native';
 
 import {View} from 'cyclops/native';
 
