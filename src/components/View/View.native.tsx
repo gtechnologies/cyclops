@@ -4,6 +4,7 @@ import React from 'react';
 import { getAlignStyle } from '../../styles/Alignment';
 
 import { ViewProps } from './ViewTypes';
+import { ViewStyle } from 'react-native-web';
 
 export const View = (props: ViewProps) => {
 	let alignStyle = getAlignStyle(

@@ -8,12 +8,12 @@ A better way to write front-end code with One U-Eye for React and React Native.
 
 # Important Core Components
 
-[ ] Button
-[ ] Card
-[ ] Dropdown
-[ ] IconButton
-[ ] Image
-[ ] Select
-[ ] Text
-[ ] TextInput
-[x] View
+-   [x] Button
+-   [x] Card
+-   [ ] Dropdown
+-   [x] IconButton
+-   [x] Image
+-   [ ] Select
+-   [x] Text
+-   [x] TextInput
+-   [x] View
