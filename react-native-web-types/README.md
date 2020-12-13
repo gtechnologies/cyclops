@@ -23,4 +23,4 @@ Generally, most files written in Flow can be converted to TypeScript using Khan 
 
 # Questions
 
--   Should we convert all React.Component to React.PureComponent?
+-   Should we convert all React.Component to React.PureComponent or React.FunctionComponent?

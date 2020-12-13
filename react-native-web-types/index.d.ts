@@ -11,6 +11,7 @@ export {
 	default as ImageBackground,
 	ImageBackgroundProps,
 } from './exports/ImageBackground';
+export { default as Modal, ModalProps } from './exports/Modal';
 export {
 	default as ProgressBar,
 	ProgressBarProps,

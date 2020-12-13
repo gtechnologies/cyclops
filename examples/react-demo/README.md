@@ -10,6 +10,7 @@ FINAL SOLUTION:
 ## react-app-rewired
 
 `https://github.com/timarney/react-app-rewired`
+`https://egghead.io/lessons/react-customize-create-react-app-cra-without-ejecting-using-react-app-rewired#t=295`
 
 ### Customizing CRA Webpack
 
