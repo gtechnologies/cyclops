@@ -5,7 +5,7 @@ import { getAlignStyle } from '../../styles/Alignment';
 
 import { ViewProps } from './ViewTypes';
 
-export const View = (props: ViewProps) => {
+export const View: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	let alignStyle = getAlignStyle(
 		props.style,
 		props.alignItemsH,
