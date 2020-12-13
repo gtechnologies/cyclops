@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 
-import { View } from 'cyclops/web';
+import { View, TextInput } from 'cyclops/web';
 
 class App extends React.Component {
 	render() {
@@ -23,13 +23,12 @@ class App extends React.Component {
 					}}
 					alignItemsH={'center'}
 				>
-					<View
-						style={{
-							width: 20,
-							height: 40,
-							backgroundColor: 'yellow',
-						}}
-					></View>
+					<TextInput
+						style={{ width: '100%' }}
+						placeholder="Hello"
+						placeholderTextColor={'lightgray'}
+						onChangeText={(text) => console.log(text)}
+					></TextInput>
 				</View>
 			</div>
 		);
