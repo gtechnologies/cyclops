@@ -10,7 +10,7 @@ export const Button = (props: NativeButtonProps) => {
 		props.alignItemsV,
 	);
 	return (
-		<TouchableOpacity style={{ ...alignStyle }} {...props}>
+		<TouchableOpacity {...props} style={{ ...alignStyle, ...props.style }}>
 			{props.children}
 		</TouchableOpacity>
 	);
