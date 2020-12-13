@@ -15,7 +15,22 @@ class App extends React.Component {
 						backgroundColor: 'red',
 					}}
 				></div>
-				<View></View>
+				<View
+					style={{
+						height: 200,
+						width: 200,
+						backgroundColor: 'green',
+					}}
+					alignItemsH={'center'}
+				>
+					<View
+						style={{
+							width: 20,
+							height: 40,
+							backgroundColor: 'yellow',
+						}}
+					></View>
+				</View>
 			</div>
 		);
 	}

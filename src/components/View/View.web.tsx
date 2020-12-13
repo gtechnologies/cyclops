@@ -12,7 +12,7 @@ export const View: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 		props.alignItemsV,
 	);
 	return (
-		<RNWView style={{ ...alignStyle }} {...props}>
+		<RNWView {...props} style={{ ...alignStyle, ...props.style }}>
 			{props.children}
 		</RNWView>
 	);

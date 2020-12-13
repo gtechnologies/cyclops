@@ -25,7 +25,7 @@ const cardStyles: ViewStyle = {
 
 export const Card = (props: ViewProps) => {
 	return (
-		<View style={{ ...cardStyles }} {...props}>
+		<View {...props} style={{ ...cardStyles, ...props.style }}>
 			{props.children}
 		</View>
 	);
