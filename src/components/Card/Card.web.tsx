@@ -23,7 +23,7 @@ const cardStyles: ViewStyle = {
 	overflowY: 'hidden',
 };
 
-const Card = (props: ViewProps) => {
+export const Card = (props: ViewProps) => {
 	return (
 		<View style={{ ...cardStyles }} {...props}>
 			{props.children}
