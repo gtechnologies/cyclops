@@ -22,6 +22,7 @@ const defaultCardStyle: ViewStyle = {
 	position: 'relative',
 	overflow: 'hidden',
 	width: 'fit-content',
+	textAlign: 'left',
 };
 
 export const Card = (props: CardPropsWeb) => {
@@ -35,6 +36,7 @@ export const Card = (props: CardPropsWeb) => {
 		<View {...props} style={style}>
 			<View
 				style={{
+					alignItems: 'end',
 					borderRadius: 8,
 					overflow: 'hidden',
 					...props.contentStyle,
