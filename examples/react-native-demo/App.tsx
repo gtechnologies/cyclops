@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
+import {SafeAreaView, StatusBar, View as RNView} from 'react-native';
 
 import {Button, Card, TextInput, View} from 'cyclops/native';
 
@@ -50,9 +50,11 @@ const App = () => {
             style={{
               height: 200,
               backgroundColor: 'red',
-              width: 20,
+              width: '100%',
             }}></View>
         </Card>
+        <RNView
+          style={{height: 100, backgroundColor: 'cyan', width: '50%'}}></RNView>
       </SafeAreaView>
     </>
   );

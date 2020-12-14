@@ -3,7 +3,7 @@ import { View as RNWView, ViewStyle } from 'react-native-web';
 
 import { getAlignStyle } from '../../styles/Alignment';
 
-import { ViewProps } from './ViewTypes';
+import { ViewPropsWeb as ViewProps } from './ViewTypes';
 
 let defaultViewStyle: ViewStyle = {
 	padding: 0,
