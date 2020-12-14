@@ -11,7 +11,7 @@
 import React from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 
-import {Card, View, TextInput, Button} from 'cyclops/native';
+import {Button, Card, TextInput, View} from 'cyclops/native';
 
 declare const global: {HermesInternal: null | {}};
 
@@ -20,6 +20,7 @@ const App = () => {
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
+        <View style={{width: 50, height: 50, backgroundColor: 'red'}}></View>
         <View
           style={{
             width: 100,
@@ -44,12 +45,12 @@ const App = () => {
             placeholderTextColor={'lightgray'}
             onChangeText={(text) => console.log(text)}></TextInput>
         </View>
-        <Card>
+        <Card style={{width: 200}}>
           <View
             style={{
-              minWidth: 20,
               height: 200,
               backgroundColor: 'red',
+              width: 20,
             }}></View>
         </Card>
       </SafeAreaView>
