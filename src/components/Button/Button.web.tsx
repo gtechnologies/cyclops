@@ -4,6 +4,7 @@ import { TouchableOpacity, ViewStyle, TextStyle } from 'react-native-web';
 import { ButtonPropsWeb as ButtonProps, ButtonTypeEnum } from './ButtonTypes';
 import { Text } from '../Text/Text.native';
 import { getAlignStyle } from '../../styles/Alignment';
+import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
 
 let defaultButtonStyleDictionary: { [type: string]: ViewStyle } = {
@@ -41,7 +42,7 @@ export const Button = (props: ButtonProps) => {
 	let style: ViewStyle = {
 		justifyContent: 'center',
 		alignItems: 'center',
-		padding: 5,
+		padding: Padding.ELEMENT_WEB,
 		borderRadius: 8,
 		...defaultButtonStyleDictionary[buttonType],
 		...alignStyle,

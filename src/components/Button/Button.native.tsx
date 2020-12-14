@@ -7,6 +7,7 @@ import {
 } from './ButtonTypes';
 import { Text } from '../Text/Text.native';
 import { getAlignStyle } from '../../styles/Alignment';
+import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
 
 let defaultButtonStyleDictionary: { [type: string]: ViewStyle } = {
@@ -44,7 +45,7 @@ export const Button = (props: ButtonProps) => {
 	let style: ViewStyle = {
 		justifyContent: 'center',
 		alignItems: 'center',
-		padding: 5,
+		padding: Padding.ELEMENT_NATIVE,
 		borderRadius: 8,
 		...defaultButtonStyleDictionary[buttonType],
 		...alignStyle,

@@ -4,6 +4,8 @@ import { ViewStyle } from 'react-native';
 import { View } from '../View/View.native';
 import { CardPropsNative as CardProps } from './CardTypes';
 
+import { Padding } from '../../styles/Padding';
+
 // border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
 //     -> makes the radius 0 when the card spans the whole screen
 // box-shadow: 0 1px 2px var(--shadow-2);  shadow2 == rgba(0, 0, 0, 0.2);
@@ -22,6 +24,7 @@ const defaultCardStyle: ViewStyle = {
 	shadowRadius: 2,
 	backgroundColor: '#FFFFFF',
 	position: 'relative',
+	padding: Padding.ELEMENT_NATIVE,
 };
 
 export const Card = (props: CardProps) => {
