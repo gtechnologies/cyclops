@@ -5,10 +5,10 @@ export const Post: React.FunctionComponent = () => {
 	return (
 		<Card>
 			<View>
-				<Text type="subtitle">
-					This is the content of a bit of a longer post that is kinda
-					somewhat janky like
-				</Text>
+				<Text type="pagetitle">Page Title</Text>
+				<Text type="title">Title</Text>
+				<Text type="subtitle">Sub Title</Text>
+				<Text type="body">Body</Text>
 			</View>
 		</Card>
 	);
