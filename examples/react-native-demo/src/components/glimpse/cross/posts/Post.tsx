@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Text, View } from 'cyclops/native';
+import { Card, Button, Text, View } from 'cyclops/native';
 
 export const Post: React.FunctionComponent = () => {
 	return (
@@ -9,6 +9,7 @@ export const Post: React.FunctionComponent = () => {
 				<Text type="title">Title</Text>
 				<Text type="subtitle">Sub Title</Text>
 				<Text type="body">Body</Text>
+				<Button label={'hello'} type={'outlined'} />
 			</View>
 		</Card>
 	);
