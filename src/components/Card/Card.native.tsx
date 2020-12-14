@@ -19,7 +19,7 @@ const defaultCardStyle: ViewStyle = {
 	shadowColor: '#000000',
 	shadowOpacity: 0.2,
 	shadowOffset: { width: 1, height: 2 },
-	shadowRadius: 0,
+	shadowRadius: 2,
 	backgroundColor: '#FFFFFF',
 	position: 'relative',
 };
@@ -32,8 +32,9 @@ export const Card = (props: CardProps) => {
 
 	// Note: a content container is used because overflow: 'hidden' on mobile removes shadows
 	return (
-		<View {...props} style={style}>
+		<View style={style}>
 			<View
+				{...props}
 				style={{
 					borderRadius: 8,
 					overflow: 'hidden',

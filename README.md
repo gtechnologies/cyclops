@@ -18,6 +18,10 @@ A better way to write front-end code with One U-Eye for React and React Native.
 -   [x] TextInput
 -   [x] View
 
+# Known Issues
+
+-   Views on mobile have a tendancy to flex horizontally regardless of content width when a height is set
+
 # Concerns
 
 -   Children.ts -> should it be React.ReactNode or JSX.Element
