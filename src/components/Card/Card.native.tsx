@@ -1,7 +1,8 @@
-import { View } from '../View/View.native';
-import { ViewProps } from '../View/ViewTypes';
 import React from 'react';
 import { ViewStyle } from 'react-native';
+
+import { View } from '../View/View.native';
+import { ViewProps } from '../View/ViewTypes';
 
 // border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
 //     -> makes the radius 0 when the card spans the whole screen
@@ -13,7 +14,7 @@ import { ViewStyle } from 'react-native';
 // overflow-y: hidden;
 // overflow-x: hidden;
 
-const cardStyles: ViewStyle = {
+const defaultCardStyle: ViewStyle = {
 	borderRadius: 8,
 	shadowColor: '#000000',
 	shadowOpacity: 0.2,
@@ -24,8 +25,13 @@ const cardStyles: ViewStyle = {
 };
 
 export const Card = (props: ViewProps) => {
+	let style: ViewStyle = {
+		...defaultCardStyle,
+		...props.style,
+	};
+
 	return (
-		<View {...props} style={{ ...cardStyles, ...props.style }}>
+		<View {...props} style={style}>
 			{props.children}
 		</View>
 	);

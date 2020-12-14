@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 
-import { View, TextInput } from 'cyclops/web';
+import { Card, View, TextInput } from 'cyclops/web';
 
 class App extends React.Component {
 	render() {
@@ -15,21 +15,30 @@ class App extends React.Component {
 						backgroundColor: 'red',
 					}}
 				></div>
+
 				<View
 					style={{
 						height: 200,
 						width: 200,
-						backgroundColor: 'green',
 					}}
 					alignItemsH={'center'}
 				>
 					<TextInput
-						style={{ width: '100%' }}
+						style={{ width: '80%' }}
 						placeholder="Hello"
 						placeholderTextColor={'lightgray'}
 						onChangeText={(text) => console.log(text)}
 					></TextInput>
 				</View>
+				<Card>
+					<View
+						style={{
+							minWidth: 20,
+							height: 200,
+							backgroundColor: 'red',
+						}}
+					></View>
+				</Card>
 			</div>
 		);
 	}

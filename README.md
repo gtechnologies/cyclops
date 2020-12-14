@@ -29,3 +29,7 @@ A better way to write front-end code with One U-Eye for React and React Native.
 These dependencies are needed to run cyclops as a symbolic link.
 
 -   @babel/runtime
+
+# Exporting Subfolders
+
+-   `https://github.com/preactjs/preact/blob/master/package.json`
