@@ -2,6 +2,9 @@ import React from 'react';
 import { Text as RNWText, TextStyle } from 'react-native-web';
 
 import { TextPropsWeb as TextProps, TextType, TextTypeEnum } from './TextTypes';
+import { View } from '../View/View.web';
+
+const defaultFontSize = 18;
 
 const textStyleDictionary: { [type: string]: TextStyle } = {
 	[TextTypeEnum.pagetitle]: {
@@ -37,5 +40,9 @@ export const Text = (props: TextProps) => {
 		...props.style,
 	};
 
-	return <RNWText {...props} style={style} />;
+	return (
+		<View style={{ fontSize: defaultFontSize }}>
+			<RNWText {...props} style={style} />
+		</View>
+	);
 };

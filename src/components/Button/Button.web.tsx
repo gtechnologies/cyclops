@@ -27,7 +27,7 @@ let defaultButtonLabelStyleDictionary: { [type: string]: TextStyle } = {
 		color: Colors.BASE,
 	},
 	[ButtonTypeEnum.ghost]: {
-		color: Colors.BASE,
+		color: Colors.GRAY,
 	},
 };
 
