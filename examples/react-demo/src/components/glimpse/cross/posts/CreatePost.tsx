@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, Text, View, Button, Image, TextInput } from 'cyclops/web';
-import { Padding } from 'cyclops/styles';
+import { Padding, Colors } from 'cyclops/styles';
 
 interface Props {
 	userName: string;
@@ -10,7 +10,7 @@ interface Props {
 
 export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 	const [height, setHeight] = useState(40);
-	const [color, setColor] = useState('grey');
+	const [color, setColor] = useState(Colors.GRAY);
 	const [clearTextOnFocus, setClearTextOnFocus] = useState(true);
 	return (
 		<Card style={{ margin: 10, width: '100%' }}>
@@ -46,10 +46,13 @@ export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 			</View>
 			<TextInput
 				style={{
-					border: '1px solid lightgrey',
+					// @ts-ignore
+					border: '1px solid',
+					borderColor: Colors.LIGHT_GRAY,
+					borderRadius: 8,
 					width: '95%',
 					minHeight: 40,
-					caretColor: 'black',
+					caretColor: Colors.DARK_GRAY,
 					margin: 10,
 					padding: Padding.ELEMENT_WEB,
 					height: height,
@@ -60,14 +63,14 @@ export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 				}}
 				defaultValue="Post to your group! 🚀"
 				alignItemsV="top"
-				multiline="true"
+				multiline={true}
 				clearTextOnFocus={clearTextOnFocus}
 				onContentSizeChange={(e: any) => {
 					console.log(e.nativeEvent.contentSize.height);
-					setHeight(e.nativeEvent.contentSize.height + 2);
+					setHeight(e.nativeEvent.contentSize.height);
 				}}
 				onChange={() => {
-					setColor('black');
+					setColor(Colors.DARK_GRAY);
 					setClearTextOnFocus(false);
 				}}
 			></TextInput>
@@ -78,7 +81,6 @@ export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 				<Button
 					style={{
 						width: 100,
-						display: 'inline',
 						marginLeft: 10,
 					}}
 					label={'Post'}

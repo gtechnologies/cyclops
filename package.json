@@ -7,7 +7,8 @@
 	"files": [
 		"native/",
 		"web/",
-		"src/"
+		"src/",
+		"styles/"
 	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"

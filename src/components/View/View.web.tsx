@@ -1,5 +1,6 @@
 import React from 'react';
 import { View as RNWView, ViewStyle } from 'react-native-web';
+import { GenericStyleProp } from 'react-native-web/types';
 
 import { getAlignStyle } from '../../styles/Alignment';
 
@@ -18,7 +19,7 @@ export const View: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 		props.alignItemsV,
 	);
 
-	let style: ViewStyle = {
+	let style: GenericStyleProp<ViewStyle> = {
 		...defaultViewStyle,
 		...alignStyle,
 		...props.style,
@@ -38,7 +39,7 @@ export const VFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 		props.alignItemsV,
 	);
 
-	let style: ViewStyle = {
+	let style: GenericStyleProp<ViewStyle> = {
 		flexDirection: 'column',
 		...defaultViewStyle,
 		...alignStyle,
@@ -59,7 +60,7 @@ export const HFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 		props.alignItemsV,
 	);
 
-	let style: ViewStyle = {
+	let style: GenericStyleProp<ViewStyle> = {
 		flexDirection: 'row',
 		...defaultViewStyle,
 		...alignStyle,
