@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { Card, Text, View, Button, Image, TextInput } from 'cyclops/web';
+import { Padding } from 'cyclops/styles';
 
-export const CreatePost: React.FunctionComponent = () => {
+interface Props {
+	userName: string;
+	group: string;
+	profilePicUrl?: string;
+}
+
+export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 	const [height, setHeight] = useState(40);
 	const [color, setColor] = useState('grey');
 	const [clearTextOnFocus, setClearTextOnFocus] = useState(true);
@@ -11,17 +18,20 @@ export const CreatePost: React.FunctionComponent = () => {
 				alignItemsV="center"
 				style={{ display: 'flex', flexDirection: 'row' }}
 			>
-				<Image
-					style={{
-						width: 50,
-						height: 50,
-						borderRadius: '50%',
-						display: 'block',
-						marginRight: 8,
-					}}
-					alignItemsV={'top'}
-					source="https://pbs.twimg.com/profile_images/711015457134813188/7Qcunhqi_400x400.jpg"
-				/>
+				{props.profilePicUrl && (
+					<Image
+						style={{
+							width: 50,
+							height: 50,
+							borderRadius: 50,
+							display: 'flex',
+							marginRight: 8,
+						}}
+						source={{
+							uri: props.profilePicUrl,
+						}}
+					/>
+				)}
 
 				<Text
 					type="subtitle"
@@ -31,7 +41,7 @@ export const CreatePost: React.FunctionComponent = () => {
 						display: 'block',
 					}}
 				>
-					Disguised Toast
+					{props.userName}
 				</Text>
 			</View>
 			<TextInput
@@ -41,7 +51,7 @@ export const CreatePost: React.FunctionComponent = () => {
 					minHeight: 40,
 					caretColor: 'black',
 					margin: 10,
-					padding: 5,
+					padding: Padding.ELEMENT_WEB,
 					height: height,
 					fontWeight: '500',
 					fontSize: '1.17em',
@@ -61,7 +71,10 @@ export const CreatePost: React.FunctionComponent = () => {
 					setClearTextOnFocus(false);
 				}}
 			></TextInput>
-			<View style={{ display: 'flex', flexDirection: 'row' }}>
+			<View
+				alignItemsV="center"
+				style={{ display: 'flex', flexDirection: 'row' }}
+			>
 				<Button
 					style={{
 						width: 100,
@@ -69,15 +82,11 @@ export const CreatePost: React.FunctionComponent = () => {
 						marginLeft: 10,
 						textAlign: 'center',
 					}}
-					alignItemsH="center"
 					label={'Post'}
 					labelType={'body'}
 					type={'filled'}
 				/>
-				<Text type="subtitle" style={{ padding: 5 }}>
-					{' '}
-					‣ Hearthstone
-				</Text>
+				<Text type="subtitle"> ‣ {props.group}</Text>
 			</View>
 		</Card>
 	);

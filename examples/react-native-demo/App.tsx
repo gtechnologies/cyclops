@@ -28,7 +28,11 @@ const App = () => {
 					alignItems: 'center',
 				}}
 			>
-				<CreatePost />
+				<CreatePost
+					userName="Disguised Toast"
+					group="Among Us"
+					profilePicUrl="https://pbs.twimg.com/profile_images/711015457134813188/7Qcunhqi_400x400.jpg"
+				/>
 				<Post
 					body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa nunc, fringilla vestibulum accumsan id, auctor vel erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque tristique mi sapien, et elementum urna luctus ut. Praesent quam metus, porta vehicula semper non, gravida et quam."
 					group="Hearthstone"

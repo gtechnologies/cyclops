@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import { Card, Text, View, Button, Image, TextInput } from 'cyclops/native';
+import { Padding } from 'cyclops/styles';
 
-export const CreatePost: React.FunctionComponent = () => {
+interface Props {
+	userName: string;
+	group: string;
+	profilePicUrl?: string;
+}
+
+export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 	const [height, setHeight] = useState(40);
 	const [color, setColor] = useState('grey');
 	const [clearTextOnFocus, setClearTextOnFocus] = useState(true);
@@ -18,19 +25,20 @@ export const CreatePost: React.FunctionComponent = () => {
 					alignItemsV="center"
 					style={{ display: 'flex', flexDirection: 'row' }}
 				>
-					<Image
-						style={{
-							width: 50,
-							height: 50,
-							borderRadius: 50,
-							display: 'flex',
-							marginRight: 8,
-						}}
-						source={{
-							uri:
-								'https://pbs.twimg.com/profile_images/711015457134813188/7Qcunhqi_400x400.jpg',
-						}}
-					/>
+					{props.profilePicUrl && (
+						<Image
+							style={{
+								width: 50,
+								height: 50,
+								borderRadius: 50,
+								display: 'flex',
+								marginRight: 8,
+							}}
+							source={{
+								uri: props.profilePicUrl,
+							}}
+						/>
+					)}
 
 					<Text
 						type="subtitle"
@@ -39,7 +47,7 @@ export const CreatePost: React.FunctionComponent = () => {
 							display: 'flex',
 						}}
 					>
-						Disguised Toast
+						{props.userName}
 					</Text>
 				</View>
 				<TextInput
@@ -49,7 +57,7 @@ export const CreatePost: React.FunctionComponent = () => {
 						width: '95%',
 						minHeight: 40,
 						margin: 10,
-						padding: 5,
+						padding: Padding.ELEMENT_NATIVE,
 						height: height,
 						color: color,
 						fontSize: 22,
@@ -80,10 +88,7 @@ export const CreatePost: React.FunctionComponent = () => {
 						labelType={'body'}
 						type={'filled'}
 					/>
-					<Text type="subtitle" style={{ padding: 5 }}>
-						{' '}
-						‣ Hearthstone
-					</Text>
+					<Text type="subtitle"> ‣ {props.group}</Text>
 				</View>
 			</View>
 		</Card>

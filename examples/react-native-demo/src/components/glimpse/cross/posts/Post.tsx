@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card, Text, View, Button, Image } from 'cyclops/native';
+import { Padding } from 'cyclops/styles';
 
 interface Props {
-	group: string;
+	group?: string;
 	author: string;
 	profilePicUrl?: string;
 	body: string;
@@ -52,7 +53,7 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 								display: 'flex',
 							}}
 						>
-							{props.author + ' ‣ ' + props.group}
+							{props.author} {props.group && ' ‣ ' + props.group}
 						</Text>
 						<Text
 							type="body"
@@ -65,7 +66,7 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 						</Text>
 					</View>
 				</View>
-				<Text type="body" style={{ padding: 5 }}>
+				<Text type="body" style={{ padding: Padding.ELEMENT_NATIVE }}>
 					{props.body}
 				</Text>
 				<View

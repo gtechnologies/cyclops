@@ -34,7 +34,11 @@ class App extends React.Component {
 					}}
 				>
 					<div style={{ width: '75%' }}>
-						<CreatePost />
+						<CreatePost
+							userName="Disguised Toast"
+							profilePicUrl="https://pbs.twimg.com/profile_images/711015457134813188/7Qcunhqi_400x400.jpg"
+							group="Among Us"
+						/>
 						{this.showPost().map((post: any) => post)}
 					</div>
 				</View>
