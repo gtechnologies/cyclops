@@ -18,7 +18,49 @@ export const View = (props: ViewProps) => {
 		props.alignItemsV,
 	);
 
-	let style = {
+	let style: ViewStyle = {
+		...defaultViewStyle,
+		...alignStyle,
+		...props.style,
+	};
+
+	return (
+		<RNView {...props} style={style}>
+			{props.children}
+		</RNView>
+	);
+};
+
+export const VFlex = (props: ViewProps) => {
+	let alignStyle = getAlignStyle(
+		props.style,
+		props.alignItemsH,
+		props.alignItemsV,
+	);
+
+	let style: ViewStyle = {
+		flexDirection: 'column',
+		...defaultViewStyle,
+		...alignStyle,
+		...props.style,
+	};
+
+	return (
+		<RNView {...props} style={style}>
+			{props.children}
+		</RNView>
+	);
+};
+
+export const HFlex = (props: ViewProps) => {
+	let alignStyle = getAlignStyle(
+		props.style,
+		props.alignItemsH,
+		props.alignItemsV,
+	);
+
+	let style: ViewStyle = {
+		flexDirection: 'row',
 		...defaultViewStyle,
 		...alignStyle,
 		...props.style,
