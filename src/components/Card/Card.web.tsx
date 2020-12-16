@@ -5,6 +5,7 @@ import { View } from '../View/View.web';
 import { CardPropsWeb as CardProps, CardPropsWeb } from './CardTypes';
 
 import { Padding } from '../../styles/Padding';
+import { GenericStyleProp } from 'react-native-web/types';
 
 // border-radius: max(0px, min(8px, calc((100vw - 4px - 100%) * 9999))) / 8px;
 //     -> makes the radius 0 when the card spans the whole screen
@@ -25,11 +26,12 @@ const defaultCardStyle: ViewStyle = {
 	overflow: 'hidden',
 	width: 'fit-content',
 	padding: Padding.ELEMENT_WEB,
+	// @ts-ignore
 	textAlign: 'left',
 };
 
 export const Card = (props: CardPropsWeb) => {
-	let style: ViewStyle = {
+	let style: GenericStyleProp<ViewStyle> = {
 		...defaultCardStyle,
 		...props.style,
 	};
@@ -39,7 +41,7 @@ export const Card = (props: CardPropsWeb) => {
 		<View {...props} style={style}>
 			<View
 				style={{
-					alignItems: 'end',
+					alignItems: 'flex-start',
 					borderRadius: 8,
 					overflow: 'hidden',
 					...props.contentStyle,

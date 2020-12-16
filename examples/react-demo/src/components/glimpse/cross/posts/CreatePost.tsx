@@ -46,8 +46,10 @@ export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 			</View>
 			<TextInput
 				style={{
+					// @ts-ignore
 					border: '1px solid',
 					borderColor: Colors.LIGHT_GRAY,
+					borderRadius: 8,
 					width: '95%',
 					minHeight: 40,
 					caretColor: Colors.DARK_GRAY,
@@ -61,11 +63,11 @@ export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 				}}
 				defaultValue="Post to your group! 🚀"
 				alignItemsV="top"
-				multiline="true"
+				multiline={true}
 				clearTextOnFocus={clearTextOnFocus}
 				onContentSizeChange={(e: any) => {
 					console.log(e.nativeEvent.contentSize.height);
-					setHeight(e.nativeEvent.contentSize.height + 2);
+					setHeight(e.nativeEvent.contentSize.height);
 				}}
 				onChange={() => {
 					setColor(Colors.DARK_GRAY);
@@ -79,9 +81,7 @@ export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 				<Button
 					style={{
 						width: 100,
-						display: 'inline',
 						marginLeft: 10,
-						textAlign: 'center',
 					}}
 					label={'Post'}
 					labelType={'body'}

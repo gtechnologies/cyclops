@@ -22,10 +22,7 @@ export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 			}}
 		>
 			<View style={{ minHeight: 150 }}>
-				<View
-					alignItemsV="center"
-					style={{ display: 'flex', flexDirection: 'row' }}
-				>
+				<View style={{ display: 'flex', flexDirection: 'row' }}>
 					{props.profilePicUrl && (
 						<Image
 							style={{
