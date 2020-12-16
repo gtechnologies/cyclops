@@ -80,7 +80,6 @@ export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 						width: 100,
 						display: 'inline',
 						marginLeft: 10,
-						textAlign: 'center',
 					}}
 					label={'Post'}
 					labelType={'body'}

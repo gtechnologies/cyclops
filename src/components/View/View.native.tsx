@@ -9,6 +9,10 @@ import { ViewPropsNative as ViewProps } from './ViewTypes';
 let defaultViewStyle: ViewStyle = {
 	padding: 0,
 	margin: 0,
+
+	// override React Native default of stretch which causes all items to grow along the cross axis
+	// https://reactnative.dev/docs/flexbox#align-items
+	alignItems: 'baseline',
 };
 
 export const View = (props: ViewProps) => {
