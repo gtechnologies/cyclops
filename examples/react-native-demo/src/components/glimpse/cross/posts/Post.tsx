@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Text, View, Button, Image } from 'cyclops/native';
-import { Padding } from 'cyclops/styles';
+import { Padding, Colors } from 'cyclops/styles';
 
 interface Props {
 	group?: string;
@@ -23,6 +23,7 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 				label={reaction.emoji + ' ' + reaction.users.length}
 				labelType={'body'}
 				type={'ghost'}
+				color={Colors.GRAY}
 			/>
 		);
 	});
@@ -58,7 +59,7 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 						<Text
 							type="body"
 							style={{
-								color: 'grey',
+								color: Colors.GRAY,
 								display: 'flex',
 							}}
 						>
@@ -73,7 +74,7 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 					style={{
 						display: 'flex',
 						flexDirection: 'row',
-						borderTopColor: 'lightgrey',
+						borderTopColor: Colors.LIGHT_GRAY,
 						borderTopWidth: 1,
 						marginTop: 12,
 					}}
@@ -87,6 +88,7 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 						label={'+ React'}
 						labelType={'body'}
 						type={'ghost'}
+						color={Colors.GRAY}
 					/>
 					<Button
 						style={{
@@ -95,6 +97,7 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 						label={'Comment'}
 						type={'ghost'}
 						labelType={'body'}
+						color={Colors.GRAY}
 					/>
 				</View>
 			</View>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Card, Text, View, Button, Image, TextInput } from 'cyclops/native';
 import { Padding } from 'cyclops/styles';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 interface Props {
 	userName: string;
@@ -52,7 +53,7 @@ export const CreatePost: React.FunctionComponent<Props> = (props: Props) => {
 				</View>
 				<TextInput
 					style={{
-						borderColor: 'lightgrey',
+						borderColor: Colors.LIGHT_GRAY,
 						borderWidth: 1,
 						width: '95%',
 						minHeight: 40,
