@@ -12,6 +12,7 @@ let defaultViewStyle: ViewStyle = {
 
 	// override React Native default of stretch which causes all items to grow along the cross axis
 	// https://reactnative.dev/docs/flexbox#align-items
+	// https://stackoverflow.com/a/65332769/6643002
 	alignItems: 'baseline',
 };
 
