@@ -10,28 +10,48 @@ import { getAlignStyle } from '../../styles/Alignment';
 import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
 
-let defaultButtonStyleDictionary: { [type: string]: ViewStyle } = {
-	[ButtonTypeEnum.filled]: {
-		backgroundColor: Colors.BASE,
-	},
-	[ButtonTypeEnum.outlined]: {
-		borderColor: Colors.BASE,
-		borderWidth: 2,
-		borderStyle: 'solid',
-	},
-	[ButtonTypeEnum.ghost]: {},
+const getDefaultButtonStyle = (
+	buttonType: ButtonType,
+	color: string,
+): ViewStyle => {
+	switch (buttonType) {
+		case ButtonTypeEnum.filled:
+			return {
+				backgroundColor: color,
+			};
+		case ButtonTypeEnum.outlined:
+			return {
+				borderColor: color,
+				borderWidth: 2,
+				borderStyle: 'solid',
+			};
+		case ButtonTypeEnum.ghost:
+			return {};
+		default:
+			return {};
+	}
 };
 
-let defaultButtonLabelStyleDictionary: { [type: string]: TextStyle } = {
-	[ButtonTypeEnum.filled]: {
-		color: 'white',
-	},
-	[ButtonTypeEnum.outlined]: {
-		color: Colors.BASE,
-	},
-	[ButtonTypeEnum.ghost]: {
-		color: Colors.GRAY,
-	},
+const getDefaultButtonLabelStyle = (
+	buttonType: ButtonType,
+	color: string,
+): TextStyle => {
+	switch (buttonType) {
+		case ButtonTypeEnum.filled:
+			return {
+				color: 'white',
+			};
+		case ButtonTypeEnum.outlined:
+			return {
+				color: color,
+			};
+		case ButtonTypeEnum.ghost:
+			return {
+				color: color,
+			};
+		default:
+			return {};
+	}
 };
 
 export const Button = (props: ButtonProps) => {
@@ -42,12 +62,14 @@ export const Button = (props: ButtonProps) => {
 	);
 
 	let buttonType = props.type ? props.type : 'filled';
+	let color = props.color ? props.color : Colors.BASE;
+
 	let style: ViewStyle = {
 		justifyContent: 'center',
 		alignItems: 'center',
 		padding: Padding.ELEMENT_NATIVE,
 		borderRadius: 8,
-		...defaultButtonStyleDictionary[buttonType],
+		...getDefaultButtonStyle(buttonType, color),
 		...alignStyle,
 		...props.style,
 	};
@@ -55,7 +77,7 @@ export const Button = (props: ButtonProps) => {
 	let labelType = props.labelType ? props.labelType : 'subtitle';
 
 	let labelStyle = {
-		...defaultButtonLabelStyleDictionary[buttonType],
+		...getDefaultButtonLabelStyle(buttonType, color),
 		...props.labelStyle,
 	};
 

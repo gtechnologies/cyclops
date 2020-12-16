@@ -19,6 +19,18 @@ declare const global: { HermesInternal: null | {} };
 
 const App = () => {
 	return (
+		<SafeAreaView style={{ flex: 1 }}>
+			<Button
+				color={'red'}
+				type="ghost"
+				label="what up panda rupp"
+				onPress={() => {
+					console.log('heerio');
+				}}
+			/>
+		</SafeAreaView>
+	);
+	return (
 		<>
 			<StatusBar barStyle="dark-content" />
 			<SafeAreaView
