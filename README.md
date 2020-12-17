@@ -38,3 +38,7 @@ These dependencies are needed to run cyclops as a symbolic link.
 # Exporting Subfolders
 
 -   `https://github.com/preactjs/preact/blob/master/package.json`
+
+# Packaging
+
+`https://itnext.io/step-by-step-building-and-publishing-an-npm-typescript-package-44fe7164964c`
