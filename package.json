@@ -4,13 +4,10 @@
 	"version": "0.0.1",
 	"description": "A better way to write front-end code with One U-Eye for React and React Native.",
 	"main": "lib/index.js",
+	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"files": [
-		"lib/**/*",
-		"native/",
-		"web/",
-		"src/",
-		"styles/"
+		"lib/**/*"
 	],
 	"scripts": {
 		"build": "tsc",
