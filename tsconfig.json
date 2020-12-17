@@ -10,6 +10,6 @@
 
 		"jsx": "react"
 	},
-	"include": ["src"],
+	"include": ["src", "native", "styles", "web"],
 	"exclude": ["node_modules", "**/__tests__/*"]
 }
