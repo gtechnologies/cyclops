@@ -1,12 +1,13 @@
 {
 	"compilerOptions": {
 		"target": "es5",
-		"module": "esnext",
+		"module": "commonjs",
 		"declaration": true,
 		"outDir": "./lib",
 		"strict": true,
 
-		"jsx": "react"
+		"jsx": "react",
+		"esModuleInterop": true
 	},
 	"include": ["src", "native", "styles", "web"],
 	"exclude": ["node_modules", "**/__tests__/*"]
