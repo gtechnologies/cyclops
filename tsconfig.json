@@ -6,19 +6,8 @@
 		"outDir": "./lib",
 		"strict": true,
 
-		"lib": ["dom", "dom.iterable", "esnext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"esModuleInterop": true,
-		"allowSyntheticDefaultImports": true,
-		"forceConsistentCasingInFileNames": true,
-		"moduleResolution": "node",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
-		"noEmit": true,
-		"jsx": "react",
-		"baseUrl": "./"
+		"jsx": "react"
 	},
-	"include": ["src"],
+	"include": ["src", "native", "styles", "web"],
 	"exclude": ["node_modules", "**/__tests__/*"]
 }

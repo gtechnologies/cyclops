@@ -3,7 +3,7 @@
 	"title": "Cyclops",
 	"version": "0.0.1",
 	"description": "A better way to write front-end code with One U-Eye for React and React Native.",
-	"main": "index.js",
+	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"files": [
 		"lib/**/*",
