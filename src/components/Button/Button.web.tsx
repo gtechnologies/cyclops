@@ -6,7 +6,7 @@ import {
 	ButtonType,
 	ButtonTypeEnum,
 } from './ButtonTypes';
-import { Text } from '../Text/Text.native';
+import { Text } from '../Text/Text.web';
 import { getAlignStyle } from '../../styles/Alignment';
 import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
