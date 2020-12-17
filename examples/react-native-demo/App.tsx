@@ -11,7 +11,7 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, View as RNView } from 'react-native';
 
-import { Button, Card, TextInput, View } from 'cyclops/native';
+import { Button, Card, TextInput, View, VFlex } from 'cyclops/native';
 import { Post } from './src/components/glimpse/cross/posts/Post';
 import { CreatePost } from './src/components/glimpse/cross/posts/CreatePost';
 import { JsxElement } from 'typescript';
@@ -20,14 +20,17 @@ declare const global: { HermesInternal: null | {} };
 const App = () => {
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
-			<Button
-				color={'red'}
-				type="ghost"
-				label="what up panda rupp"
-				onPress={() => {
-					console.log('heerio');
-				}}
-			/>
+			<VFlex style={{ backgroundColor: 'pink' }}>
+				<VFlex style={{ backgroundColor: 'red', height: 100 }}>
+					<VFlex
+						style={{
+							height: 20,
+							width: 20,
+							backgroundColor: 'blue',
+						}}
+					></VFlex>
+				</VFlex>
+			</VFlex>
 		</SafeAreaView>
 	);
 	return (
