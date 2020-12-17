@@ -15,7 +15,7 @@ module.exports = function (config, env) {
 		override(
 			disableEsLint(),
 			addDecoratorsLegacy(),
-			/*Make sure Babel compiles the stuff in the common folder*/
+			// Make sure Babel compiles the stuff in the common folder
 			babelInclude([
 				path.resolve('src'), // don't forget this
 				fs.realpathSync('node_modules/cyclops'),
