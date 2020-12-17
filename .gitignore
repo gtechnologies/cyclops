@@ -60,3 +60,6 @@ buck-out/
 
 # examples/react-demo
 *.eslintcache
+
+# Build
+lib/
