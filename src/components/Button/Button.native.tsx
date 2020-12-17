@@ -4,6 +4,7 @@ import { TouchableOpacity, ViewStyle, TextStyle } from 'react-native';
 import {
 	ButtonPropsNative as ButtonProps,
 	ButtonTypeEnum,
+	ButtonType,
 } from './ButtonTypes';
 import { Text } from '../Text/Text.native';
 import { getAlignStyle } from '../../styles/Alignment';
@@ -71,12 +72,12 @@ export const Button = (props: ButtonProps) => {
 		borderRadius: 8,
 		...getDefaultButtonStyle(buttonType, color),
 		...alignStyle,
-		...props.style,
+		...(props.style as ViewStyle),
 	};
 
 	let labelType = props.labelType ? props.labelType : 'subtitle';
 
-	let labelStyle = {
+	let labelStyle: TextStyle = {
 		...getDefaultButtonLabelStyle(buttonType, color),
 		...props.labelStyle,
 	};

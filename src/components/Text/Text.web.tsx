@@ -3,6 +3,7 @@ import { Text as RNWText, TextStyle } from 'react-native-web';
 
 import { TextPropsWeb as TextProps, TextType, TextTypeEnum } from './TextTypes';
 import { View } from '../View/View.web';
+import { GenericStyleProp } from 'react-native-web/types';
 
 const defaultFontSize = 18;
 
@@ -35,13 +36,18 @@ const textStyleDictionary: { [type: string]: TextStyle } = {
 
 export const Text = (props: TextProps) => {
 	let textType = props.type ? props.type : TextTypeEnum.body;
-	let style: TextStyle = {
+	let style: GenericStyleProp<TextStyle> = {
 		...textStyleDictionary[textType],
-		...props.style,
+		...(props.style as TextStyle),
 	};
 
 	return (
-		<View style={{ fontSize: defaultFontSize }}>
+		<View
+			style={{
+				// @ts-ignore
+				fontSize: defaultFontSize,
+			}}
+		>
 			<RNWText {...props} style={style} />
 		</View>
 	);

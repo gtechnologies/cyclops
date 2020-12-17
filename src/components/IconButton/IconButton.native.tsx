@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button } from '../Button/Button.web';
-import { IconButtonProps } from './IconButtonTypes';
+import { Button } from '../Button/Button.native';
+import { IconButtonPropsNative as IconButtonProps } from './IconButtonTypes';
 
 export const IconButton = (props: IconButtonProps) => {
 	return (

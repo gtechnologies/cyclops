@@ -20,4 +20,5 @@ export type TextPropsWeb = RNWTextProps & {
 };
 export type TextPropsNative = RNTextProps & {
 	type?: TextType;
+	children?: any | null | undefined;
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ViewStyle } from 'react-native';
+import { StyleProp, ViewStyle } from 'react-native';
 
 import { View } from '../View/View.native';
 import { CardPropsNative as CardProps } from './CardTypes';
@@ -28,9 +28,9 @@ const defaultCardStyle: ViewStyle = {
 };
 
 export const Card = (props: CardProps) => {
-	let style: ViewStyle = {
+	let style: StyleProp<ViewStyle> = {
 		...defaultCardStyle,
-		...props.style,
+		...(props.style as ViewStyle),
 	};
 
 	// Note: a content container is used because overflow: 'hidden' on mobile removes shadows

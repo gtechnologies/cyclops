@@ -1,7 +1,11 @@
 import React from 'react';
-import { Text as RNText, TextStyle } from 'react-native';
+import { StyleProp, Text as RNText, TextStyle } from 'react-native';
 
-import { TextPropsWeb as TextProps, TextType, TextTypeEnum } from './TextTypes';
+import {
+	TextPropsNative as TextProps,
+	TextType,
+	TextTypeEnum,
+} from './TextTypes';
 
 // font styles based on iOS Human Interface Guidelines: Typography
 // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/
@@ -34,9 +38,9 @@ const textStyleDictionary: { [type: string]: TextStyle } = {
 
 export const Text = (props: TextProps) => {
 	let textType = props.type ? props.type : TextTypeEnum.body;
-	let style: TextStyle = {
+	let style: StyleProp<TextStyle> = {
 		...textStyleDictionary[textType],
-		...props.style,
+		...(props.style as TextStyle),
 	};
 
 	return <RNText {...props} style={style} />;
