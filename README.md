@@ -42,3 +42,8 @@ These dependencies are needed to run cyclops as a symbolic link.
 # Packaging
 
 `https://itnext.io/step-by-step-building-and-publishing-an-npm-typescript-package-44fe7164964c`
+
+# importing
+
+TypeScript does not yet support the "exports" field of NPM.
+`https://github.com/microsoft/TypeScript/issues/33079`
