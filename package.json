@@ -33,12 +33,12 @@
 	"devDependencies": {
 		"@babel/runtime": "^7.12.5",
 		"@types/react": "^17.0.0",
-		"@types/react-native": "^0.63.37",
 		"@types/react-native-web": "git+https://5a8eb5405602f384d206213250a29a2b8ec51f24:x-oauth-basic@github.com/gtechnologies/react-native-web-ts-types.git",
 		"prettier": "2.2.1"
 	},
 	"dependencies": {
+		"@types/react-native": "^0.63.42",
 		"react-native-web": "^0.14.9",
-		"typescript": "^4.1.2"
+		"typescript": "^4.1.3"
 	}
 }
