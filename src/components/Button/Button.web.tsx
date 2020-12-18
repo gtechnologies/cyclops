@@ -6,6 +6,8 @@ import {
 	ButtonType,
 	ButtonTypeEnum,
 } from './ButtonTypes';
+import './ButtonStyles.css';
+
 import { Text } from '../Text/Text.web';
 import { getAlignStyle } from '../../styles/Alignment';
 import { Padding } from '../../styles/Padding';
@@ -66,6 +68,8 @@ export const Button = (props: ButtonProps) => {
 	let color = props.color ? props.color : Colors.BASE;
 
 	let style: ViewStyle = {
+		position: 'relative',
+		overflow: 'hidden',
 		justifyContent: 'center',
 		alignItems: 'center',
 		padding: Padding.ELEMENT_WEB,
@@ -90,6 +94,17 @@ export const Button = (props: ButtonProps) => {
 				</Text>
 			)}
 			{props.children}
+			{/* this div is based off of Facebook's styling for buttons that change color on hover */}
+			<div
+				className={'buttonOverlay'}
+				style={{
+					position: 'absolute',
+					top: 0,
+					bottom: 0,
+					left: 0,
+					right: 0,
+				}}
+			/>
 		</TouchableOpacity>
 	);
 };

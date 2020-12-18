@@ -9,7 +9,9 @@ A better way to write front-end code with One U-Eye for React and React Native.
 # Important Core Components
 
 -   [x] Button
+    -   add styling for disabled buttons
 -   [x] Card
+    -   make Cards clickable
 -   [ ] Dropdown
 -   [x] IconButton
 -   [x] Image
@@ -20,7 +22,6 @@ A better way to write front-end code with One U-Eye for React and React Native.
 
 # Known Issues
 
--   Views on mobile have a tendancy to flex horizontally regardless of content width when a height is set
 -   On web TextInput's border styling has to be specified with the 'border: ' style parameter. Using BorderRadius, BorderStyle and BorderColor will be over written by css styling on react-native-web's TextInput component. Using border can cause typing issues, that will have to be `//@ts-ignore`'d until the issue is resolved
 
 # Concerns
