@@ -49,3 +49,8 @@ These dependencies are needed to run cyclops as a symbolic link.
 TypeScript does not yet support the "exports" field of NPM.
 `https://github.com/microsoft/TypeScript/issues/33079`
 `https://stackoverflow.com/questions/30302747/root-directory-in-package-json`
+
+# CSS Files
+
+Non .ts or .tsx files are by default not handled by `tsc` and so an alternative copy files solution is needed.
+`https://vccolombo.github.io/blog/tsc-how-to-copy-non-typescript-files-when-building/`
