@@ -54,3 +54,5 @@ TypeScript does not yet support the "exports" field of NPM.
 
 Non .ts or .tsx files are by default not handled by `tsc` and so an alternative copy files solution is needed.
 `https://vccolombo.github.io/blog/tsc-how-to-copy-non-typescript-files-when-building/`
+
+`https://stackoverflow.com/questions/46075993/how-to-include-a-css-file-in-react-and-typescript-npm-package/65364696#65364696`
