@@ -39,6 +39,7 @@ export const Card = (props: CardProps) => {
 			<View
 				{...props}
 				style={{
+					flex: 1,
 					borderRadius: 8,
 					overflow: 'hidden',
 					...props.contentStyle,
