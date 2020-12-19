@@ -6,10 +6,26 @@ A better way to write front-end code with One U-Eye for React and React Native.
 
 -   Alignment direction
 
+# Getting Started
+
+Install cyclops by running
+`npm i https://github.com/gtechnologies/cyclops.git`
+or
+`yarn add https://github.com/gtechnologies/cyclops.git`
+
+## React
+
+`import { ... } from 'cyclops/lib/web';`
+
+## React Native
+
+`import { ... } from 'cyclops/lib/native';`
+
 # Important Core Components
 
 -   [x] Button
     -   add styling for disabled buttons
+    -   possibly change the button name to be onClick instead of onPress
 -   [x] Card
     -   make Cards clickable
 -   [ ] Dropdown
@@ -19,6 +35,8 @@ A better way to write front-end code with One U-Eye for React and React Native.
 -   [x] Text
 -   [x] TextInput
 -   [x] View
+    -   [x] HFlex (a View with { flexDirection: 'row'} )
+    -   [x] VFlex (a View with { flexDirection: 'column'} )
 
 # Known Issues
 
