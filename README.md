@@ -6,10 +6,26 @@ A better way to write front-end code with One U-Eye for React and React Native.
 
 -   Alignment direction
 
+# Getting Started
+
+Install cyclops by running
+`npm i https://github.com/gtechnologies/cyclops.git`
+or
+`yarn add https://github.com/gtechnologies/cyclops.git`
+
+## React
+
+`import { ... } from 'cyclops/lib/web';`
+
+## React Native
+
+`import { ... } from 'cyclops/lib/native';`
+
 # Important Core Components
 
 -   [x] Button
     -   add styling for disabled buttons
+    -   possibly change the button name to be onClick instead of onPress
 -   [x] Card
     -   make Cards clickable
 -   [ ] Dropdown
@@ -19,6 +35,8 @@ A better way to write front-end code with One U-Eye for React and React Native.
 -   [x] Text
 -   [x] TextInput
 -   [x] View
+    -   [x] HFlex (a View with { flexDirection: 'row'} )
+    -   [x] VFlex (a View with { flexDirection: 'column'} )
 
 # Known Issues
 
@@ -54,3 +72,5 @@ TypeScript does not yet support the "exports" field of NPM.
 
 Non .ts or .tsx files are by default not handled by `tsc` and so an alternative copy files solution is needed.
 `https://vccolombo.github.io/blog/tsc-how-to-copy-non-typescript-files-when-building/`
+
+`https://stackoverflow.com/questions/46075993/how-to-include-a-css-file-in-react-and-typescript-npm-package/65364696#65364696`
