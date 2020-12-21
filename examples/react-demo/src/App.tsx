@@ -35,9 +35,8 @@ class App extends React.Component {
 				>
 					<Button
 						label="hello"
-						style={{ width: 200 }}
 						type="outlined"
-						//labelStyle={{ backgroundColor: 'cyan' }}
+						style={{ width: 200 }}
 					></Button>
 					<div style={{ width: '75%' }}>
 						<CreatePost
