@@ -36,13 +36,12 @@ export const View: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 
 export const VFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	let alignStyle = getAlignStyle(
-		props.style,
+		{ flexDirection: 'column', ...props.style },
 		props.alignItemsH,
 		props.alignItemsV,
 	);
 
 	let style: GenericStyleProp<ViewStyle> = {
-		flexDirection: 'column',
 		...defaultViewStyle,
 		...alignStyle,
 		...props.style,
@@ -57,13 +56,12 @@ export const VFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 
 export const HFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	let alignStyle = getAlignStyle(
-		props.style,
+		{ flexDirection: 'row', ...props.style },
 		props.alignItemsH,
 		props.alignItemsV,
 	);
 
 	let style: GenericStyleProp<ViewStyle> = {
-		flexDirection: 'row',
 		...defaultViewStyle,
 		...alignStyle,
 		...props.style,
