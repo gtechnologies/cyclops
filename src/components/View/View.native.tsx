@@ -38,7 +38,7 @@ export const View = (props: ViewProps) => {
 
 export const VFlex = (props: ViewProps) => {
 	let alignStyle = getAlignStyle(
-		{ flexDirection: 'column', ...props.style },
+		{ flexDirection: 'column', ...(props.style as ViewStyle) },
 		props.alignItemsH,
 		props.alignItemsV,
 	);
@@ -58,7 +58,7 @@ export const VFlex = (props: ViewProps) => {
 
 export const HFlex = (props: ViewProps) => {
 	let alignStyle = getAlignStyle(
-		{ flexDirection: 'row', ...props.style },
+		{ flexDirection: 'row', ...(props.style as ViewStyle) },
 		props.alignItemsH,
 		props.alignItemsV,
 	);
