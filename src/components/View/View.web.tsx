@@ -12,8 +12,6 @@ let defaultViewStyle: ViewStyle = {
 	boxSizing: 'border-box',
 };
 
-// REMOVED: alignItems: 'baseline',
-
 export const View: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	let alignStyle = getAlignStyle(
 		props.style,
