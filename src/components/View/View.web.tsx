@@ -42,6 +42,7 @@ export const VFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	);
 
 	let style: GenericStyleProp<ViewStyle> = {
+		flexDirection: 'column',
 		...defaultViewStyle,
 		...alignStyle,
 		...props.style,
@@ -62,6 +63,7 @@ export const HFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	);
 
 	let style: GenericStyleProp<ViewStyle> = {
+		flexDirection: 'row',
 		...defaultViewStyle,
 		...alignStyle,
 		...props.style,
