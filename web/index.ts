@@ -1,3 +1,4 @@
+export { ActivityIndicator } from '../src/components/ActivityIndicator/ActivityIndicator.web';
 export { Button } from '../src/components/Button/Button.web';
 export { Card } from '../src/components/Card/Card.web';
 export { IconButton } from '../src/components/IconButton/IconButton.web';

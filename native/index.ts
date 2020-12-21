@@ -1,3 +1,4 @@
+export { ActivityIndicator } from '../src/components/ActivityIndicator/ActivityIndicator.native';
 export { Button } from '../src/components/Button/Button.native';
 export { Card } from '../src/components/Card/Card.native';
 export { IconButton } from '../src/components/IconButton/IconButton.native';
