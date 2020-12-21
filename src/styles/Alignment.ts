@@ -33,14 +33,14 @@ export const getAlignStyle = (
 	alignItemsH?: AlignItemsHOptions,
 	alignItemsV?: AlignItemsVOptions,
 ): {} => {
-	if (!alignItemsH && !alignItemsV) return {};
-
 	let alignStyle: any = {
 		// override the default value of stretch which causes all items to grow along the cross axis
 		// https://css-tricks.com/almanac/properties/a/align-items/
 		// https://stackoverflow.com/a/65332769/6643002
 		alignItems: 'flex-start',
 	};
+
+	if (!alignItemsH && !alignItemsV) return alignStyle;
 
 	let flexDirection: FlexDirection = 'column';
 	if (style && style.flexDirection) flexDirection = style.flexDirection;
