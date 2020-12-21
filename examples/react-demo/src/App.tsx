@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 
-import { Button, Card, View, TextInput } from 'cyclops/web';
+import { Button, Card, HFlex, VFlex, View, TextInput } from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 
@@ -27,6 +27,22 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
+				<HFlex
+					style={{
+						width: '100%',
+						height: 200,
+						backgroundColor: 'cyan',
+					}}
+					alignItemsH="center"
+				>
+					<View
+						style={{
+							width: 20,
+							height: 20,
+							backgroundColor: 'pink',
+						}}
+					></View>
+				</HFlex>
 				<View
 					style={{
 						backgroundColor: '#EFEFEF',
