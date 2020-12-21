@@ -1,5 +1,13 @@
 import { FlexDirection } from './Flex';
 
+// justify-content
+// https://www.w3schools.com/cssref/css3_pr_justify-content.asp
+
+// align-items
+// https://www.w3schools.com/cssref/css3_pr_align-items.asp
+// default: stretch
+
+
 export type AlignItemsHOptions =
 	| 'left'
 	| 'center'

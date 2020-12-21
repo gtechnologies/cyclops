@@ -10,8 +10,9 @@ let defaultViewStyle: ViewStyle = {
 	padding: 0,
 	margin: 0,
 	boxSizing: 'border-box',
-	alignItems: 'baseline',
 };
+
+// REMOVED: alignItems: 'baseline',
 
 export const View: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	let alignStyle = getAlignStyle(
