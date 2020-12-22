@@ -9,6 +9,7 @@ import {
 
 import { AlignItems } from '../../styles/Alignment';
 import { Children } from '../../types/Children';
+import { ClickableProps } from '../../types/Clickable';
 
 import { TextType } from '../Text/TextTypes';
 
@@ -21,6 +22,7 @@ export enum ButtonTypeEnum {
 export type ButtonType = 'none' | 'filled' | 'outlined' | 'ghost';
 
 export type ButtonPropsWeb = TouchableOpacityProps &
+	ClickableProps &
 	AlignItems & {
 		label?: string;
 		labelStyle?: RNTextStyle;
@@ -34,7 +36,9 @@ export type ButtonPropsWeb = TouchableOpacityProps &
 
 		icon?: React.ReactNode | JSX.Element;
 	};
+
 export type ButtonPropsNative = NativeTouchableOpacityProps &
+	ClickableProps &
 	AlignItems & {
 		label?: string;
 		labelStyle?: RNWTextStyle;

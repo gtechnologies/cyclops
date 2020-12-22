@@ -14,6 +14,7 @@ import { Text } from '../Text/Text.native';
 import { getAlignStyle } from '../../styles/Alignment';
 import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
+import { getOnPressFromProps } from '../../types/Clickable';
 
 const getDefaultButtonStyle = (
 	buttonType: ButtonType,
@@ -88,7 +89,11 @@ export const Button = (props: ButtonProps) => {
 	};
 
 	return (
-		<TouchableOpacity {...props} style={style}>
+		<TouchableOpacity
+			{...props}
+			style={style}
+			{...getOnPressFromProps(props)}
+		>
 			{props.label && (
 				<Text type={labelType} style={labelStyle}>
 					{props.label}
