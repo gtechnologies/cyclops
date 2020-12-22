@@ -1,7 +1,15 @@
 import './App.css';
 import React from 'react';
 
-import { Button, Card, HFlex, VFlex, View, TextInput } from 'cyclops/web';
+import {
+	Button,
+	Card,
+	CheckBox,
+	HFlex,
+	VFlex,
+	View,
+	TextInput,
+} from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 

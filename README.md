@@ -28,6 +28,7 @@ or
     -   possibly change the button name to be onClick instead of onPress
 -   [x] Card
     -   make Cards clickable
+-   CheckBox
 -   [ ] Dropdown
 -   [x] IconButton
 -   [x] Image
@@ -74,3 +75,8 @@ Non .ts or .tsx files are by default not handled by `tsc` and so an alternative 
 `https://vccolombo.github.io/blog/tsc-how-to-copy-non-typescript-files-when-building/`
 
 `https://stackoverflow.com/questions/46075993/how-to-include-a-css-file-in-react-and-typescript-npm-package/65364696#65364696`
+
+# Dependencies
+
+Required by @react-native-community/checkbox
+`npm i nullthrows`
