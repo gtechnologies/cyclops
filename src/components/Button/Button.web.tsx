@@ -62,58 +62,62 @@ const getDefaultButtonLabelStyle = (
 	}
 };
 
-export const Button = (props: ButtonProps) => {
-	let alignStyle = getAlignStyle(
-		props.style,
-		props.alignItemsH,
-		props.alignItemsV,
-	);
+export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
+	(props, ref) => {
+		let alignStyle = getAlignStyle(
+			props.style,
+			props.alignItemsH,
+			props.alignItemsV,
+		);
 
-	let buttonType = props.type ? props.type : 'filled';
-	let color = props.color ? props.color : Colors.BASE;
+		let buttonType = props.type ? props.type : 'filled';
+		let color = props.color ? props.color : Colors.BASE;
 
-	let style: ViewStyle = {
-		position: 'relative',
-		overflow: 'hidden',
-		justifyContent: 'center',
-		alignItems: 'center',
-		padding: Padding.ELEMENT_WEB,
-		borderRadius: 8,
-		// keep border to be inside of div
-		boxSizing: 'border-box',
-		...getDefaultButtonStyle(buttonType, color),
-		...alignStyle,
-		...props.style,
-	};
+		let style: ViewStyle = {
+			position: 'relative',
+			overflow: 'hidden',
+			justifyContent: 'center',
+			alignItems: 'center',
+			padding: Padding.ELEMENT_WEB,
+			borderRadius: 8,
+			// keep border to be inside of div
+			boxSizing: 'border-box',
+			...getDefaultButtonStyle(buttonType, color),
+			...alignStyle,
+			...props.style,
+		};
 
-	let labelType = props.labelType ? props.labelType : 'subtitle';
+		let labelType = props.labelType ? props.labelType : 'subtitle';
 
-	let labelStyle = {
-		...getDefaultButtonLabelStyle(buttonType, color),
-		...props.labelStyle,
-	};
+		let labelStyle = {
+			...getDefaultButtonLabelStyle(buttonType, color),
+			...props.labelStyle,
+		};
 
-	return (
-		<TouchableOpacity {...props} style={style}>
-			{props.label && (
-				<Text type={labelType} style={labelStyle}>
-					{props.label}
-				</Text>
-			)}
-			{props.children}
-			{/* this div is based off of Facebook's styling for buttons that change color on hover */}
-			<div
-				className={
-					props.disabled ? 'disabledButtonOverlay' : 'buttonOverlay'
-				}
-				style={{
-					position: 'absolute',
-					top: 0,
-					bottom: 0,
-					left: 0,
-					right: 0,
-				}}
-			/>
-		</TouchableOpacity>
-	);
-};
+		return (
+			<TouchableOpacity ref={ref} {...props} style={style}>
+				{props.label && (
+					<Text type={labelType} style={labelStyle}>
+						{props.label}
+					</Text>
+				)}
+				{props.children}
+				{/* this div is based off of Facebook's styling for buttons that change color on hover */}
+				<div
+					className={
+						props.disabled
+							? 'disabledButtonOverlay'
+							: 'buttonOverlay'
+					}
+					style={{
+						position: 'absolute',
+						top: 0,
+						bottom: 0,
+						left: 0,
+						right: 0,
+					}}
+				/>
+			</TouchableOpacity>
+		);
+	},
+);
