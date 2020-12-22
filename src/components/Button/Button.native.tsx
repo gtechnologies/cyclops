@@ -1,3 +1,7 @@
+/**
+ * // TODO: add overlay if necessary for mobile and handle for disabled
+ * // TODO: handle icons when added
+ */
 import React from 'react';
 import { TouchableOpacity, ViewStyle, TextStyle } from 'react-native';
 
@@ -66,6 +70,7 @@ export const Button = (props: ButtonProps) => {
 	let color = props.color ? props.color : Colors.BASE;
 
 	let style: ViewStyle = {
+		flexDirection: 'row',
 		justifyContent: 'center',
 		alignItems: 'center',
 		padding: Padding.ELEMENT_NATIVE,

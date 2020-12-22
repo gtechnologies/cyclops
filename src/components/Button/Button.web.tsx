@@ -17,6 +17,7 @@ import { Text } from '../Text/Text.web';
 import { getAlignStyle } from '../../styles/Alignment';
 import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
+import { VFlex } from '../../../web';
 
 const getDefaultButtonStyle = (
 	buttonType: ButtonType,
@@ -74,6 +75,7 @@ export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
 		let color = props.color ? props.color : Colors.BASE;
 
 		let style: ViewStyle = {
+			flexDirection: 'row',
 			position: 'relative',
 			overflow: 'hidden',
 			justifyContent: 'center',
@@ -94,8 +96,21 @@ export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
 			...props.labelStyle,
 		};
 
+		let showButtonOverlay = props.type !== 'none';
+
 		return (
 			<TouchableOpacity ref={ref} {...props} style={style}>
+				{props.icon && (
+					<VFlex
+						style={{
+							justifyContent: 'center',
+							alignItems: 'center',
+							marginRight: 8,
+						}}
+					>
+						{props.icon}
+					</VFlex>
+				)}
 				{props.label && (
 					<Text type={labelType} style={labelStyle}>
 						{props.label}
@@ -103,20 +118,22 @@ export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
 				)}
 				{props.children}
 				{/* this div is based off of Facebook's styling for buttons that change color on hover */}
-				<div
-					className={
-						props.disabled
-							? 'disabledButtonOverlay'
-							: 'buttonOverlay'
-					}
-					style={{
-						position: 'absolute',
-						top: 0,
-						bottom: 0,
-						left: 0,
-						right: 0,
-					}}
-				/>
+				{showButtonOverlay && (
+					<div
+						className={
+							props.disabled
+								? 'disabledButtonOverlay'
+								: 'buttonOverlay'
+						}
+						style={{
+							position: 'absolute',
+							top: 0,
+							bottom: 0,
+							left: 0,
+							right: 0,
+						}}
+					/>
+				)}
 			</TouchableOpacity>
 		);
 	},

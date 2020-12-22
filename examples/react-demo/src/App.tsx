@@ -1,5 +1,7 @@
 import './App.css';
 import React from 'react';
+import { Tooltip } from '@material-ui/core';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import { Button, View, RadioButton, Select } from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
