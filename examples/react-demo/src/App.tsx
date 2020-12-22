@@ -3,9 +3,10 @@ import React from 'react';
 import { Tooltip } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-import { Button, View, RadioButton } from 'cyclops/web';
+import { Button, View, RadioButton, Select } from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
+import { PollPost } from './components/glimpse/cross/posts/PollPost';
 
 class App extends React.Component {
 	showPost() {
@@ -35,13 +36,37 @@ class App extends React.Component {
 						alignItems: 'center',
 					}}
 				>
-					<RadioButton />
+					<RadioButton selected={true} />
+					<Select
+						options={[
+							'option 1',
+							'option 2: electric boogaloo',
+							'some',
+							'more',
+							'options',
+						]}
+						multiSelect={false}
+					/>
+
 					<div style={{ width: '75%' }}>
 						<CreatePost
 							userName="Disguised Toast"
 							profilePicUrl="https://pbs.twimg.com/profile_images/711015457134813188/7Qcunhqi_400x400.jpg"
 							group="Among Us"
 						/>
+						<PollPost
+							body="LOOK AT MY POLL"
+							group="Hearthstone"
+							author="Disguised Toast"
+							timestamp="Dec 14 3:45 PM"
+							profilePicUrl="https://pbs.twimg.com/profile_images/711015457134813188/7Qcunhqi_400x400.jpg"
+							reactions={[
+								{
+									emoji: '🚀',
+									users: ['Austin', 'Brian', 'Helena'],
+								},
+							]}
+						></PollPost>
 						{this.showPost().map((post: any) => post)}
 					</div>
 				</View>
