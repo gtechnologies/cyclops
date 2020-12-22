@@ -4,3 +4,7 @@
 .buttonOverlay:hover {
 	background-color: rgba(255, 255, 255, 0.3);
 }
+
+.disabledButtonOverlay {
+	background-color: rgba(100, 100, 100, 0.3);
+}

@@ -1,3 +1,8 @@
+/**
+ * ISSUE:
+ * - When using the hover/disabled buttonOverlay on a outlined button, the overlay doesn't extend to the border.
+ * - This issue can be resolved if you have a parent div and make the button and overlay both children.
+ */
 import React from 'react';
 import { TouchableOpacity, ViewStyle, TextStyle } from 'react-native-web';
 
@@ -74,6 +79,8 @@ export const Button = (props: ButtonProps) => {
 		alignItems: 'center',
 		padding: Padding.ELEMENT_WEB,
 		borderRadius: 8,
+		// keep border to be inside of div
+		boxSizing: 'border-box',
 		...getDefaultButtonStyle(buttonType, color),
 		...alignStyle,
 		...props.style,
@@ -96,7 +103,9 @@ export const Button = (props: ButtonProps) => {
 			{props.children}
 			{/* this div is based off of Facebook's styling for buttons that change color on hover */}
 			<div
-				className={'buttonOverlay'}
+				className={
+					props.disabled ? 'disabledButtonOverlay' : 'buttonOverlay'
+				}
 				style={{
 					position: 'absolute',
 					top: 0,
