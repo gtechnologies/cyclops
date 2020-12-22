@@ -32,7 +32,7 @@ or
 -   [ ] Dropdown
 -   [x] IconButton
 -   [x] Image
--   [ ] Select
+-   [x] Select
 -   [x] Text
 -   [x] TextInput
 -   [x] View
