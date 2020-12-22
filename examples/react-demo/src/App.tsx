@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 
-import { Button, View, RadioButton } from 'cyclops/web';
+import { Button, View, RadioButton, Select } from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 
@@ -33,7 +33,17 @@ class App extends React.Component {
 						alignItems: 'center',
 					}}
 				>
-					<RadioButton />
+					<RadioButton selected={true} />
+					<Select
+						options={[
+							'option 1',
+							'option 2: electric boogaloo',
+							'some',
+							'more',
+							'options',
+						]}
+						multiSelect={false}
+					/>
 					<div style={{ width: '75%' }}>
 						<CreatePost
 							userName="Disguised Toast"
