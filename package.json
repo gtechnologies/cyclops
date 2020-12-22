@@ -10,7 +10,9 @@
 		"lib/**/*"
 	],
 	"scripts": {
-		"build": "tsc",
+		"clean": "rimraf lib/",
+		"copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css lib/src",
+		"build": "npm run clean && tsc && npm run copy-files",
 		"prepare": "npm run build",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
@@ -31,11 +33,15 @@
 	"devDependencies": {
 		"@babel/runtime": "^7.12.5",
 		"@types/react": "^17.0.0",
-		"@types/react-native-web": "git+https://5a8eb5405602f384d206213250a29a2b8ec51f24:x-oauth-basic@github.com/gtechnologies/react-native-web-ts-types.git",
-		"prettier": "2.2.1"
+		"@types/react-native-web": "git+https://github.com/gtechnologies/react-native-web-ts-types.git",
+		"copyfiles": "^2.4.1",
+		"prettier": "2.2.1",
+		"rimraf": "^3.0.2"
 	},
 	"dependencies": {
+		"@react-native-community/checkbox": "^0.5.6",
 		"@types/react-native": "^0.63.42",
+		"nullthrows": "^1.1.1",
 		"react-native-web": "^0.14.9",
 		"typescript": "^4.1.3"
 	}

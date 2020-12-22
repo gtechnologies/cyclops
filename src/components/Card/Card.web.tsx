@@ -41,7 +41,7 @@ export const Card = (props: CardPropsWeb) => {
 		<View {...props} style={style}>
 			<View
 				style={{
-					alignItems: 'flex-start',
+					flex: 1,
 					borderRadius: 8,
 					overflow: 'hidden',
 					...props.contentStyle,

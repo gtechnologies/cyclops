@@ -1,5 +1,12 @@
 import { FlexDirection } from './Flex';
 
+// justify-content
+// https://www.w3schools.com/cssref/css3_pr_justify-content.asp
+
+// align-items
+// https://www.w3schools.com/cssref/css3_pr_align-items.asp
+// default: stretch
+
 export type AlignItemsHOptions =
 	| 'left'
 	| 'center'
@@ -29,6 +36,10 @@ export const getAlignStyle = (
 	if (!alignItemsH && !alignItemsV) return {};
 
 	let alignStyle: any = {};
+	// possibly override the default value of stretch which causes all items to grow along the cross axis
+	// https://css-tricks.com/almanac/properties/a/align-items/
+	// https://stackoverflow.com/a/65332769/6643002
+	// alignItems: 'flex-start',
 
 	let flexDirection: FlexDirection = 'column';
 	if (style && style.flexDirection) flexDirection = style.flexDirection;

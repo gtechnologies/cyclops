@@ -1,0 +1,21 @@
+import React from 'react';
+import { CheckBox as RNWCheckBox, ViewStyle } from 'react-native-web';
+
+import { CheckBoxPropsWeb } from './CheckBoxTypes';
+
+import { Colors } from '../../styles/Colors';
+
+export const CheckBox = (props: CheckBoxPropsWeb) => {
+	let sizeStyle: ViewStyle = {};
+	if (props.size) {
+		sizeStyle.height = props.size;
+		sizeStyle.width = props.size;
+	}
+
+	let style: ViewStyle = {
+		...sizeStyle,
+		...(props.style as ViewStyle),
+	};
+
+	return <RNWCheckBox color={Colors.BASE} {...props} style={style} />;
+};
