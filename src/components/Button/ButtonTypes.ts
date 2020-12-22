@@ -13,11 +13,12 @@ import { Children } from '../../types/Children';
 import { TextType } from '../Text/TextTypes';
 
 export enum ButtonTypeEnum {
+	none = 'none',
 	filled = 'filled',
 	outlined = 'outlined',
 	ghost = 'ghost',
 }
-export type ButtonType = 'filled' | 'outlined' | 'ghost';
+export type ButtonType = 'none' | 'filled' | 'outlined' | 'ghost';
 
 export type ButtonPropsWeb = TouchableOpacityProps &
 	AlignItems & {
@@ -30,6 +31,8 @@ export type ButtonPropsWeb = TouchableOpacityProps &
 
 		// TODO: implement this
 		disabled?: boolean;
+
+		icon?: React.ReactNode | JSX.Element;
 	};
 export type ButtonPropsNative = NativeTouchableOpacityProps &
 	AlignItems & {
@@ -43,5 +46,6 @@ export type ButtonPropsNative = NativeTouchableOpacityProps &
 		// TODO: implement this
 		disabled?: boolean;
 
+		icon?: React.ReactNode | JSX.Element;
 		children?: Children;
 	};

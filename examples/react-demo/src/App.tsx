@@ -1,5 +1,7 @@
 import './App.css';
 import React from 'react';
+import { Tooltip } from '@material-ui/core';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 import {
 	Button,
@@ -41,12 +43,17 @@ class App extends React.Component {
 						alignItems: 'center',
 					}}
 				>
-					<Button
-						label="hello"
-						type="outlined"
-						style={{ width: 200 }}
-						disabled={true}
-					></Button>
+					<Tooltip title="hallo">
+						<Button
+							label="hello"
+							type="filled"
+							style={{ width: 200 }}
+							icon={
+								<AccountCircleIcon style={{ color: 'blue' }} />
+							}
+							//disabled={true}
+						></Button>
+					</Tooltip>
 					<div style={{ width: '75%' }}>
 						<CreatePost
 							userName="Disguised Toast"
