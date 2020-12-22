@@ -7,14 +7,10 @@ import { hasOnlyExpressionInitializer } from 'typescript';
 
 interface Props {
 	style?: ViewStyle;
-	initialState?: boolean;
+	selected: boolean;
 }
 
 export function RadioButton(props: Props) {
-	const [selected, setSelected] = useState(
-		props.initialState ? props.initialState : false,
-	);
-
 	let style: GenericStyleProp<ViewStyle> = {
 		height: 24,
 		width: 24,
@@ -26,23 +22,17 @@ export function RadioButton(props: Props) {
 		...props.style,
 	};
 	return (
-		<TouchableOpacity
-			onPress={() => {
-				setSelected(!selected);
-			}}
-		>
-			<View style={style}>
-				{selected ? (
-					<View
-						style={{
-							height: 12,
-							width: 12,
-							borderRadius: 6,
-							backgroundColor: Colors.BASE,
-						}}
-					/>
-				) : null}
-			</View>
-		</TouchableOpacity>
+		<View style={style}>
+			{props.selected ? (
+				<View
+					style={{
+						height: 12,
+						width: 12,
+						borderRadius: 6,
+						backgroundColor: Colors.BASE,
+					}}
+				/>
+			) : null}
+		</View>
 	);
 }
