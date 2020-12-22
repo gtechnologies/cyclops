@@ -3,15 +3,7 @@ import React from 'react';
 import { Tooltip } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-import {
-	Button,
-	Card,
-	CheckBox,
-	HFlex,
-	VFlex,
-	View,
-	TextInput,
-} from 'cyclops/web';
+import { Button, View, RadioButton } from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 
@@ -43,17 +35,7 @@ class App extends React.Component {
 						alignItems: 'center',
 					}}
 				>
-					<Tooltip title="hallo">
-						<Button
-							label="hello"
-							type="filled"
-							style={{ width: 200 }}
-							icon={
-								<AccountCircleIcon style={{ color: 'blue' }} />
-							}
-							//disabled={true}
-						></Button>
-					</Tooltip>
+					<RadioButton />
 					<div style={{ width: '75%' }}>
 						<CreatePost
 							userName="Disguised Toast"
