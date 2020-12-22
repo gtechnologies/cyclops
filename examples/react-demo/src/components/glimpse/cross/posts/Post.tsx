@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Text, View, Button, Image } from 'cyclops/web';
-import { Padding, Colors } from 'cyclops/styles';
+import { Card, Text, View, Button, Image } from 'cyclops/lib/web';
+import { Padding, Colors } from 'cyclops/lib/styles';
 
 interface Props {
 	group?: string;
@@ -41,7 +41,6 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 								display: 'block',
 								marginRight: 8,
 							}}
-							alignItemsV={'top'}
 							source={props.profilePicUrl}
 						/>
 					)}
@@ -76,6 +75,7 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 					style={{
 						display: 'flex',
 						flexDirection: 'row',
+						// @ts-ignore
 						borderTop: '1px solid lightgrey',
 						marginTop: 12,
 					}}
@@ -103,6 +103,33 @@ export const Post: React.FunctionComponent<Props> = (props: Props) => {
 						labelType={'body'}
 						color={Colors.GRAY}
 					/>
+				</View>
+			</View>
+			<View
+				style={{
+					display: 'flex',
+					flexDirection: 'row',
+					borderTopColor: Colors.LIGHT_GRAY,
+					borderTopWidth: 1,
+					padding: Padding.ELEMENT_WEB,
+				}}
+			>
+				<Image
+					style={{
+						width: 50,
+						height: 50,
+						borderRadius: '50%',
+						display: 'block',
+						marginRight: 8,
+					}}
+					source={props.profilePicUrl}
+				></Image>
+				<View style={{ flex: 1 }}>
+					<Text type="body" style={{ padding: Padding.ELEMENT_WEB }}>
+						This is a comment on this post, I am just commenting on
+						this post because I could not agree more with what it
+						says.
+					</Text>
 				</View>
 			</View>
 		</Card>

@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 
-import { Button, Card, View, TextInput } from 'cyclops/web';
+import { Button, View, RadioButton } from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 
@@ -33,12 +33,7 @@ class App extends React.Component {
 						alignItems: 'center',
 					}}
 				>
-					<Button
-						label="hello"
-						style={{ width: 200 }}
-						type="outlined"
-						//labelStyle={{ backgroundColor: 'cyan' }}
-					></Button>
+					<RadioButton />
 					<div style={{ width: '75%' }}>
 						<CreatePost
 							userName="Disguised Toast"
