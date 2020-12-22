@@ -42,10 +42,14 @@ or
 # Known Issues
 
 -   On web TextInput's border styling has to be specified with the 'border: ' style parameter. Using BorderRadius, BorderStyle and BorderColor will be over written by css styling on react-native-web's TextInput component. Using border can cause typing issues, that will have to be `//@ts-ignore`'d until the issue is resolved
+-   Material-UI tooltip breaks from cyclops
+    -   https://stackoverflow.com/questions/48930334/mui-next-tooltip-does-not-show-on-hover
+    -   https://github.com/mui-org/material-ui/issues/21324
 
 # Concerns
 
 -   Children.ts -> should it be React.ReactNode or JSX.Element
+-   Should we use forwardRef?
 
 # Developing Locally
 

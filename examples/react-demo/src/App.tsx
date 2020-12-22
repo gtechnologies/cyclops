@@ -35,22 +35,6 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
-				<HFlex
-					style={{
-						width: '100%',
-						height: 200,
-						backgroundColor: 'cyan',
-					}}
-					alignItemsH="center"
-				>
-					<View
-						style={{
-							width: 20,
-							height: 20,
-							backgroundColor: 'pink',
-						}}
-					></View>
-				</HFlex>
 				<View
 					style={{
 						backgroundColor: '#EFEFEF',
@@ -61,6 +45,7 @@ class App extends React.Component {
 						label="hello"
 						type="outlined"
 						style={{ width: 200 }}
+						disabled={true}
 					></Button>
 					<div style={{ width: '75%' }}>
 						<CreatePost
