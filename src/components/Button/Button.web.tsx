@@ -73,7 +73,12 @@ export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
 			props.alignItemsV,
 		);
 
-		let buttonType = props.type ? props.type : 'filled';
+		// if no type is present, use 'filled' when there is a label, otherwise 'none'
+		let buttonType = props.type
+			? props.type
+			: props.label
+			? 'filled'
+			: 'none';
 		let color = props.color ? props.color : Colors.BASE;
 
 		let style: ViewStyle = {
