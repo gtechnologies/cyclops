@@ -103,7 +103,7 @@ export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
 			...props.labelStyle,
 		};
 
-		let showButtonOverlay = props.type !== 'none';
+		let showButtonOverlay = buttonType !== 'none';
 
 		return (
 			<TouchableOpacity
