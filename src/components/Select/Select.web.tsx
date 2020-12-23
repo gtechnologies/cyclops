@@ -60,7 +60,7 @@ export function Select(props: Props) {
 					<TouchableOpacity
 						onPress={(e: any) => {
 							setSelection(option);
-							props.onChange(option);
+							if (props.onChange) props.onChange(option);
 						}}
 						style={{ display: 'flex', flexDirection: 'row' }}
 					>
