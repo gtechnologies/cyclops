@@ -17,6 +17,8 @@ import { Text } from '../Text/Text.web';
 import { getAlignStyle } from '../../styles/Alignment';
 import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
+import { getOnPressFromProps } from '../../types/Clickable';
+
 import { VFlex } from '../../../web';
 
 const getDefaultButtonStyle = (
@@ -99,7 +101,12 @@ export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
 		let showButtonOverlay = props.type !== 'none';
 
 		return (
-			<TouchableOpacity ref={ref} {...props} style={style}>
+			<TouchableOpacity
+				ref={ref}
+				{...props}
+				style={style}
+				{...getOnPressFromProps(props)}
+			>
 				{props.icon && (
 					<VFlex
 						style={{
