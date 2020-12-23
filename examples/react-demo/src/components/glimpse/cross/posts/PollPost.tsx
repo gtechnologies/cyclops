@@ -27,6 +27,7 @@ export const PollPost: React.FunctionComponent<Props> = (props: Props) => {
 			/>
 		);
 	});
+	var selection: string | string[] = [];
 	return (
 		<Card style={{ margin: 10, width: '100%' }}>
 			<View style={{ width: '100%' }}>
@@ -70,7 +71,12 @@ export const PollPost: React.FunctionComponent<Props> = (props: Props) => {
 				<Text type="title" style={{ padding: Padding.ELEMENT_WEB }}>
 					{props.body}
 				</Text>
-				<Select options={['this', 'is', 'a', 'test']} />
+				<Select
+					options={['this', 'is', 'a', 'test']}
+					onChange={(value: string | string[]) => {
+						selection = value;
+					}}
+				/>
 				<Button
 					style={{
 						width: 100,
@@ -79,6 +85,9 @@ export const PollPost: React.FunctionComponent<Props> = (props: Props) => {
 					labelType={'body'}
 					type={'filled'}
 					color={Colors.BASE}
+					onPress={() => {
+						console.log(selection);
+					}}
 				/>
 				<View
 					style={{
