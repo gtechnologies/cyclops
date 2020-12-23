@@ -32,7 +32,7 @@ export function Select(props: Props) {
 							else res = [...selection, option];
 
 							setSelection(res);
-							props.onChange(res);
+							if (props.onChange) props.onChange(res);
 						}}
 						style={{ display: 'flex', flexDirection: 'row' }}
 					>
