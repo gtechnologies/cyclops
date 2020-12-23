@@ -7,4 +7,6 @@ export type CheckBoxPropsNative = {
 	size?: string | number;
 
 	color?: string;
+
+	onCheckColor: string;
 };
