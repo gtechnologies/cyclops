@@ -47,6 +47,8 @@ export function Select(props: Props) {
 		});
 	} else {
 		const [selection, setSelection] = useState('');
+		const totalVotes = 50,
+			optionBVotes = 25;
 		optionElemets = props.options.map((option) => {
 			return (
 				<View style={{ padding: Padding.ELEMENT_WEB }}>
@@ -70,6 +72,7 @@ export function Select(props: Props) {
 			);
 		});
 	}
-
-	return <View>{optionElemets}</View>;
+	// need alignitems to something other than the default stretch, or the touchable opacity
+	// will expand far past the text and button for an option on the select
+	return <View style={{ alignItems: 'flex-start' }}>{optionElemets}</View>;
 }

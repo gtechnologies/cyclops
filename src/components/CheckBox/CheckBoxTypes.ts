@@ -1,11 +1,12 @@
 import { CheckBoxProps as RNWCheckBoxProps } from 'react-native-web';
-import { CheckBoxProps as RNCheckBoxProps } from '@react-native-community/checkbox';
 
 export type CheckBoxPropsWeb = RNWCheckBoxProps & {
 	size?: string | number;
 };
-export type CheckBoxPropsNative = RNCheckBoxProps & {
+export type CheckBoxPropsNative = {
 	size?: string | number;
 
 	color?: string;
+
+	onCheckColor: string;
 };
