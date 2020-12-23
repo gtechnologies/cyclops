@@ -9,7 +9,7 @@ import { Padding, Colors } from '../../../styles';
 interface Props {
 	options: string[];
 	multiSelect?: boolean;
-	onChange: (value: string | string[]) => void;
+	onChange?: (value: string | string[]) => void;
 }
 
 export function Select(props: Props) {
