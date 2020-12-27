@@ -9,23 +9,30 @@ import { Padding, Colors } from '../../../styles';
 interface Props {
 	options: string[];
 	multiSelect?: boolean;
+	onChange?: (value: string | string[]) => void;
 }
 
 export function Select(props: Props) {
 	var optionElemets: ReactNode = [];
 
 	if (props.multiSelect) {
+		// TODO: find a way to make useState type to string array that doesn't require filtering out the empty string later
 		const [selection, setSelection] = useState(['']);
 		optionElemets = props.options.map((option) => {
 			return (
 				<View style={{ padding: Padding.ELEMENT_WEB }}>
 					<TouchableOpacity
-						onPress={() => {
-							if (selection.indexOf(option) >= 0)
-								setSelection(
-									selection.filter((item) => item != option),
+						onPress={(e: any) => {
+							//need local var so it is updated immediately
+							var res = selection;
+							if (res.indexOf(option) >= 0)
+								res = selection.filter(
+									(item) => item != option && item != '',
 								);
-							else setSelection([...selection, option]);
+							else res = [...selection, option];
+
+							setSelection(res);
+							if (props.onChange) props.onChange(res);
 						}}
 						style={{ display: 'flex', flexDirection: 'row' }}
 					>
@@ -47,14 +54,13 @@ export function Select(props: Props) {
 		});
 	} else {
 		const [selection, setSelection] = useState('');
-		const totalVotes = 50,
-			optionBVotes = 25;
 		optionElemets = props.options.map((option) => {
 			return (
 				<View style={{ padding: Padding.ELEMENT_WEB }}>
 					<TouchableOpacity
-						onPress={() => {
+						onPress={(e: any) => {
 							setSelection(option);
+							if (props.onChange) props.onChange(option);
 						}}
 						style={{ display: 'flex', flexDirection: 'row' }}
 					>
