@@ -3,7 +3,7 @@ import React from 'react';
 import { Tooltip } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-import { Button, View, RadioButton, Select } from 'cyclops/web';
+import { Button, IconButton, View, RadioButton, Select } from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 import { PollPost } from './components/glimpse/cross/posts/PollPost';
@@ -47,7 +47,16 @@ class App extends React.Component {
 						]}
 						multiSelect={false}
 					/>
-
+					<IconButton
+						icon={
+							<AccountCircleIcon
+								style={{ fontSize: 20, color: 'white' }}
+							/>
+						}
+						label={'profile'}
+						type={'filled'}
+					/>
+					<Button label="hello" />
 					<div style={{ width: '75%' }}>
 						<CreatePost
 							userName="Disguised Toast"

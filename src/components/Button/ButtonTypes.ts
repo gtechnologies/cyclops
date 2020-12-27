@@ -1,14 +1,14 @@
 import {
-	TouchableOpacityProps,
+	TouchableOpacityProps as RNWTouchableOpacityProps,
 	TextStyle as RNTextStyle,
 } from 'react-native-web';
 import {
-	TouchableOpacityProps as NativeTouchableOpacityProps,
+	TouchableOpacityProps as RNTouchableOpacityProps,
 	TextStyle as RNWTextStyle,
 } from 'react-native';
 
 import { AlignItems } from '../../styles/Alignment';
-import { Children } from '../../types/Children';
+import { Children, Icon } from '../../types/Children';
 import { ClickableProps } from '../../types/Clickable';
 
 import { TextType } from '../Text/TextTypes';
@@ -21,7 +21,7 @@ export enum ButtonTypeEnum {
 }
 export type ButtonType = 'none' | 'filled' | 'outlined' | 'ghost';
 
-export type ButtonPropsWeb = TouchableOpacityProps &
+export type ButtonPropsWeb = RNWTouchableOpacityProps &
 	ClickableProps &
 	AlignItems & {
 		label?: string;
@@ -34,10 +34,10 @@ export type ButtonPropsWeb = TouchableOpacityProps &
 		// TODO: implement this
 		disabled?: boolean;
 
-		icon?: React.ReactNode | JSX.Element;
+		icon?: Icon;
 	};
 
-export type ButtonPropsNative = NativeTouchableOpacityProps &
+export type ButtonPropsNative = RNTouchableOpacityProps &
 	ClickableProps &
 	AlignItems & {
 		label?: string;
@@ -50,6 +50,6 @@ export type ButtonPropsNative = NativeTouchableOpacityProps &
 		// TODO: implement this
 		disabled?: boolean;
 
-		icon?: React.ReactNode | JSX.Element;
+		icon?: Icon;
 		children?: Children;
 	};

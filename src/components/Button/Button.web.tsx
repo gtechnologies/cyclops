@@ -4,7 +4,11 @@
  * - This issue can be resolved if you have a parent div and make the button and overlay both children.
  */
 import React from 'react';
-import { TouchableOpacity, ViewStyle, TextStyle } from 'react-native-web';
+import {
+	TouchableOpacity as RNWTouchableOpacity,
+	ViewStyle,
+	TextStyle,
+} from 'react-native-web';
 
 import {
 	ButtonPropsWeb as ButtonProps,
@@ -65,7 +69,7 @@ const getDefaultButtonLabelStyle = (
 	}
 };
 
-export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
+export const Button = React.forwardRef<RNWTouchableOpacity, ButtonProps>(
 	(props, ref) => {
 		let alignStyle = getAlignStyle(
 			props.style,
@@ -106,7 +110,7 @@ export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
 		let showButtonOverlay = buttonType !== 'none';
 
 		return (
-			<TouchableOpacity
+			<RNWTouchableOpacity
 				ref={ref}
 				{...props}
 				style={style}
@@ -146,7 +150,7 @@ export const Button = React.forwardRef<TouchableOpacity, ButtonProps>(
 						}}
 					/>
 				)}
-			</TouchableOpacity>
+			</RNWTouchableOpacity>
 		);
 	},
 );

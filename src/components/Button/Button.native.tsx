@@ -3,7 +3,11 @@
  * // TODO: handle icons when added
  */
 import React from 'react';
-import { TouchableOpacity, ViewStyle, TextStyle } from 'react-native';
+import {
+	TouchableOpacity as RNTouchableOpacity,
+	ViewStyle,
+	TextStyle,
+} from 'react-native';
 
 import {
 	ButtonPropsNative as ButtonProps,
@@ -90,7 +94,7 @@ export const Button = (props: ButtonProps) => {
 	};
 
 	return (
-		<TouchableOpacity
+		<RNTouchableOpacity
 			{...props}
 			style={style}
 			{...getOnPressFromProps(props)}
@@ -101,6 +105,6 @@ export const Button = (props: ButtonProps) => {
 				</Text>
 			)}
 			{props.children}
-		</TouchableOpacity>
+		</RNTouchableOpacity>
 	);
 };

@@ -1,12 +1,15 @@
 import React from 'react';
-import { Button } from '../Button/Button.native';
+
+import { TouchableOpacity as RNTouchableOpacity } from 'react-native';
 import { IconButtonPropsNative as IconButtonProps } from './IconButtonTypes';
+
+import { getOnPressFromProps } from '../../types/Clickable';
 
 export const IconButton = (props: IconButtonProps) => {
 	return (
-		<Button {...props}>
+		<RNTouchableOpacity {...props} {...getOnPressFromProps(props)}>
 			{props.icon}
 			{props.children}
-		</Button>
+		</RNTouchableOpacity>
 	);
 };

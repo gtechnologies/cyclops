@@ -1,13 +1,30 @@
-import { ReactNode } from 'react';
 import { ButtonPropsNative, ButtonPropsWeb } from '../Button/ButtonTypes';
-import React from 'react';
 
-export type IconButtonPropsWeb = ButtonPropsWeb & {
-	icon: React.ReactNode;
-	label: string;
-};
+import { ClickableProps } from '../../types/Clickable';
+import { Icon } from '../../types/Children';
 
-export type IconButtonPropsNative = ButtonPropsNative & {
-	icon: React.ReactNode;
-	label: string;
-};
+export enum IconButtonTypeEnum {
+	none = 'none',
+	filled = 'filled',
+	outlined = 'outlined',
+	ghost = 'ghost',
+}
+export type IconButtonType = 'none' | 'filled' | 'outlined' | 'ghost';
+
+export type IconButtonPropsWeb = ButtonPropsWeb &
+	ClickableProps & {
+		icon: Icon;
+		label: string;
+
+		type?: IconButtonType;
+		color?: string;
+	};
+
+export type IconButtonPropsNative = ButtonPropsNative &
+	ClickableProps & {
+		icon: Icon;
+		label: string;
+
+		type?: IconButtonType;
+		color?: string;
+	};
