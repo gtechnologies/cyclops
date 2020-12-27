@@ -18,6 +18,9 @@ export type IconButtonPropsWeb = ButtonPropsWeb &
 
 		type?: IconButtonType;
 		color?: string;
+
+		// set the height and width of an IconButton
+		size?: number | string;
 	};
 
 export type IconButtonPropsNative = ButtonPropsNative &
@@ -27,4 +30,7 @@ export type IconButtonPropsNative = ButtonPropsNative &
 
 		type?: IconButtonType;
 		color?: string;
+
+		// set the height and width of an IconButton
+		size?: number | string;
 	};

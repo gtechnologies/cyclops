@@ -55,9 +55,16 @@ export const IconButton = React.forwardRef<
 	let iconButtonType: IconButtonType = props.type ? props.type : 'filled';
 	let color = props.color ? props.color : Colors.BASE;
 
+	let sizeStyle: ViewStyle = {};
+	if (props.size) {
+		sizeStyle = { width: props.size, height: props.size };
+	}
+
 	let style: ViewStyle = {
 		...defaultIconButtonStyle,
 		...getIconButtonStyleForType(iconButtonType, color),
+		...sizeStyle,
+		...props.style,
 	};
 
 	let showButtonOverlay = true;
