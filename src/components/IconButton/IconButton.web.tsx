@@ -21,7 +21,6 @@ const defaultIconButtonStyle: ViewStyle = {
 	flexDirection: 'column',
 	justifyContent: 'center',
 	alignItems: 'center',
-	padding: 10,
 	borderRadius: '50%',
 	overflow: 'hidden',
 };

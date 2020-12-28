@@ -55,6 +55,7 @@ class App extends React.Component {
 						}
 						label={'profile'}
 						type={'filled'}
+						size={40}
 					/>
 					<Button label="hello" />
 					<div style={{ width: '75%' }}>
