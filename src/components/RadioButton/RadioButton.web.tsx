@@ -22,14 +22,14 @@ export function RadioButton(props: Props) {
 		...props.style,
 	};
 	return (
-		<View style={style}>
+		<View style={{ ...style, borderRadius: (style.height as number) / 2 }}>
 			{props.selected ? (
 				<View
 					style={{
-						height: 12,
-						width: 12,
-						borderRadius: 6,
-						backgroundColor: Colors.BASE,
+						height: (style.height as number) / 2,
+						width: (style.width as number) / 2,
+						borderRadius: (style.height as number) / 4,
+						backgroundColor: style.borderColor,
 					}}
 				/>
 			) : null}

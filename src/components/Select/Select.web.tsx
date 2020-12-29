@@ -1,6 +1,11 @@
 import React, { ReactNode } from 'react';
 import { useState } from 'react';
-import { CheckBox, TouchableOpacity } from 'react-native-web';
+import {
+	CheckBox,
+	TouchableOpacity,
+	TextStyle as RNWTextStyle,
+	ViewStyle as RNWViewStyle,
+} from 'react-native-web';
 import { RadioButton } from '../RadioButton/RadioButton.web';
 import { VFlex, View } from '../View/View.web';
 import { Text } from '../Text/Text.web';
@@ -10,10 +15,21 @@ interface Props {
 	options: string[];
 	multiSelect?: boolean;
 	onChange?: (value: string | string[]) => void;
+	labelStyle?: RNWTextStyle;
+	style?: RNWViewStyle;
 }
+
+const defaultLabelStyle = {
+	paddingLeft: Padding.ELEMENT_WEB,
+};
 
 export function Select(props: Props) {
 	var optionElemets: ReactNode = [];
+
+	let labelStyle = {
+		...defaultLabelStyle,
+		...props.labelStyle,
+	};
 
 	if (props.multiSelect) {
 		// TODO: find a way to make useState type to string array that doesn't require filtering out the empty string later
@@ -42,10 +58,7 @@ export function Select(props: Props) {
 								selection.indexOf(option) >= 0 ? true : false
 							}
 						/>
-						<Text
-							style={{ paddingLeft: Padding.ELEMENT_WEB }}
-							type="body"
-						>
+						<Text style={labelStyle} type="body">
 							{option}
 						</Text>
 					</TouchableOpacity>
@@ -65,12 +78,10 @@ export function Select(props: Props) {
 						style={{ display: 'flex', flexDirection: 'row' }}
 					>
 						<RadioButton
+							style={props.style}
 							selected={option == selection ? true : false}
 						/>
-						<Text
-							style={{ paddingLeft: Padding.ELEMENT_WEB }}
-							type="body"
-						>
+						<Text style={labelStyle} type="body">
 							{option}
 						</Text>
 					</TouchableOpacity>
