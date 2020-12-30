@@ -9,3 +9,4 @@ export { TextInput } from '../src/components/TextInput/TextInput.web';
 export { RadioButton } from '../src/components/RadioButton/RadioButton.web';
 export { Select } from '../src/components/Select/Select.web';
 export { View, VFlex, HFlex } from '../src/components/View/View.web';
+export { TouchableOpacity } from '../src/components/TouchableOpacity/TouchableOpacity.web';
