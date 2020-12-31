@@ -2,7 +2,7 @@ import React from 'react';
 import { ViewStyle } from 'react-native-web';
 
 import { View } from '../View/View.web';
-import { CardPropsWeb as CardProps, CardPropsWeb } from './CardTypes';
+import { CardPropsWeb as CardProps } from './CardTypes';
 
 import { Padding } from '../../styles/Padding';
 import { GenericStyleProp } from 'react-native-web/types';
@@ -30,7 +30,7 @@ const defaultCardStyle: ViewStyle = {
 	textAlign: 'left',
 };
 
-export const Card = (props: CardPropsWeb) => {
+export const Card = (props: CardProps) => {
 	let style: GenericStyleProp<ViewStyle> = {
 		...defaultCardStyle,
 		...props.style,

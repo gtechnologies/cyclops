@@ -8,6 +8,8 @@ import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 import { PollPost } from './components/glimpse/cross/posts/PollPost';
 
+import { TestableModal } from './components/testable';
+
 class App extends React.Component {
 	showPost() {
 		var ret: any[] = [];
@@ -30,6 +32,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="App">
+				<TestableModal visible={true} />
 				<View
 					style={{
 						backgroundColor: '#EFEFEF',

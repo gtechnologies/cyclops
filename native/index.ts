@@ -4,6 +4,8 @@ export { Card } from '../src/components/Card/Card.native';
 export { CheckBox } from '../src/components/CheckBox/CheckBox.native';
 export { IconButton } from '../src/components/IconButton/IconButton.native';
 export { Image } from '../src/components/Image/Image.native';
+export { Modal } from '../src/components/Modal/Modal.native';
+export { SafeAreaView } from '../src/components/SafeAreaView/SafeAreaView.native';
 export { ScrollView } from '../src/components/ScrollView/ScrollView.native';
 export { Text } from '../src/components/Text/Text.native';
 export { TextInput } from '../src/components/TextInput/TextInput.native';

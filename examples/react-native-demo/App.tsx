@@ -22,7 +22,7 @@ declare const global: { HermesInternal: null | {} };
 const App = () => {
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
-			<TestableModal />
+			<TestableModal visible={true} />
 			<CheckBox />
 			<VFlex style={{ backgroundColor: 'pink' }}>
 				<VFlex style={{ backgroundColor: 'red', height: 100 }}>
