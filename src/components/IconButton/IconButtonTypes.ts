@@ -1,7 +1,7 @@
 import { ButtonPropsNative, ButtonPropsWeb } from '../Button/ButtonTypes';
 
 import { ClickableProps } from '../../types/Clickable';
-import { Icon } from '../../types/Children';
+import { Children, Icon } from '../../types/Children';
 
 export enum IconButtonTypeEnum {
 	none = 'none',
@@ -33,4 +33,6 @@ export type IconButtonPropsNative = ButtonPropsNative &
 
 		// set the height and width of an IconButton
 		size?: number | string;
+
+		children?: Children;
 	};

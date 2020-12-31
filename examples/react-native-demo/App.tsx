@@ -14,12 +14,15 @@ import { SafeAreaView, StatusBar, View as RNView } from 'react-native';
 import { Button, Card, CheckBox, TextInput, View, VFlex } from 'cyclops/native';
 import { Post } from './src/components/glimpse/cross/posts/Post';
 import { CreatePost } from './src/components/glimpse/cross/posts/CreatePost';
-import { JsxElement } from 'typescript';
+
+import { TestableModal } from './src/components/testable';
+
 declare const global: { HermesInternal: null | {} };
 
 const App = () => {
 	return (
 		<SafeAreaView style={{ flex: 1 }}>
+			<TestableModal />
 			<CheckBox />
 			<VFlex style={{ backgroundColor: 'pink' }}>
 				<VFlex style={{ backgroundColor: 'red', height: 100 }}>
