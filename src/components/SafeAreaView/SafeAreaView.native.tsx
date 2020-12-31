@@ -1,6 +1,3 @@
-/**
- * WARNING: has not been tested
- */
 import React from 'react';
 import { SafeAreaView as RNSafeAreaView, ViewStyle } from 'react-native';
 

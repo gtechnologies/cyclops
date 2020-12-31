@@ -1,7 +1,8 @@
 import React from 'react';
 //import { SafeAreaView } from 'react-native';
-import { Modal, SafeAreaView } from 'cyclops/native';
+import { Modal } from 'cyclops/native';
 
+import { SafeAreaViewTestable } from './SafeAreaViewTestable';
 import { ScrollViewTestable } from './ScrollViewTestable';
 
 interface TestableModalProps {
@@ -10,10 +11,8 @@ interface TestableModalProps {
 
 export const TestableModal = (props: TestableModalProps) => {
 	return (
-		<Modal visible={props.visible}>
-			<SafeAreaView>
-				<ScrollViewTestable />
-			</SafeAreaView>
+		<Modal visible={props.visible} presentationStyle="formSheet">
+			<SafeAreaViewTestable />
 		</Modal>
 	);
 };
