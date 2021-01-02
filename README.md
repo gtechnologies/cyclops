@@ -15,9 +15,25 @@ or
 
 ## React
 
+### Additional Setup
+
+None
+
+### Using Cyclops
+
 `import { ... } from 'cyclops/lib/web';`
 
 ## React Native
+
+### Additional Setup
+
+#### For iOS
+
+`cd ios && pod install`
+
+#### For Android
+
+### Using Cyclops
 
 `import { ... } from 'cyclops/lib/native';`
 
@@ -28,7 +44,7 @@ or
     -   possibly change the button name to be onClick instead of onPress
 -   [x] Card
     -   make Cards clickable
--   CheckBox
+-   [x] CheckBox
 -   [ ] Dropdown
 -   [x] IconButton
 -   [x] Image
@@ -46,6 +62,8 @@ or
     -   https://stackoverflow.com/questions/48930334/mui-next-tooltip-does-not-show-on-hover
     -   https://github.com/mui-org/material-ui/issues/21324
     -   ForwardRef seems to be able to solve the issue
+-   ReactNative doesn't use className like React so we need to figure out an alternative way to pass style by class
+-   Types are not currently working when cyclops is installed as a package
 
 # Concerns
 
@@ -82,6 +100,3 @@ Non .ts or .tsx files are by default not handled by `tsc` and so an alternative 
 `https://stackoverflow.com/questions/46075993/how-to-include-a-css-file-in-react-and-typescript-npm-package/65364696#65364696`
 
 # Dependencies
-
-Required by @react-native-community/checkbox
-`npm i nullthrows`

@@ -2,6 +2,7 @@ import React from 'react';
 //import { SafeAreaView } from 'react-native';
 import { Modal } from 'cyclops/native';
 
+import { CheckBoxTestable } from './CheckBoxTestable';
 import { SafeAreaViewTestable } from './SafeAreaViewTestable';
 import { ScrollViewTestable } from './ScrollViewTestable';
 
@@ -16,7 +17,7 @@ export const TestableModal = (props: TestableModalProps) => {
 			style={{ zIndex: 1000 }}
 			presentationStyle="fullScreen"
 		>
-			<SafeAreaViewTestable />
+			<CheckBoxTestable />
 		</Modal>
 	);
 };

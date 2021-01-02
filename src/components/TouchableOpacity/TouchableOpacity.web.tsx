@@ -4,8 +4,12 @@ import {
 	TouchableOpacityProps,
 } from 'react-native-web';
 
+import { getOnPressFromProps } from '../../types/Clickable';
+
 export const TouchableOpacity = (props: TouchableOpacityProps) => {
 	return (
-		<RNWTouchableOpacity {...props}>{props.children}</RNWTouchableOpacity>
+		<RNWTouchableOpacity {...props} {...getOnPressFromProps(props)}>
+			{props.children}
+		</RNWTouchableOpacity>
 	);
 };
