@@ -9,4 +9,5 @@ export { SafeAreaView } from '../src/components/SafeAreaView/SafeAreaView.native
 export { ScrollView } from '../src/components/ScrollView/ScrollView.native';
 export { Text } from '../src/components/Text/Text.native';
 export { TextInput } from '../src/components/TextInput/TextInput.native';
+export { TouchableOpacity } from '../src/components/TouchableOpacity/TouchableOpacity.web';
 export { View, VFlex, HFlex } from '../src/components/View/View.native';

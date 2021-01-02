@@ -27,11 +27,6 @@ None
 
 ### Additional Setup
 
-Install @react-native-community/checkbox
-`npm i @react-native-community/checkbox`
-or
-`yarn add @react-native-community/checkbox`
-
 #### For iOS
 
 `cd ios && pod install`
@@ -49,7 +44,7 @@ or
     -   possibly change the button name to be onClick instead of onPress
 -   [x] Card
     -   make Cards clickable
--   [ ] CheckBox
+-   [x] CheckBox
 -   [ ] Dropdown
 -   [x] IconButton
 -   [x] Image
@@ -69,7 +64,6 @@ or
     -   ForwardRef seems to be able to solve the issue
 -   ReactNative doesn't use className like React so we need to figure out an alternative way to pass style by class
 -   Types are not currently working when cyclops is installed as a package
--   installing @react-native-community/checkbox takes a separate command
 
 # Concerns
 
