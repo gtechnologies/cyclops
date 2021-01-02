@@ -16,11 +16,11 @@ import { Colors } from '../../styles/Colors';
 const defaultIconButtonStyle: ViewStyle = {
 	display: 'flex',
 	position: 'relative',
-	boxSizing: 'border-box',
+	// boxSizing: 'border-box',
 	flexDirection: 'column',
 	justifyContent: 'center',
 	alignItems: 'center',
-	borderRadius: '50%',
+	borderRadius: 1000, // ERROR: fix this //'50%',
 	overflow: 'hidden',
 };
 
