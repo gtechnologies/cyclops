@@ -1,9 +1,6 @@
 /**
- * Using @react-native-community/checkbox because react-native deprecated the CheckBox component
- * // TODO: handle Android and Windows coloring
- * // ERROR: https://github.com/react-native-checkbox/react-native-checkbox/issues/35
- * // ERROR: requireNAtiveCompoennt: "RNCCheckbox" was not found in the UIManager
- * --> we will likely have to use another library for this or implement our own
+ * Custom CheckBox component
+ * react-native deprecated the CheckBox component and @react-native-community/checkbox causes memory overloads when used with web
  */
 import React from 'react';
 import { ImageStyle, ViewStyle } from 'react-native';
