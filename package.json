@@ -11,7 +11,7 @@
 	],
 	"scripts": {
 		"clean": "rimraf lib/",
-		"copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css lib/src",
+		"copy-files": "copyfiles -u 1 src/**/*.html src/**/*.css src/**/*.png lib/src",
 		"build": "npm run clean && tsc && npm run copy-files",
 		"prepare": "npm run build",
 		"test": "echo \"Error: no test specified\" && exit 1"

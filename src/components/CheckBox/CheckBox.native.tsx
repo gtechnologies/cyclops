@@ -6,7 +6,9 @@ import React from 'react';
 import { ImageStyle, ViewStyle } from 'react-native';
 
 import { CheckBoxPropsNative } from './CheckBoxTypes';
+// @ts-ignore
 import CheckBoxCheckedImage from './CheckBoxImages/CheckBoxSquareChecked.png';
+// @ts-ignore
 import CheckBoxUncheckedImage from './CheckBoxImages/CheckBoxSquareUnchecked.png';
 
 import { TouchableOpacity } from '../TouchableOpacity/TouchableOpacity.native';
