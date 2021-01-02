@@ -6,6 +6,7 @@
  * --> we will likely have to use another library for this or implement our own
  */
 import React from 'react';
+import RNCheckBox from '@react-native-community/checkbox';
 
 import { CheckBoxPropsNative } from './CheckBoxTypes';
 
@@ -13,13 +14,17 @@ import { Colors } from '../../styles/Colors';
 
 let defaultCheckBoxProps: CheckBoxPropsNative = {
 	onCheckColor: Colors.BASE,
+	boxType: 'square',
 };
 
 export const CheckBox = (props: CheckBoxPropsNative) => {
-	let defaultProps: CheckBoxPropsNative = { ...defaultCheckBoxProps };
+	let defaultProps: CheckBoxPropsNative = {
+		...defaultCheckBoxProps,
+		...props,
+	};
 	if (props.color) {
 		// @ts-ignore
 		defaultProps.tintColor = props.color;
 	}
-	return <></>;
+	return <RNCheckBox {...defaultProps} />;
 };

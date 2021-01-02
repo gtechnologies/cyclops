@@ -15,9 +15,30 @@ or
 
 ## React
 
+### Additional Setup
+
+None
+
+### Using Cyclops
+
 `import { ... } from 'cyclops/lib/web';`
 
 ## React Native
+
+### Additional Setup
+
+Install @react-native-community/checkbox
+`npm i @react-native-community/checkbox`
+or
+`yarn add @react-native-community/checkbox`
+
+#### For iOS
+
+`cd ios && pod install`
+
+#### For Android
+
+### Using Cyclops
 
 `import { ... } from 'cyclops/lib/native';`
 
@@ -28,7 +49,7 @@ or
     -   possibly change the button name to be onClick instead of onPress
 -   [x] Card
     -   make Cards clickable
--   CheckBox
+-   [ ] CheckBox
 -   [ ] Dropdown
 -   [x] IconButton
 -   [x] Image
@@ -46,6 +67,9 @@ or
     -   https://stackoverflow.com/questions/48930334/mui-next-tooltip-does-not-show-on-hover
     -   https://github.com/mui-org/material-ui/issues/21324
     -   ForwardRef seems to be able to solve the issue
+-   ReactNative doesn't use className like React so we need to figure out an alternative way to pass style by class
+-   Types are not currently working when cyclops is installed as a package
+-   installing @react-native-community/checkbox takes a separate command
 
 # Concerns
 
