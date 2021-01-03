@@ -41,7 +41,6 @@ None
 
 -   [x] Button
     -   add styling for disabled buttons
-    -   possibly change the button name to be onClick instead of onPress
 -   [x] Card
     -   make Cards clickable
 -   [x] CheckBox
@@ -54,6 +53,10 @@ None
 -   [x] View
     -   [x] HFlex (a View with { flexDirection: 'row'} )
     -   [x] VFlex (a View with { flexDirection: 'column'} )
+
+# // TODO:
+
+-   shift disabled color to be a constant
 
 # Known Issues
 

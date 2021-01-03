@@ -4,7 +4,7 @@ import { CheckBox } from 'cyclops/web';
 interface CheckBoxTestableState {
 	checked: boolean;
 }
-export class CheckBoxTestable extends React.Component<
+export class CheckBoxTestable extends React.PureComponent<
 	{},
 	CheckBoxTestableState
 > {

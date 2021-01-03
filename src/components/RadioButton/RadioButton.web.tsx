@@ -1,16 +1,62 @@
-import React, { useState } from 'react';
-import { ViewStyle, TouchableOpacity } from 'react-native-web';
-import { View } from '../View/View.web';
-import { Colors } from '../../styles/Colors';
+import React from 'react';
+import { ViewStyle } from 'react-native-web';
+
 import { GenericStyleProp } from 'react-native-web/types';
-import { hasOnlyExpressionInitializer } from 'typescript';
 
-interface Props {
-	style?: ViewStyle;
-	selected: boolean;
-}
+import { TouchableOpacity } from '../TouchableOpacity/TouchableOpacity.web';
+import { View } from '../View/View.web';
 
-export function RadioButton(props: Props) {
+import { RadioButtonPropsWeb as RadioButtonProps } from './RadioButtonTypes';
+
+import { getOnPressFromProps } from '../../types/Clickable';
+import { Colors } from '../../styles/Colors';
+
+export const RadioButton = React.forwardRef<
+	typeof TouchableOpacity,
+	RadioButtonProps
+>((props, ref) => {
+	let size = props.size ? props.size : 30;
+	let color = props.color ? props.color : Colors.BASE;
+
+	let style: GenericStyleProp<ViewStyle> = {
+		height: size,
+		width: size,
+		borderRadius: size / 2,
+		borderWidth: 2,
+		borderColor: color,
+		alignItems: 'center',
+		justifyContent: 'center',
+		...props.style,
+	};
+	return (
+		<TouchableOpacity
+			ref={ref}
+			style={style}
+			{...getOnPressFromProps(props)}
+			onClick={() => {
+				if (props.onValueChange) props.onValueChange(!props.selected);
+			}}
+		>
+			{props.selected && (
+				<View
+					style={{
+						height: size / 2,
+						width: size / 2,
+						borderRadius: size / 4,
+						backgroundColor: color,
+					}}
+				/>
+			)}
+		</TouchableOpacity>
+	);
+});
+
+RadioButton.defaultProps = {
+	size: 30,
+	color: Colors.BASE,
+};
+/*
+export function RadioButton(props: RadioButtonProps) {
 	let style: GenericStyleProp<ViewStyle> = {
 		height: 24,
 		width: 24,
@@ -36,3 +82,4 @@ export function RadioButton(props: Props) {
 		</View>
 	);
 }
+*/
