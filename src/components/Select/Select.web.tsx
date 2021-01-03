@@ -80,6 +80,10 @@ export function Select(props: Props) {
 						<RadioButton
 							style={props.style}
 							selected={option == selection ? true : false}
+							onValueChange={() => {
+								setSelection(option);
+								if (props.onChange) props.onChange(option);
+							}}
 						/>
 						<Text style={labelStyle} type="body">
 							{option}
