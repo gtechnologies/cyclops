@@ -20,10 +20,15 @@ export const CheckBox = (props: CheckBoxPropsWeb) => {
 
 	return (
 		<RNWCheckBox
-			color={Colors.BASE}
+			color={props.color}
 			{...props}
 			style={style}
 			{...getOnPressFromProps(props)}
 		/>
 	);
+};
+
+CheckBox.defaultProps = {
+	color: Colors.BASE,
+	size: 40,
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import { Modal } from 'cyclops/native';
 
 import { CheckBoxTestable } from './CheckBoxTestable';
+import { RadioButtonTestable } from './RadioButtonTestable';
 import { SafeAreaViewTestable } from './SafeAreaViewTestable';
 import { ScrollViewTestable } from './ScrollViewTestable';
 
@@ -17,7 +18,7 @@ export const TestableModal = (props: TestableModalProps) => {
 			style={{ zIndex: 1000 }}
 			presentationStyle="fullScreen"
 		>
-			<CheckBoxTestable />
+			<RadioButtonTestable />
 		</Modal>
 	);
 };

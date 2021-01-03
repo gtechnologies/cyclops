@@ -5,6 +5,7 @@ export { CheckBox } from '../src/components/CheckBox/CheckBox.native';
 export { IconButton } from '../src/components/IconButton/IconButton.native';
 export { Image } from '../src/components/Image/Image.native';
 export { Modal } from '../src/components/Modal/Modal.native';
+export { RadioButton } from '../src/components/RadioButton/RadioButton.native';
 export { SafeAreaView } from '../src/components/SafeAreaView/SafeAreaView.native';
 export { ScrollView } from '../src/components/ScrollView/ScrollView.native';
 export { Text } from '../src/components/Text/Text.native';
