@@ -4,7 +4,8 @@ A better way to write front-end code with One U-Eye for React and React Native.
 
 # Why wrap components with cyclops?
 
--   Alignment direction
+-   Single API for core components between iOS/Android and Web
+-   Abstraction of alignment direction for the horizontal and vertical axes (no more justifyContent or alignItems)
 
 # Getting Started
 
@@ -39,18 +40,18 @@ None
 
 # Important Core Components
 
--   [x] Button
+-   [x] Button (Web + Native)
     -   add styling for disabled buttons
--   [x] Card
+-   [x] Card (Web + Native)
     -   make Cards clickable
--   [x] CheckBox
+-   [x] CheckBox (Web + Native)
 -   [ ] Dropdown
 -   [x] IconButton
--   [x] Image
+-   [x] Image (Web + Native)
 -   [x] Select
--   [x] Text
+-   [x] Text (Web + Native)
 -   [x] TextInput
--   [x] View
+-   [x] View (Web + Native)
     -   [x] HFlex (a View with { flexDirection: 'row'} )
     -   [x] VFlex (a View with { flexDirection: 'column'} )
 
@@ -103,3 +104,7 @@ Non .ts or .tsx files are by default not handled by `tsc` and so an alternative 
 `https://stackoverflow.com/questions/46075993/how-to-include-a-css-file-in-react-and-typescript-npm-package/65364696#65364696`
 
 # Dependencies
+
+# Resources Worth Reading
+
+https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/buildingfasterwithcomponents.html
