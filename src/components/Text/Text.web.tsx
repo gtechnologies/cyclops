@@ -45,14 +45,5 @@ export const Text = (props: TextProps) => {
 		...(props.style as TextStyle),
 	};
 
-	return (
-		<View
-			style={{
-				// @ts-ignore
-				fontSize: defaultFontSize,
-			}}
-		>
-			<RNWText {...props} style={style} />
-		</View>
-	);
+	return <RNWText {...props} style={style} />;
 };
