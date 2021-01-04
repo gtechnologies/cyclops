@@ -1,11 +1,12 @@
 import React, { ReactNode } from 'react';
 import { useState } from 'react';
 import {
-	CheckBox,
-	TouchableOpacity,
 	TextStyle as RNWTextStyle,
 	ViewStyle as RNWViewStyle,
 } from 'react-native-web';
+
+import { CheckBox } from '../CheckBox/CheckBox.web';
+import { TouchableOpacity } from '../TouchableOpacity/TouchableOpacity.web';
 import { RadioButton } from '../RadioButton/RadioButton.web';
 import { VFlex, View } from '../View/View.web';
 import { Text } from '../Text/Text.web';

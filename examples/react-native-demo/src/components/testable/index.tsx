@@ -6,6 +6,7 @@ import { CheckBoxTestable } from './CheckBoxTestable';
 import { RadioButtonTestable } from './RadioButtonTestable';
 import { SafeAreaViewTestable } from './SafeAreaViewTestable';
 import { ScrollViewTestable } from './ScrollViewTestable';
+import { SelectTestable } from './SelectTestable';
 
 interface TestableModalProps {
 	visible?: boolean;
@@ -14,7 +15,7 @@ interface TestableModalProps {
 export const TestableModal = (props: TestableModalProps) => {
 	return (
 		<Modal visible={props.visible} presentationStyle="formSheet">
-			<RadioButtonTestable />
+			<SelectTestable />
 		</Modal>
 	);
 };

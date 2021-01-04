@@ -8,6 +8,7 @@ export { Modal } from '../src/components/Modal/Modal.native';
 export { RadioButton } from '../src/components/RadioButton/RadioButton.native';
 export { SafeAreaView } from '../src/components/SafeAreaView/SafeAreaView.native';
 export { ScrollView } from '../src/components/ScrollView/ScrollView.native';
+export { Select } from '../src/components/Select/Select.native';
 export { Text } from '../src/components/Text/Text.native';
 export { TextInput } from '../src/components/TextInput/TextInput.native';
 export { TouchableOpacity } from '../src/components/TouchableOpacity/TouchableOpacity.web';
