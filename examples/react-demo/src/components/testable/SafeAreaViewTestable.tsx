@@ -1,5 +1,5 @@
 import React from 'react';
-import { SafeAreaView, View } from 'cyclops/native';
+import { SafeAreaView, View } from 'cyclops/web';
 
 export const SafeAreaViewTestable = () => {
 	return (

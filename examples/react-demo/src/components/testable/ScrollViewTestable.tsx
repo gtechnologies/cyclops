@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, View } from 'cyclops/native';
+import { ScrollView, View } from 'cyclops/web';
 
 export const ScrollViewTestable = () => {
 	return (
