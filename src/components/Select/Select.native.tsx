@@ -58,6 +58,18 @@ export function Select(props: Props) {
 							value={
 								selection.indexOf(option) >= 0 ? true : false
 							}
+							onValueChange={() => {
+								//need local var so it is updated immediately
+								var res = selection;
+								if (res.indexOf(option) >= 0)
+									res = selection.filter(
+										(item) => item != option && item != '',
+									);
+								else res = [...selection, option];
+
+								setSelection(res);
+								if (props.onChange) props.onChange(res);
+							}}
 						/>
 						<Text style={labelStyle} type="body">
 							{option}

@@ -11,7 +11,7 @@ export const SelectTestable = () => {
 				'more',
 				'options',
 			]}
-			multiSelect={false}
+			multiSelect={true}
 		/>
 	);
 };
