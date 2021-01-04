@@ -4,7 +4,8 @@ A better way to write front-end code with One U-Eye for React and React Native.
 
 # Why wrap components with cyclops?
 
--   Alignment direction
+-   Single API for core components between iOS/Android and Web
+-   Abstraction of alignment direction for the horizontal and vertical axes (no more justifyContent or alignItems)
 
 # Getting Started
 
@@ -15,29 +16,48 @@ or
 
 ## React
 
+### Additional Setup
+
+None
+
+### Using Cyclops
+
 `import { ... } from 'cyclops/lib/web';`
 
 ## React Native
+
+### Additional Setup
+
+#### For iOS
+
+`cd ios && pod install`
+
+#### For Android
+
+### Using Cyclops
 
 `import { ... } from 'cyclops/lib/native';`
 
 # Important Core Components
 
--   [x] Button
+-   [x] Button (Web + Native)
     -   add styling for disabled buttons
-    -   possibly change the button name to be onClick instead of onPress
--   [x] Card
+-   [x] Card (Web + Native)
     -   make Cards clickable
--   CheckBox
+-   [x] CheckBox (Web + Native)
 -   [ ] Dropdown
 -   [x] IconButton
--   [x] Image
+-   [x] Image (Web + Native)
 -   [x] Select
--   [x] Text
+-   [x] Text (Web + Native)
 -   [x] TextInput
--   [x] View
+-   [x] View (Web + Native)
     -   [x] HFlex (a View with { flexDirection: 'row'} )
     -   [x] VFlex (a View with { flexDirection: 'column'} )
+
+# // TODO:
+
+-   shift disabled color to be a constant
 
 # Known Issues
 
@@ -46,6 +66,8 @@ or
     -   https://stackoverflow.com/questions/48930334/mui-next-tooltip-does-not-show-on-hover
     -   https://github.com/mui-org/material-ui/issues/21324
     -   ForwardRef seems to be able to solve the issue
+-   ReactNative doesn't use className like React so we need to figure out an alternative way to pass style by class
+-   Types are not currently working when cyclops is installed as a package
 
 # Concerns
 
@@ -83,5 +105,6 @@ Non .ts or .tsx files are by default not handled by `tsc` and so an alternative 
 
 # Dependencies
 
-Required by @react-native-community/checkbox
-`npm i nullthrows`
+# Resources Worth Reading
+
+https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/buildingfasterwithcomponents.html

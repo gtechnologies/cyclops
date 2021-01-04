@@ -3,6 +3,7 @@ import { CheckBox as RNWCheckBox, ViewStyle } from 'react-native-web';
 
 import { CheckBoxPropsWeb } from './CheckBoxTypes';
 
+import { getOnPressFromProps } from '../../types/Clickable';
 import { Colors } from '../../styles/Colors';
 
 export const CheckBox = (props: CheckBoxPropsWeb) => {
@@ -17,5 +18,17 @@ export const CheckBox = (props: CheckBoxPropsWeb) => {
 		...(props.style as ViewStyle),
 	};
 
-	return <RNWCheckBox color={Colors.BASE} {...props} style={style} />;
+	return (
+		<RNWCheckBox
+			color={props.color}
+			{...props}
+			style={style}
+			{...getOnPressFromProps(props)}
+		/>
+	);
+};
+
+CheckBox.defaultProps = {
+	color: Colors.BASE,
+	size: 40,
 };

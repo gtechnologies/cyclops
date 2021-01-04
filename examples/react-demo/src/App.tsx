@@ -8,10 +8,24 @@ import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 import { PollPost } from './components/glimpse/cross/posts/PollPost';
 
-class App extends React.Component {
+import { TestableModal } from './components/testable';
+
+interface AppProps {}
+interface AppState {
+	showTestableModal: boolean;
+}
+
+class App extends React.Component<AppProps, AppState> {
+	constructor(props: AppProps) {
+		super(props);
+		this.state = {
+			showTestableModal: false,
+		};
+	}
+
 	showPost() {
 		var ret: any[] = [];
-		for (var i = 0; i < 20; i++) {
+		for (var i = 0; i < 2; i++) {
 			ret.push(
 				<Post
 					body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa nunc, fringilla vestibulum accumsan id, auctor vel erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque tristique mi sapien, et elementum urna luctus ut. Praesent quam metus, porta vehicula semper non, gravida et quam."
@@ -28,8 +42,18 @@ class App extends React.Component {
 		return ret;
 	}
 	render() {
+		const { showTestableModal } = this.state;
 		return (
 			<div className="App">
+				<TestableModal visible={showTestableModal} />
+				<Button
+					label="Show Testable Modal"
+					onClick={() => {
+						this.setState({
+							showTestableModal: !showTestableModal,
+						});
+					}}
+				/>
 				<View
 					style={{
 						backgroundColor: '#EFEFEF',

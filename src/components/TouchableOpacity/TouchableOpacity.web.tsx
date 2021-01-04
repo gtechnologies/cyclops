@@ -1,11 +1,21 @@
 import React from 'react';
-import {
-	TouchableOpacity as RNWTouchableOpacity,
-	TouchableOpacityProps,
-} from 'react-native-web';
+import { TouchableOpacity as RNWTouchableOpacity } from 'react-native-web';
 
-export const TouchableOpacity = (props: TouchableOpacityProps) => {
+import { TouchableOpacityPropsWeb as TouchableOpacityProps } from './TouchableOpacityTypes';
+
+import { getOnPressFromProps } from '../../types/Clickable';
+
+export const TouchableOpacity = React.forwardRef<
+	RNWTouchableOpacity,
+	TouchableOpacityProps
+>((props, ref) => {
 	return (
-		<RNWTouchableOpacity {...props}>{props.children}</RNWTouchableOpacity>
+		<RNWTouchableOpacity
+			ref={ref}
+			{...props}
+			{...getOnPressFromProps(props)}
+		>
+			{props.children}
+		</RNWTouchableOpacity>
 	);
-};
+});
