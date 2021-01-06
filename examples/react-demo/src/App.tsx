@@ -3,10 +3,19 @@ import React from 'react';
 import { Tooltip } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-import { Button, IconButton, View, RadioButton, Select } from 'cyclops/web';
+import {
+	Button,
+	Card,
+	HFlex,
+	IconButton,
+	View,
+	RadioButton,
+	Select,
+} from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 import { PollPost } from './components/glimpse/cross/posts/PollPost';
+import { ProfileIcon } from './components/glimpse/cross/ProfileIcon';
 
 import { TestableModal } from './components/testable';
 
@@ -46,6 +55,7 @@ class App extends React.Component<AppProps, AppState> {
 		return (
 			<div className="App">
 				<TestableModal visible={showTestableModal} />
+
 				<Button
 					label="Show Testable Modal"
 					onClick={() => {
@@ -54,6 +64,17 @@ class App extends React.Component<AppProps, AppState> {
 						});
 					}}
 				/>
+
+				<Card style={{ width: 300, height: 300 }}>
+					<HFlex style={{ flexWrap: 'wrap', flex: 1 }}>
+						<ProfileIcon profile_pic_url="https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png" />
+						<ProfileIcon profile_pic_url="https://upload.wikimedia.org/wikipedia/en/4/47/Iron_Man_%28circa_2018%29.png" />
+						<ProfileIcon
+							first_name="John"
+							style={{ marginLeft: 20 }}
+						/>
+					</HFlex>
+				</Card>
 				<View
 					style={{
 						backgroundColor: '#EFEFEF',
