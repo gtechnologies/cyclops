@@ -11,7 +11,7 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, View as RNView } from 'react-native';
 
-import { Button, Card, TextInput, View, VFlex } from 'cyclops/native';
+import { Button, Card, Text, TextInput, View, VFlex } from 'cyclops/native';
 import { Post } from './src/components/glimpse/cross/posts/Post';
 import { CreatePost } from './src/components/glimpse/cross/posts/CreatePost';
 
