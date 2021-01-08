@@ -39,7 +39,7 @@
 	},
 	"dependencies": {
 		"@types/react-native": "^0.63.42",
-		"@types/react-native-web": "github:gtechnologies/react-native-web-ts-types",
+		"@types/react-native-web": "git+https://github.com/gtechnologies/react-native-web-ts-types.git",
 		"react-native-web": "^0.14.9",
 		"typescript": "^4.1.3"
 	}
