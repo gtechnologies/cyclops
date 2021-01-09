@@ -58,6 +58,8 @@ None
 # // TODO:
 
 -   shift disabled color to be a constant
+-   implement TextInput parallel for web
+-   add some theme provider either with a Context element or in the style of @material-ui/core ThemeProvider
 
 # Known Issues
 
