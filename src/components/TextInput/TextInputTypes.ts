@@ -7,9 +7,12 @@ import {
 	TextStyle as RNTextStyle,
 } from 'react-native';
 
-import { TextType, TextTypeEnum } from '../Text/TextTypes';
+import { TextTypeEnum } from '../Text/TextTypes';
+// TODO: figure out why this needs to be imported in this way
+// https://stackoverflow.com/questions/54953960/typescript-errors-when-importing-a-not-exported-type-even-though-it-is-export
+import type { TextType } from '../Text/TextTypes';
 
-export { TextType, TextTypeEnum };
+export type { TextTypeEnum, TextType };
 
 export type TextInputType = 'none' | 'rounded';
 export enum TextInputTypeEnum {

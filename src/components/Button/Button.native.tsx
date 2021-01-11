@@ -17,6 +17,7 @@ import {
 
 import { Text } from '../Text/Text.native';
 import { VFlex } from '../View/View.native';
+import { ActivityIndicator } from '../ActivityIndicator/ActivityIndicator.native';
 import { getAlignStyle } from '../../styles/Alignment';
 import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
@@ -126,6 +127,13 @@ export const Button = React.forwardRef<RNTouchableOpacity, ButtonProps>(
 					</Text>
 				)}
 				{props.children}
+
+				{props.loading && (
+					<ActivityIndicator
+						color={'white'}
+						style={{ position: 'absolute', right: 10 }}
+					/>
+				)}
 			</RNTouchableOpacity>
 		);
 	},
