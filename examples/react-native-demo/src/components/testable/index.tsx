@@ -8,6 +8,7 @@ import { RadioButtonTestable } from './RadioButtonTestable';
 import { SafeAreaViewTestable } from './SafeAreaViewTestable';
 import { ScrollViewTestable } from './ScrollViewTestable';
 import { SelectTestable } from './SelectTestable';
+import { TextTestable } from './TextTestable';
 import { TextInputTestable } from './TextInputTestable';
 
 interface TestableModalProps {
@@ -17,7 +18,7 @@ interface TestableModalProps {
 export const TestableModal = (props: TestableModalProps) => {
 	return (
 		<Modal visible={props.visible} presentationStyle="formSheet">
-			<ButtonTestable />
+			<TextTestable />
 		</Modal>
 	);
 };

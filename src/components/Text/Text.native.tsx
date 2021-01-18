@@ -12,31 +12,38 @@ import {
 const textStyleDictionary: { [type: string]: TextStyle } = {
 	[TextTypeEnum.pagetitle]: {
 		textAlign: 'left',
-		fontWeight: '600',
+		fontWeight: 'normal',
 		fontSize: 34,
 		color: 'black',
-		//fontFamily: 'SFProText-Regular',
+		fontFamily: 'San Francisco',
 	},
 	[TextTypeEnum.title]: {
 		textAlign: 'left',
-		fontWeight: '600',
+		fontWeight: 'normal',
 		fontSize: 28,
 		color: 'black',
-		//fontFamily: 'SFProText-Regular',
+		fontFamily: 'San Francisco',
 	},
 	[TextTypeEnum.subtitle]: {
 		textAlign: 'left',
-		fontWeight: '500',
+		fontWeight: 'normal',
 		fontSize: 22,
 		color: 'black',
-		//fontFamily: 'SFProText-Regular',
+		fontFamily: 'San Francisco',
+	},
+	[TextTypeEnum.headline]: {
+		textAlign: 'left',
+		fontWeight: 'bold',
+		fontSize: 17,
+		color: 'black',
+		fontFamily: 'San Francisco',
 	},
 	[TextTypeEnum.body]: {
 		textAlign: 'left',
-		fontWeight: '400',
+		fontWeight: 'normal',
 		fontSize: 17,
 		color: 'black',
-		//fontFamily: 'SFProText-Regular',
+		fontFamily: 'San Francisco',
 	},
 };
 
