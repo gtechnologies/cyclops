@@ -9,9 +9,17 @@ import {
 
 import { ViewPropsWeb, ViewPropsNative } from '../View/ViewTypes';
 
+type CornerType = 'rounded' | 'none';
+
 export type CardPropsWeb = ViewPropsWeb & {
 	contentStyle?: RNWViewStyle;
+
+	hideShadow?: boolean;
+	cornerType?: CornerType;
 };
 export type CardPropsNative = ViewPropsNative & {
 	contentStyle?: RNViewStyle;
+
+	hideShadow?: boolean;
+	cornerType?: CornerType;
 };

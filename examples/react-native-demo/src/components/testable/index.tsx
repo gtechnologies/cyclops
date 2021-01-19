@@ -3,6 +3,7 @@ import React from 'react';
 import { Modal } from 'cyclops/native';
 
 import { ButtonTestable } from './ButtonTestable';
+import { CardTestable } from './CardTestable';
 import { CheckBoxTestable } from './CheckBoxTestable';
 import { RadioButtonTestable } from './RadioButtonTestable';
 import { SafeAreaViewTestable } from './SafeAreaViewTestable';
@@ -18,7 +19,7 @@ interface TestableModalProps {
 export const TestableModal = (props: TestableModalProps) => {
 	return (
 		<Modal visible={props.visible} presentationStyle="formSheet">
-			<TextTestable />
+			<CardTestable />
 		</Modal>
 	);
 };

@@ -28,8 +28,12 @@ const defaultCardStyle: ViewStyle = {
 };
 
 export const Card = (props: CardProps) => {
+	const { hideShadow, cornerType } = props;
+
 	let style: StyleProp<ViewStyle> = {
 		...defaultCardStyle,
+		...(hideShadow && { shadowColor: 'transparent', shadowRadius: 0 }),
+		...(cornerType !== 'rounded' && { borderRadius: 0 }),
 		...(props.style as ViewStyle),
 	};
 
@@ -41,6 +45,7 @@ export const Card = (props: CardProps) => {
 				style={{
 					flex: 1,
 					borderRadius: 8,
+					...(cornerType !== 'rounded' && { borderRadius: 0 }),
 					overflow: 'hidden',
 					...props.contentStyle,
 				}}
@@ -49,4 +54,8 @@ export const Card = (props: CardProps) => {
 			</View>
 		</View>
 	);
+};
+
+Card.defaultProps = {
+	cornerType: 'rounded',
 };
