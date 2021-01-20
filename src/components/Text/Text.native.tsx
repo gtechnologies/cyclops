@@ -33,7 +33,7 @@ const textStyleDictionary: { [type: string]: TextStyle } = {
 	},
 	[TextTypeEnum.headline]: {
 		textAlign: 'left',
-		fontWeight: 'bold',
+		fontWeight: '600',
 		fontSize: 17,
 		color: 'black',
 		//fontFamily: 'San Francisco',

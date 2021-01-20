@@ -22,6 +22,7 @@ const defaultCardStyle: ViewStyle = {
 	shadowOpacity: 0.2,
 	shadowOffset: { width: 1, height: 2 },
 	shadowRadius: 2,
+	elevation: 6,
 	backgroundColor: '#FFFFFF',
 	position: 'relative',
 	padding: Padding.ELEMENT_NATIVE,
@@ -32,7 +33,11 @@ export const Card = (props: CardProps) => {
 
 	let style: StyleProp<ViewStyle> = {
 		...defaultCardStyle,
-		...(hideShadow && { shadowColor: 'transparent', shadowRadius: 0 }),
+		...(hideShadow && {
+			shadowColor: 'transparent',
+			shadowRadius: 0,
+			elevation: 0,
+		}),
 		...(cornerType !== 'rounded' && { borderRadius: 0 }),
 		...(props.style as ViewStyle),
 	};
