@@ -14,7 +14,10 @@ import {
 	ButtonTypeEnum,
 	ButtonType,
 } from './ButtonTypes';
+
 import { Text } from '../Text/Text.native';
+import { VFlex } from '../View/View.native';
+import { ActivityIndicator } from '../ActivityIndicator/ActivityIndicator.native';
 import { getAlignStyle } from '../../styles/Alignment';
 import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
@@ -64,47 +67,74 @@ const getDefaultButtonLabelStyle = (
 	}
 };
 
-export const Button = (props: ButtonProps) => {
-	let alignStyle = getAlignStyle(
-		props.style,
-		props.alignItemsH,
-		props.alignItemsV,
-	);
+export const Button = React.forwardRef<RNTouchableOpacity, ButtonProps>(
+	(props, ref) => {
+		let alignStyle = getAlignStyle(
+			props.style,
+			props.alignItemsH,
+			props.alignItemsV,
+		);
 
-	// if no type is present, use 'filled' when there is a label, otherwise 'none'
-	let buttonType = props.type ? props.type : props.label ? 'filled' : 'none';
-	let color = props.color ? props.color : Colors.BASE;
+		// if no type is present, use 'filled' when there is a label, otherwise 'none'
+		let buttonType = props.type
+			? props.type
+			: props.label
+			? 'filled'
+			: 'none';
+		let color = props.color ? props.color : Colors.BASE;
 
-	let style: ViewStyle = {
-		flexDirection: 'row',
-		justifyContent: 'center',
-		alignItems: 'center',
-		padding: Padding.ELEMENT_NATIVE,
-		borderRadius: 8,
-		...getDefaultButtonStyle(buttonType, color),
-		...alignStyle,
-		...(props.style as ViewStyle),
-	};
+		let style: ViewStyle = {
+			flexDirection: 'row',
+			position: 'relative',
+			overflow: 'hidden',
+			justifyContent: 'center',
+			alignItems: 'center',
+			padding: Padding.ELEMENT_NATIVE,
+			borderRadius: 8,
+			...getDefaultButtonStyle(buttonType, color),
+			...alignStyle,
+			...(props.style as ViewStyle),
+		};
 
-	let labelType = props.labelType ? props.labelType : 'subtitle';
+		let labelType = props.labelType ? props.labelType : 'subtitle';
 
-	let labelStyle: TextStyle = {
-		...getDefaultButtonLabelStyle(buttonType, color),
-		...props.labelStyle,
-	};
+		let labelStyle: TextStyle = {
+			...getDefaultButtonLabelStyle(buttonType, color),
+			...props.labelStyle,
+		};
 
-	return (
-		<RNTouchableOpacity
-			{...props}
-			style={style}
-			{...getOnPressFromProps(props)}
-		>
-			{props.label && (
-				<Text type={labelType} style={labelStyle}>
-					{props.label}
-				</Text>
-			)}
-			{props.children}
-		</RNTouchableOpacity>
-	);
-};
+		return (
+			<RNTouchableOpacity
+				ref={ref}
+				{...props}
+				style={style}
+				{...getOnPressFromProps(props)}
+			>
+				{props.icon && (
+					<VFlex
+						style={{
+							justifyContent: 'center',
+							alignItems: 'center',
+							marginRight: 8,
+						}}
+					>
+						{props.icon}
+					</VFlex>
+				)}
+				{props.label && (
+					<Text type={labelType} style={labelStyle}>
+						{props.label}
+					</Text>
+				)}
+				{props.children}
+
+				{props.loading && (
+					<ActivityIndicator
+						color={'white'}
+						style={{ position: 'absolute', right: 10 }}
+					/>
+				)}
+			</RNTouchableOpacity>
+		);
+	},
+);

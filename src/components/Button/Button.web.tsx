@@ -18,12 +18,12 @@ import {
 import './ButtonStyles.css';
 
 import { Text } from '../Text/Text.web';
+import { VFlex } from '../View/View.web';
+import { ActivityIndicator } from '../ActivityIndicator/ActivityIndicator.web';
 import { getAlignStyle } from '../../styles/Alignment';
 import { Padding } from '../../styles/Padding';
 import { Colors } from '../../styles/Colors';
 import { getOnPressFromProps } from '../../types/Clickable';
-
-import { VFlex } from '../../../web';
 
 const getDefaultButtonStyle = (
 	buttonType: ButtonType,
@@ -148,6 +148,12 @@ export const Button = React.forwardRef<RNWTouchableOpacity, ButtonProps>(
 							left: 0,
 							right: 0,
 						}}
+					/>
+				)}
+				{props.loading && (
+					<ActivityIndicator
+						color={'white'}
+						style={{ position: 'absolute', right: 10 }}
 					/>
 				)}
 			</RNWTouchableOpacity>

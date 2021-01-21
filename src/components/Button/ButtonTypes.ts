@@ -35,6 +35,8 @@ export type ButtonPropsWeb = RNWTouchableOpacityProps &
 		disabled?: boolean;
 
 		icon?: Icon;
+
+		loading?: boolean;
 	};
 
 export type ButtonPropsNative = RNTouchableOpacityProps &
@@ -52,4 +54,6 @@ export type ButtonPropsNative = RNTouchableOpacityProps &
 
 		icon?: Icon;
 		children?: Children;
+
+		loading?: boolean;
 	};

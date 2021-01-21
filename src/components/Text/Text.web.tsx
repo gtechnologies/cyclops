@@ -29,6 +29,13 @@ const textStyleDictionary: { [type: string]: TextStyle } = {
 		color: 'black',
 		//fontFamily: 'SFProText-Regular',
 	},
+	[TextTypeEnum.headline]: {
+		textAlign: 'left',
+		fontWeight: '600',
+		fontSize: '1em',
+		color: 'black',
+		//fontFamily: 'SFProText-Regular',
+	},
 	[TextTypeEnum.body]: {
 		textAlign: 'left',
 		fontWeight: '400',

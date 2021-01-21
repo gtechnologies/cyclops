@@ -31,8 +31,12 @@ const defaultCardStyle: ViewStyle = {
 };
 
 export const Card = (props: CardProps) => {
+	const { hideShadow, cornerType } = props;
+
 	let style: GenericStyleProp<ViewStyle> = {
 		...defaultCardStyle,
+		...(hideShadow && { boxShadow: undefined }),
+		...(cornerType !== 'rounded' && { borderRadius: 0 }),
 		...props.style,
 	};
 
@@ -51,4 +55,8 @@ export const Card = (props: CardProps) => {
 			</View>
 		</View>
 	);
+};
+
+Card.defaultProps = {
+	cornerType: 'rounded',
 };

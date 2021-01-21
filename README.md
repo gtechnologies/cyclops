@@ -5,7 +5,7 @@ A better way to write front-end code with One U-Eye for React and React Native.
 # Why wrap components with cyclops?
 
 -   Single API for core components between iOS/Android and Web
--   Abstraction of alignment direction for the horizontal and vertical axes (no more justifyContent or alignItems)
+-   Abstraction of alignment direction for the horizontal and vertical axes (no more need for justifyContent or alignItems)
 
 # Getting Started
 
@@ -58,6 +58,9 @@ None
 # // TODO:
 
 -   shift disabled color to be a constant
+-   implement TextInput parallel for web
+-   add some theme provider either with a Context element or in the style of @material-ui/core ThemeProvider
+-   move cornerType out of Card
 
 # Known Issues
 
@@ -68,6 +71,7 @@ None
     -   ForwardRef seems to be able to solve the issue
 -   ReactNative doesn't use className like React so we need to figure out an alternative way to pass style by class
 -   Types are not currently working when cyclops is installed as a package
+-   Does not work as styled-components which are common within our codebase
 
 # Concerns
 

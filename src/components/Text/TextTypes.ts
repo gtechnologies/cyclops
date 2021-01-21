@@ -11,9 +11,11 @@ export enum TextTypeEnum {
 	pagetitle = 'pagetitle',
 	title = 'title',
 	subtitle = 'subtitle',
+	// a bolder body
+	headline = 'headline',
 	body = 'body',
 }
-export type TextType = 'pagetitle' | 'title' | 'subtitle' | 'body';
+export type TextType = 'pagetitle' | 'title' | 'subtitle' | 'headline' | 'body';
 
 export type TextPropsWeb = RNWTextProps & {
 	type?: TextType;

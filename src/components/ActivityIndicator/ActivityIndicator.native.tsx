@@ -6,5 +6,6 @@ import { Colors } from '../../styles/Colors';
 import { ActivityIndicatorPropsNative as ActivityIndicatorProps } from './ActivityIndicatorTypes';
 
 export const ActivityIndicator = (props: ActivityIndicatorProps) => {
-	return <RNActivityIndicator color={Colors.BASE} {...props} />;
+	let color = props.color ? props.color : Colors.BASE;
+	return <RNActivityIndicator color={color} {...props} />;
 };
