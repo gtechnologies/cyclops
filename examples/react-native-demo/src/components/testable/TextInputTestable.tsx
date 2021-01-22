@@ -2,7 +2,9 @@ import React from 'react';
 import { TextInput } from 'cyclops/native';
 
 export class TextInputTestable extends React.Component {
+	//ref = React.createRef<typeof TextInput>();
 	ref = React.createRef<TextInput>();
+
 	render() {
 		return (
 			<TextInput
