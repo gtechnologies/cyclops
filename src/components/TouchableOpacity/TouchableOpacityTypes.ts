@@ -8,7 +8,9 @@ import { Children } from '../../types/Children';
 
 export type TouchableOpacityPropsWeb = RNWTouchableOpacityProps &
 	ClickableProps &
-	AlignItems;
+	AlignItems & {
+		disableHoverOverlay?: boolean;
+	};
 
 export type TouchableOpacityPropsNative = RNTouchableOpacityProps &
 	ClickableProps &
