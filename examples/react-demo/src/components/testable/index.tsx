@@ -8,6 +8,7 @@ import { RadioButtonTestable } from './RadioButtonTestable';
 import { SafeAreaViewTestable } from './SafeAreaViewTestable';
 import { ScrollViewTestable } from './ScrollViewTestable';
 import { SelectTestable } from './SelectTestable';
+import { ViewTestable } from './ViewTestable';
 
 interface TestableModalProps {
 	visible?: boolean;
@@ -20,7 +21,7 @@ export const TestableModal = (props: TestableModalProps) => {
 			style={{ zIndex: 1000 }}
 			presentationStyle="fullScreen"
 		>
-			<CardTestable />
+			<ViewTestable />
 		</Modal>
 	);
 };
