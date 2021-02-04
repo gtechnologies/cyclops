@@ -18,6 +18,7 @@ interface Props {
 	onChange?: (value: string | string[]) => void;
 	labelStyle?: RNWTextStyle;
 	style?: RNWViewStyle;
+	color?: string;
 }
 
 const defaultLabelStyle = {
@@ -85,6 +86,7 @@ export function Select(props: Props) {
 								setSelection(option);
 								if (props.onChange) props.onChange(option);
 							}}
+							color={props.color}
 						/>
 						<Text style={labelStyle} type="body">
 							{option}

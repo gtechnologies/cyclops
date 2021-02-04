@@ -16,7 +16,7 @@ export const RadioButton = React.forwardRef<
 	RadioButtonProps
 >((props, ref) => {
 	let size = props.size ? props.size : 30;
-	let color = props.color ? props.color : Colors.BASE;
+	let color = props.color ?? Colors.BASE;
 
 	let style: GenericStyleProp<ViewStyle> = {
 		height: size,
