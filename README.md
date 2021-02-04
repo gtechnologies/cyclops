@@ -69,6 +69,7 @@ None
     -   https://stackoverflow.com/questions/48930334/mui-next-tooltip-does-not-show-on-hover
     -   https://github.com/mui-org/material-ui/issues/21324
     -   ForwardRef seems to be able to solve the issue
+    -   Tooltip doesn't play well with the Modal
 -   ReactNative doesn't use className like React so we need to figure out an alternative way to pass style by class
 -   Types are not currently working when cyclops is installed as a package
 -   Does not work as styled-components which are common within our codebase
@@ -106,6 +107,10 @@ Non .ts or .tsx files are by default not handled by `tsc` and so an alternative 
 `https://vccolombo.github.io/blog/tsc-how-to-copy-non-typescript-files-when-building/`
 
 `https://stackoverflow.com/questions/46075993/how-to-include-a-css-file-in-react-and-typescript-npm-package/65364696#65364696`
+
+# refs and forwardRef
+
+-   https://medium.com/@martin_hotell/react-refs-with-typescript-a32d56c4d315
 
 # Dependencies
 

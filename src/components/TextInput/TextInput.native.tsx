@@ -20,17 +20,29 @@ const textInputStyleDictionary: { [type: string]: ViewStyle } = {
 	},
 };
 
-export const TextInput = (props: TextInputProps) => {
-	// TODO: fix how style is implemented here and add it to web as well but this is temporary to be a non blocker
-	let textInputType = props.type ? props.type : 'none';
-	let style: ViewStyle = {
-		...textInputStyleDictionary[textInputType],
-		...(props.style as ViewStyle),
+export class TextInput extends React.PureComponent<TextInputProps> {
+	static defaultProps = {
+		type: 'none',
 	};
 
-	return <RNTextInput {...props} style={style} />;
-};
+	ref = React.createRef<RNTextInput>();
 
-TextInput.defaultProps = {
-	type: 'none',
-};
+	/**
+	 * Requests focus for the given TextInput.
+	 */
+	focus() {
+		this.ref.current?.focus();
+	}
+
+	render() {
+		const { props } = this;
+		// TODO: fix how style is implemented here and add it to web as well but this is temporary to be a non blocker
+		let textInputType = props.type ? props.type : 'none';
+		let style: ViewStyle = {
+			...textInputStyleDictionary[textInputType],
+			...(props.style as ViewStyle),
+		};
+
+		return <RNTextInput ref={this.ref} {...props} style={style} />;
+	}
+}

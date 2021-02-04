@@ -12,7 +12,7 @@ let defaultViewStyle: ViewStyle = {
 	boxSizing: 'border-box',
 };
 
-export const View: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
+export const View = React.forwardRef<RNWView, ViewProps>((props, ref) => {
 	let alignStyle = getAlignStyle(
 		props.style,
 		props.alignItemsH,
@@ -26,13 +26,13 @@ export const View: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	};
 
 	return (
-		<RNWView {...props} style={style}>
+		<RNWView ref={ref} {...props} style={style}>
 			{props.children}
 		</RNWView>
 	);
-};
+});
 
-export const VFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
+export const VFlex = React.forwardRef<RNWView, ViewProps>((props, ref) => {
 	let alignStyle = getAlignStyle(
 		{ flexDirection: 'column', ...props.style },
 		props.alignItemsH,
@@ -47,13 +47,13 @@ export const VFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	};
 
 	return (
-		<RNWView {...props} style={style}>
+		<RNWView ref={ref} {...props} style={style}>
 			{props.children}
 		</RNWView>
 	);
-};
+});
 
-export const HFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
+export const HFlex = React.forwardRef<RNWView, ViewProps>((props, ref) => {
 	let alignStyle = getAlignStyle(
 		{ flexDirection: 'row', ...props.style },
 		props.alignItemsH,
@@ -68,8 +68,8 @@ export const HFlex: React.FunctionComponent<ViewProps> = (props: ViewProps) => {
 	};
 
 	return (
-		<RNWView {...props} style={style}>
+		<RNWView ref={ref} {...props} style={style}>
 			{props.children}
 		</RNWView>
 	);
-};
+});

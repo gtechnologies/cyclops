@@ -1,0 +1,10 @@
+.touchableOpacityOverlay {
+	background-color: transparent;
+}
+.touchableOpacityOverlay:hover {
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.disabledTouchableOpacityOverlay {
+	background-color: rgba(200, 200, 200, 0.3);
+}
