@@ -8,6 +8,7 @@ import { RadioButtonTestable } from './RadioButtonTestable';
 import { SafeAreaViewTestable } from './SafeAreaViewTestable';
 import { ScrollViewTestable } from './ScrollViewTestable';
 import { SelectTestable } from './SelectTestable';
+import { TextInputTestable } from './TextInputTestable';
 import { TouchableOpacityTestable } from './TouchableOpacityTestable';
 import { ViewTestable } from './ViewTestable';
 
@@ -22,7 +23,7 @@ export const TestableModal = (props: TestableModalProps) => {
 			style={{ zIndex: 1000 }}
 			presentationStyle="fullScreen"
 		>
-			<TouchableOpacityTestable />
+			<TextInputTestable />
 		</Modal>
 	);
 };
