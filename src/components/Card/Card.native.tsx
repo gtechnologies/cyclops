@@ -42,21 +42,9 @@ export const Card = (props: CardProps) => {
 		...(props.style as ViewStyle),
 	};
 
-	// Note: a content container is used because overflow: 'hidden' on mobile removes shadows
 	return (
-		<View style={style}>
-			<View
-				{...props}
-				style={{
-					flex: 1,
-					borderRadius: 8,
-					...(cornerType !== 'rounded' && { borderRadius: 0 }),
-					overflow: 'hidden',
-					...props.contentStyle,
-				}}
-			>
-				{props.children}
-			</View>
+		<View {...props} style={style}>
+			{props.children}
 		</View>
 	);
 };

@@ -19,7 +19,7 @@ interface TestableModalProps {
 export const TestableModal = (props: TestableModalProps) => {
 	return (
 		<Modal visible={props.visible} presentationStyle="formSheet">
-			<TextInputTestable />
+			<CardTestable />
 		</Modal>
 	);
 };

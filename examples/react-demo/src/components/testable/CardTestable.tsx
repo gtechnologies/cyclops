@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, VFlex } from 'cyclops/web';
+import { Card, Text, VFlex } from 'cyclops/web';
 
 export const CardTestable = () => {
 	return (
@@ -30,6 +30,18 @@ export const CardTestable = () => {
 				}}
 				hideShadow
 			/>
+
+			<VFlex style={{ width: 300, backgroundColor: 'cyan', height: 300 }}>
+				<Card>
+					<Text>Hello</Text>
+				</Card>
+				<Card>
+					<Text>Hello</Text>
+				</Card>
+				<Card>
+					<Text>Hello</Text>
+				</Card>
+			</VFlex>
 		</VFlex>
 	);
 };

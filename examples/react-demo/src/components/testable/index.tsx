@@ -23,7 +23,7 @@ export const TestableModal = (props: TestableModalProps) => {
 			style={{ zIndex: 1000 }}
 			presentationStyle="fullScreen"
 		>
-			<TextInputTestable />
+			<CardTestable />
 		</Modal>
 	);
 };
