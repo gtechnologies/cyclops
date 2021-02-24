@@ -19,13 +19,14 @@ interface Props {
 	labelStyle?: RNWTextStyle;
 	style?: RNWViewStyle;
 	color?: string;
+	size?: number;
 }
 
 const defaultLabelStyle = {
 	paddingLeft: Padding.ELEMENT_WEB,
 };
 
-export function Select(props: Props) {
+export const Select: React.FunctionComponent<Props> = (props: Props) => {
 	var optionElemets: ReactNode = [];
 
 	let labelStyle = {
@@ -33,9 +34,10 @@ export function Select(props: Props) {
 		...props.labelStyle,
 	};
 
+	const [selection, setSelection] = useState<string[] | undefined>(undefined);
+
 	if (props.multiSelect) {
 		// TODO: find a way to make useState type to string array that doesn't require filtering out the empty string later
-		const [selection, setSelection] = useState(['']);
 		optionElemets = props.options.map((option) => {
 			return (
 				<View style={{ padding: Padding.ELEMENT_WEB }}>
@@ -43,22 +45,30 @@ export function Select(props: Props) {
 						onPress={(e: any) => {
 							//need local var so it is updated immediately
 							var res = selection;
-							if (res.indexOf(option) >= 0)
-								res = selection.filter(
+							if (res && res.indexOf(option) >= 0)
+								res = selection?.filter(
 									(item) => item != option && item != '',
 								);
-							else res = [...selection, option];
+							else
+								res = selection
+									? [...selection, option]
+									: [option];
 
 							setSelection(res);
-							if (props.onChange) props.onChange(res);
+							if (props.onChange) props.onChange(res ?? []);
 						}}
 						style={{ display: 'flex', flexDirection: 'row' }}
+						alignItemsV="center"
 					>
 						<CheckBox
-							color={Colors.BASE}
+							style={props.style}
+							color={props.color ?? Colors.BASE}
 							value={
-								selection.indexOf(option) >= 0 ? true : false
+								selection && selection.indexOf(option) >= 0
+									? true
+									: false
 							}
+							size={props.size}
 						/>
 						<Text style={labelStyle} type="body">
 							{option}
@@ -68,25 +78,30 @@ export function Select(props: Props) {
 			);
 		});
 	} else {
-		const [selection, setSelection] = useState('');
 		optionElemets = props.options.map((option) => {
 			return (
 				<View style={{ padding: Padding.ELEMENT_WEB }}>
 					<TouchableOpacity
 						onPress={(e: any) => {
-							setSelection(option);
+							setSelection([option]);
 							if (props.onChange) props.onChange(option);
 						}}
 						style={{ display: 'flex', flexDirection: 'row' }}
+						alignItemsV="center"
 					>
 						<RadioButton
 							style={props.style}
-							selected={option == selection ? true : false}
+							selected={
+								selection && option === selection[0]
+									? true
+									: false
+							}
 							onValueChange={() => {
-								setSelection(option);
+								setSelection([option]);
 								if (props.onChange) props.onChange(option);
 							}}
 							color={props.color}
+							size={props.size}
 						/>
 						<Text style={labelStyle} type="body">
 							{option}
@@ -99,4 +114,4 @@ export function Select(props: Props) {
 	// need alignitems to something other than the default stretch, or the touchable opacity
 	// will expand far past the text and button for an option on the select
 	return <View style={{ alignItems: 'flex-start' }}>{optionElemets}</View>;
-}
+};
