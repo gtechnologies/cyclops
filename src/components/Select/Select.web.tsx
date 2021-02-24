@@ -58,6 +58,7 @@ export const Select: React.FunctionComponent<Props> = (props: Props) => {
 							if (props.onChange) props.onChange(res ?? []);
 						}}
 						style={{ display: 'flex', flexDirection: 'row' }}
+						alignItemsV="center"
 					>
 						<CheckBox
 							style={props.style}
@@ -86,6 +87,7 @@ export const Select: React.FunctionComponent<Props> = (props: Props) => {
 							if (props.onChange) props.onChange(option);
 						}}
 						style={{ display: 'flex', flexDirection: 'row' }}
+						alignItemsV="center"
 					>
 						<RadioButton
 							style={props.style}
