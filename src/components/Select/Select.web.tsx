@@ -15,7 +15,7 @@ import { Padding, Colors } from '../../../styles';
 interface Props {
 	options: string[];
 	multiSelect?: boolean;
-	onChange?: (value: string | string[] | undefined) => void;
+	onChange?: (value: string | string[]) => void;
 	labelStyle?: RNWTextStyle;
 	style?: RNWViewStyle;
 	color?: string;
@@ -55,7 +55,7 @@ export const Select: React.FunctionComponent<Props> = (props: Props) => {
 									: [option];
 
 							setSelection(res);
-							if (props.onChange) props.onChange(res);
+							if (props.onChange) props.onChange(res ?? []);
 						}}
 						style={{ display: 'flex', flexDirection: 'row' }}
 					>
