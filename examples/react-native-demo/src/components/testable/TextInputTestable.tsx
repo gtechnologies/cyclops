@@ -17,6 +17,8 @@ export class TextInputTestable extends React.Component {
 						this.cyclopsTextInputRef.current?.focus()
 					}
 					style={{ backgroundColor: 'red' }}
+					numberOfLines={3}
+					multiline={true}
 				/>
 				<TextInput
 					ref={this.cyclopsTextInputRef}
@@ -25,7 +27,8 @@ export class TextInputTestable extends React.Component {
 						marginTop: 20,
 					}}
 					placeholder="Hallo"
-					//multiline={true}
+					multiline={true}
+					numberOfLines={3}
 					type="rounded"
 				/>
 			</VFlex>

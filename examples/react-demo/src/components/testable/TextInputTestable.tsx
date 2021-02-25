@@ -1,18 +1,21 @@
 import React from 'react';
-import { TextInput } from 'cyclops/web';
+import { TextInput, VFlex } from 'cyclops/web';
 
 export class TextInputTestable extends React.Component {
 	render() {
 		return (
-			<TextInput
-				style={{
-					width: '100%',
-					marginTop: 20,
-				}}
-				placeholder="Hallo"
-				//multiline={true}
-				//type="rounded"
-			/>
+			<VFlex style={{ height: 300, backgroundColor: 'blue' }}>
+				<TextInput
+					style={{
+						width: '100%',
+						marginTop: 20,
+					}}
+					placeholder="Hallo"
+					multiline={true}
+					type="rounded"
+					numberOfLines={2}
+				/>
+			</VFlex>
 		);
 	}
 }
