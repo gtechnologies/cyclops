@@ -18,6 +18,7 @@ interface Props {
 	onChange?: (value: string | string[]) => void;
 	labelStyle?: RNTextStyle;
 	style?: RNViewStyle;
+	defaultSelection?: string[];
 }
 
 const defaultLabelStyle = {
@@ -34,7 +35,9 @@ export function Select(props: Props) {
 
 	if (props.multiSelect) {
 		// TODO: find a way to make useState type to string array that doesn't require filtering out the empty string later
-		const [selection, setSelection] = useState(['']);
+		const [selection, setSelection] = useState(
+			props.defaultSelection ?? [''],
+		);
 		optionElemets = props.options.map((option) => {
 			return (
 				<View style={{ padding: Padding.ELEMENT_WEB }}>
@@ -79,7 +82,9 @@ export function Select(props: Props) {
 			);
 		});
 	} else {
-		const [selection, setSelection] = useState('');
+		const [selection, setSelection] = useState(
+			props.defaultSelection ? props.defaultSelection[0] : '',
+		);
 		optionElemets = props.options.map((option) => {
 			return (
 				<View style={{ padding: Padding.ELEMENT_WEB }}>

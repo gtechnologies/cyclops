@@ -20,6 +20,7 @@ interface Props {
 	style?: RNWViewStyle;
 	color?: string;
 	size?: number;
+	defaultSelection?: string[];
 }
 
 const defaultLabelStyle = {
@@ -34,7 +35,9 @@ export const Select: React.FunctionComponent<Props> = (props: Props) => {
 		...props.labelStyle,
 	};
 
-	const [selection, setSelection] = useState<string[] | undefined>(undefined);
+	const [selection, setSelection] = useState<string[] | undefined>(
+		props.defaultSelection,
+	);
 
 	if (props.multiSelect) {
 		// TODO: find a way to make useState type to string array that doesn't require filtering out the empty string later
