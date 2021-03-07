@@ -36,11 +36,11 @@
 		"@types/react-native-web": "git+https://github.com/gtechnologies/react-native-web-ts-types.git",
 		"copyfiles": "^2.4.1",
 		"prettier": "2.2.1",
-		"rimraf": "^3.0.2"
+		"rimraf": "^3.0.2",
+		"typescript": "^4.2.3"
 	},
 	"dependencies": {
 		"@types/react-native": "^0.63.42",
-		"react-native-web": "^0.14.9",
-		"typescript": "^4.1.3"
+		"react-native-web": "^0.14.9"
 	}
 }
