@@ -1,8 +1,8 @@
 import React, { ReactNode } from 'react';
 import { useState } from 'react';
 import {
-	TextStyle as RNWTextStyle,
-	ViewStyle as RNWViewStyle,
+	TextStyle as RNTextStyle,
+	ViewStyle as RNViewStyle,
 } from 'react-native';
 
 import { CheckBox } from '../CheckBox/CheckBox.native';
@@ -16,8 +16,8 @@ interface Props {
 	options: string[];
 	multiSelect?: boolean;
 	onChange?: (value: string | string[]) => void;
-	labelStyle?: RNWTextStyle;
-	style?: RNWViewStyle;
+	labelStyle?: RNTextStyle;
+	style?: RNViewStyle;
 	color?: string;
 	size?: number;
 	defaultSelection?: string[];
