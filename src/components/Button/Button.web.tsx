@@ -100,7 +100,7 @@ export const Button = React.forwardRef<RNWTouchableOpacity, ButtonProps>(
 			...props.style,
 		};
 
-		let labelType = props.labelType ? props.labelType : 'subtitle';
+		let labelType = props.labelType ? props.labelType : 'button';
 
 		let labelStyle = {
 			...getDefaultButtonLabelStyle(buttonType, color),

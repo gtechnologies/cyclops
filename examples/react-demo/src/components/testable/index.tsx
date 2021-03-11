@@ -11,19 +11,20 @@ import { SelectTestable } from './SelectTestable';
 import { TextInputTestable } from './TextInputTestable';
 import { TouchableOpacityTestable } from './TouchableOpacityTestable';
 import { ViewTestable } from './ViewTestable';
+import { TextTestable } from './TextTestable';
 
 interface TestableModalProps {
-	visible?: boolean;
+    visible?: boolean;
 }
 
 export const TestableModal = (props: TestableModalProps) => {
-	return (
-		<Modal
-			visible={props.visible}
-			style={{ zIndex: 1000 }}
-			presentationStyle="fullScreen"
-		>
-			<CardTestable />
-		</Modal>
-	);
+    return (
+        <Modal
+            visible={props.visible}
+            style={{ zIndex: 1000 }}
+            presentationStyle="fullScreen"
+        >
+            <TextTestable />
+        </Modal>
+    );
 };
