@@ -7,9 +7,92 @@ import {
 	TextTypeEnum,
 } from './TextTypes';
 
+
 // font styles based on iOS Human Interface Guidelines: Typography
 // https://developer.apple.com/design/human-interface-guidelines/ios/visual-design/typography/
 const textStyleDictionary: { [type: string]: TextStyle } = {
+	[TextTypeEnum.h1]: {
+        fontWeight: '700',
+        fontSize: 28,
+        color: 'black',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.h2]: {
+        fontWeight: '700',
+        fontSize: 24,
+        color: 'black',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.h3]: {
+        fontWeight: '600',
+        fontSize: 18,
+        color: 'black',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.h4]: {
+        fontWeight: '600',
+        fontSize: 16,
+        color: 'black',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.h5]: {
+        fontWeight: '500',
+        fontSize: 16,
+        color: 'black',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.h6]: {
+        fontWeight: '600',
+        fontSize: 14,
+        color: 'black',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.subtitle1]: {
+        fontWeight: '400',
+        fontSize: 14,
+        color: '#727982',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.subtitle2]: {
+        fontWeight: '400',
+        fontSize: 13,
+        color: '#B2B2B2',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.metadata1]: {
+        fontWeight: '600',
+        fontSize: 14,
+        color: 'black',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.metadata2]: {
+        fontWeight: '500',
+        fontSize: 12,
+        color: '#727982',
+        fontFamily: 'Inter'
+    },
+    [TextTypeEnum.overline1]: {
+        fontWeight: '600',
+        fontSize: 12,
+        color: 'black',
+        fontFamily: 'Inter',
+        textTransform: 'uppercase',
+    },
+    [TextTypeEnum.overline2]: {
+        fontWeight: '800',
+        fontSize: 11,
+        color: '#596BE4',
+        fontFamily: 'Inter',
+        textTransform: 'uppercase',
+    },
+    [TextTypeEnum.button]: {
+        fontWeight: '500',
+		fontSize: 14,
+        color: 'black',
+        fontFamily: 'Inter'
+    },
+
+
 	[TextTypeEnum.pagetitle]: {
 		textAlign: 'left',
 		fontWeight: 'normal',
