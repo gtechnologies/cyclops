@@ -28,6 +28,10 @@ None
 
 ### Additional Setup
 
+https://callstack.github.io/react-native-paper/getting-started.html
+`npm install react-native-paper`
+`npm install react-native-vector-icons`
+
 #### For iOS
 
 `cd ios && pod install`
