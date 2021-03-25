@@ -1,3 +1,8 @@
-interface ChipPropsWeb {}
 
-interface ChipPropsNative {}
+interface ChipPropsWeb {
+
+}
+
+interface ChipPropsNative {
+  
+}

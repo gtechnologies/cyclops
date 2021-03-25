@@ -30,7 +30,7 @@ None
 
 https://callstack.github.io/react-native-paper/getting-started.html
 `npm install react-native-paper`
-`npm install react-native-vector-icons`
+`npm install react-native-vector-icons --save`
 
 #### For iOS
 
