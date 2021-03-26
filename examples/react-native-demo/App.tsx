@@ -17,6 +17,8 @@ import { CreatePost } from './src/components/glimpse/cross/posts/CreatePost';
 
 import { TestableModal } from './src/components/testable';
 
+import { Stories } from './src/components/stories';
+
 declare const global: { HermesInternal: null | {} };
 
 interface AppProps {}
@@ -33,6 +35,7 @@ class App extends React.Component<AppProps, AppState> {
 	}
 	render() {
 		const { showTestableModal } = this.state;
+		return <Stories />;
 		return (
 			<SafeAreaView style={{ flex: 1 }}>
 				<TestableModal visible={showTestableModal} />

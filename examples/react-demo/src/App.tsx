@@ -3,12 +3,21 @@ import React from 'react';
 import { Tooltip } from '@material-ui/core';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-import { Button, IconButton, View, RadioButton, Select } from 'cyclops/web';
+import {
+	Button,
+	IconButton,
+	View,
+	RadioButton,
+	Select,
+	VFlex,
+} from 'cyclops/web';
 import { Post } from './components/glimpse/cross/posts/Post';
 import { CreatePost } from './components/glimpse/cross/posts/CreatePost';
 import { PollPost } from './components/glimpse/cross/posts/PollPost';
 
 import { TestableModal } from './components/testable';
+
+import { Stories } from './components/stories';
 
 interface AppProps {}
 interface AppState {
@@ -43,6 +52,11 @@ class App extends React.Component<AppProps, AppState> {
 	}
 	render() {
 		const { showTestableModal } = this.state;
+		return (
+			<VFlex style={{ width: 300, height: 400, position: 'relative' }}>
+				<Stories />
+			</VFlex>
+		);
 		return (
 			<div className="App">
 				<TestableModal visible={showTestableModal} />
