@@ -91,14 +91,6 @@ const Stories = (props) => {
 					transparent={false}
 					visible={isModalOpen}
 					style={styles.modal}
-					onShow={() => {
-						if (currentUserIndex > 0) {
-							modalScroll.current.scrollTo(
-								currentUserIndex,
-								false,
-							);
-						}
-					}}
 					onRequestClose={onStoryClose}
 				>
 					{/* eslint-disable-next-line max-len */}

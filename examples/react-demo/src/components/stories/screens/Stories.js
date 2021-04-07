@@ -14,6 +14,8 @@ import AllStories from '../constants/AllStories';
 import StoryBlockContainer from '../components/StoryBlockContainer';
 import UserView from '../components/UserView';
 
+import { Dialog } from '@material-ui/core';
+
 const Stories = (props) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [currentUserIndex, setCurrentUserIndex] = useState(0);
@@ -88,58 +90,79 @@ const Stories = (props) => {
 			{isModalOpen && (
 				<Modal
 					animationType="slide"
-					transparent={false}
+					transparent={true}
 					visible={isModalOpen}
 					style={styles.modal}
-					onShow={() => {
-						if (currentUserIndex > 0) {
-							modalScroll.current.scrollTo(
-								currentUserIndex,
-								false,
-							);
-						}
-					}}
 					onRequestClose={onStoryClose}
 				>
 					{/* eslint-disable-next-line max-len */}
-					<CubeNavigationHorizontal
-						callBackAfterSwipe={(g) => onScrollChange(g)}
-						ref={modalScroll}
-						style={styles.container}
-						initialPage={currentUserIndex}
+					<View
+						style={{
+							display: 'flex',
+							flexDirection: 'column',
+							backgroundColor: 'rgba(100,100,100,0.5)',
+							width: '100%',
+							height: '100%',
+							justifyContent: 'center',
+							alignItems: 'center',
+						}}
 					>
-						{AllStories.map((item, index) => (
-							<StoryBlockContainer
-								onClose={onStoryClose}
-								onStoryNext={onStoryNext}
-								onStoryPrevious={onStoryPrevious}
-								user={item}
-								isNewStory={index !== currentUserIndex}
-								renderStory={(story) => {
-									return (
-										<View
-											style={{
-												flex: 1,
-												width: '100%',
-												backgroundColor: 'orange',
-											}}
-										></View>
-									);
-								}}
-								renderStoryBlockHeader={(
-									storyBlock,
-									storyIndex,
-								) => {
-									return (
-										<UserView
-											name={storyBlock.title}
-											profile={storyBlock.profile}
-										/>
-									);
-								}}
-							/>
-						))}
-					</CubeNavigationHorizontal>
+						<View
+							style={{
+								width: '100%',
+								maxWidth: 400,
+								height: '100%',
+								maxHeight: 711,
+								backgroundColor: 'black',
+								position: 'relative',
+								// padding: 40,
+								// justifyContent: 'center',
+								// alignItems: 'center',
+							}}
+						>
+							<CubeNavigationHorizontal
+								callBackAfterSwipe={(g) => onScrollChange(g)}
+								ref={modalScroll}
+								style={styles.container}
+								initialPage={currentUserIndex}
+								width={400}
+								height={711}
+							>
+								{AllStories.map((item, index) => (
+									<StoryBlockContainer
+										onClose={onStoryClose}
+										onStoryNext={onStoryNext}
+										onStoryPrevious={onStoryPrevious}
+										user={item}
+										isNewStory={index !== currentUserIndex}
+										renderStory={(story) => {
+											return (
+												<View
+													style={{
+														flex: 1,
+														width: '100%',
+														backgroundColor:
+															'orange',
+													}}
+												></View>
+											);
+										}}
+										renderStoryBlockHeader={(
+											storyBlock,
+											storyIndex,
+										) => {
+											return (
+												<UserView
+													name={storyBlock.title}
+													profile={storyBlock.profile}
+												/>
+											);
+										}}
+									/>
+								))}
+							</CubeNavigationHorizontal>
+						</View>
+					</View>
 				</Modal>
 			)}
 		</View>

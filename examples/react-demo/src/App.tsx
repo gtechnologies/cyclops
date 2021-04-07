@@ -53,7 +53,7 @@ class App extends React.Component<AppProps, AppState> {
 	render() {
 		const { showTestableModal } = this.state;
 		return (
-			<VFlex style={{ width: 300, height: 400, position: 'relative' }}>
+			<VFlex style={{}}>
 				<Stories />
 			</VFlex>
 		);

@@ -7,7 +7,6 @@ import {
 	StyleSheet,
 	Platform,
 } from 'react-native';
-const { width, height } = Dimensions.get('window');
 
 const PESPECTIVE = Platform.OS === 'ios' ? 2.38 : 1.7;
 const TR_POSITION = Platform.OS === 'ios' ? 2 : 1.5;
@@ -15,6 +14,8 @@ const TR_POSITION = Platform.OS === 'ios' ? 2 : 1.5;
 export default class CubeNavigationHorizontal extends React.Component {
 	constructor(props) {
 		super(props);
+
+		const { width, height } = props;
 
 		this.pages = this.props.children.map((child, index) => width * -index);
 		this.fullWidth = (this.props.children.length - 1) * width;
@@ -26,6 +27,8 @@ export default class CubeNavigationHorizontal extends React.Component {
 	}
 
 	componentWillMount() {
+		const { width, height } = this.props;
+
 		this._animatedValue = new Animated.ValueXY();
 		this._animatedValue.setValue({
 			x: this.pages[this.state.currentPage],
@@ -141,6 +144,8 @@ export default class CubeNavigationHorizontal extends React.Component {
   */
 
 	_getTransformsFor = (i) => {
+		const { width, height } = this.props;
+
 		let scrollX = this._animatedValue.x;
 		let pageX = -width * i;
 		let loopVariable = (variable, sign = 1) =>
@@ -222,6 +227,8 @@ export default class CubeNavigationHorizontal extends React.Component {
 	};
 
 	_renderChild = (child, i) => {
+		const { width, height } = this.props;
+
 		let expandStyle = this.props.expandView
 			? { paddingTop: 100, paddingBottom: 100, height: height + 200 }
 			: { width, height };
@@ -263,6 +270,8 @@ export default class CubeNavigationHorizontal extends React.Component {
 	};
 
 	render() {
+		const { width, height } = this.props;
+
 		let expandStyle = this.props.expandView
 			? { top: -100, left: 0, width, height: height + 200 }
 			: { width, height };
@@ -301,10 +310,14 @@ CubeNavigationHorizontal.propTypes = {
 	responderCaptureDx: PropTypes.number,
 	expandView: PropTypes.bool,
 	loop: PropTypes.bool,
+	width: PropTypes.number,
+	height: PropTypes.number,
 };
 
 CubeNavigationHorizontal.defaultProps = {
 	responderCaptureDx: 60,
 	expandView: false,
 	loop: false,
+	width: Dimensions.get('window').width,
+	height: Dimensions.get('window').height,
 };
