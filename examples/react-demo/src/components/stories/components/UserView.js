@@ -24,14 +24,6 @@ class UserView extends React.PureComponent {
 					<Text style={styles.name}>{props.name}</Text>
 					<Text style={styles.time}>Posted 2h ago</Text>
 				</View>
-				<TouchableOpacity onPress={props.onClosePress}>
-					{/* <Icon
-						name="close"
-						color="white"
-						size={25}
-						style={{ marginRight: 8 }}
-					/> */}
-				</TouchableOpacity>
 			</View>
 		);
 	}

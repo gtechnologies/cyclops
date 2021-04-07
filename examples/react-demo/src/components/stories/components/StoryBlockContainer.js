@@ -187,12 +187,11 @@ const StoryBlockContainer = (props) => {
 								flexDirection: 'row',
 							}}
 						>
-							<View style={{ flex: 1 }}>
-								<UserView
-									name={user.title}
-									profile={user.profile}
-									onClosePress={props.onClose}
-								/>
+							<View style={{ flex: 1, overflow: 'hidden' }}>
+								{props.renderStoryBlockHeader(
+									user,
+									currentIndex,
+								)}
 							</View>
 							<TouchableOpacity
 								style={{

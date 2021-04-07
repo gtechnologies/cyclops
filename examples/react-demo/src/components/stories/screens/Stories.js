@@ -12,6 +12,7 @@ import {
 import CubeNavigationHorizontal from '../external/CubeNavigationHorizontal';
 import AllStories from '../constants/AllStories';
 import StoryBlockContainer from '../components/StoryBlockContainer';
+import UserView from '../components/UserView';
 
 const Stories = (props) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
@@ -123,6 +124,17 @@ const Stories = (props) => {
 												backgroundColor: 'orange',
 											}}
 										></View>
+									);
+								}}
+								renderStoryBlockHeader={(
+									storyBlock,
+									storyIndex,
+								) => {
+									return (
+										<UserView
+											name={storyBlock.title}
+											profile={storyBlock.profile}
+										/>
 									);
 								}}
 							/>

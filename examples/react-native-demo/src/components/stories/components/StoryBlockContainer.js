@@ -12,7 +12,6 @@ import {
 // import Modal from 'react-native-modalbox';
 // import GestureRecognizer from 'react-native-swipe-gestures';
 import StoryView from './StoryView';
-import UserView from './UserView';
 import ProgressArray from './ProgressArray';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -154,7 +153,6 @@ const StoryBlockContainer = (props) => {
 							top: 10,
 							width: '95%',
 							minHeight: 40,
-
 							flexDirection: 'column',
 							alignItems: 'center',
 						}}
@@ -173,11 +171,10 @@ const StoryBlockContainer = (props) => {
 						/>
 						<View style={{ width: '100%', flexDirection: 'row' }}>
 							<View style={{ flex: 1 }}>
-								<UserView
-									name={user.title}
-									profile={user.profile}
-									onClosePress={props.onClose}
-								/>
+								{props.renderStoryBlockHeader(
+									user,
+									currentIndex,
+								)}
 							</View>
 							<TouchableOpacity
 								style={{
