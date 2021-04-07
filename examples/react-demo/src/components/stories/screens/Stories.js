@@ -11,21 +11,21 @@ import {
 // import Modal from 'react-native-modalbox';
 import CubeNavigationHorizontal from '../external/CubeNavigationHorizontal';
 import AllStories from '../constants/AllStories';
-import StoryContainer from '../components/StoryContainer';
+import StoryBlockContainer from '../components/StoryBlockContainer';
 
 const Stories = (props) => {
-	const [isModelOpen, setModel] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [currentUserIndex, setCurrentUserIndex] = useState(0);
 	const [currentScrollValue, setCurrentScrollValue] = useState(0);
 	const modalScroll = useRef(null);
 
 	const onStorySelect = (index) => {
 		setCurrentUserIndex(index);
-		setModel(true);
+		setIsModalOpen(true);
 	};
 
 	const onStoryClose = () => {
-		setModel(false);
+		setIsModalOpen(false);
 	};
 
 	const onStoryNext = (isScroll) => {
@@ -36,7 +36,7 @@ const Stories = (props) => {
 				modalScroll.current.scrollTo(newIndex, true);
 			}
 		} else {
-			setModel(false);
+			setIsModalOpen(false);
 		}
 	};
 
@@ -84,53 +84,52 @@ const Stories = (props) => {
 				)}
 			/>
 
-			<FlatList
-				data={AllStories}
-				ItemSeparatorComponent={renderSeperator}
-				style={{ paddingHorizontal: 10 }}
-				renderItem={({ item, index }) => (
-					<TouchableOpacity
-						onPress={() => onStorySelect(index)}
-						style={{ flexDirection: 'row', alignItems: 'center' }}
-					>
-						<Image
-							style={styles.circle}
-							source={{ uri: item.profile }}
-						/>
-						<Text style={styles.title}>{item.title}</Text>
-					</TouchableOpacity>
-				)}
-			/>
-
-			<Modal
-				animationType="slide"
-				transparent={false}
-				visible={isModelOpen}
-				style={styles.modal}
-				onShow={() => {
-					if (currentUserIndex > 0) {
-						modalScroll.current.scrollTo(currentUserIndex, false);
-					}
-				}}
-				onRequestClose={onStoryClose}
-			>
-				{/* eslint-disable-next-line max-len */}
-				<CubeNavigationHorizontal
-					callBackAfterSwipe={(g) => onScrollChange(g)}
-					ref={modalScroll}
-					style={styles.container}
+			{isModalOpen && (
+				<Modal
+					animationType="slide"
+					transparent={false}
+					visible={isModalOpen}
+					style={styles.modal}
+					onShow={() => {
+						if (currentUserIndex > 0) {
+							modalScroll.current.scrollTo(
+								currentUserIndex,
+								false,
+							);
+						}
+					}}
+					onRequestClose={onStoryClose}
 				>
-					{AllStories.map((item, index) => (
-						<StoryContainer
-							onClose={onStoryClose}
-							onStoryNext={onStoryNext}
-							onStoryPrevious={onStoryPrevious}
-							user={item}
-							isNewStory={index !== currentUserIndex}
-						/>
-					))}
-				</CubeNavigationHorizontal>
-			</Modal>
+					{/* eslint-disable-next-line max-len */}
+					<CubeNavigationHorizontal
+						callBackAfterSwipe={(g) => onScrollChange(g)}
+						ref={modalScroll}
+						style={styles.container}
+						initialPage={currentUserIndex}
+					>
+						{AllStories.map((item, index) => (
+							<StoryBlockContainer
+								onClose={onStoryClose}
+								onStoryNext={onStoryNext}
+								onStoryPrevious={onStoryPrevious}
+								user={item}
+								isNewStory={index !== currentUserIndex}
+								renderStory={(story) => {
+									return (
+										<View
+											style={{
+												flex: 1,
+												width: '100%',
+												backgroundColor: 'orange',
+											}}
+										></View>
+									);
+								}}
+							/>
+						))}
+					</CubeNavigationHorizontal>
+				</Modal>
+			)}
 		</View>
 	);
 };

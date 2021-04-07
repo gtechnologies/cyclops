@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unused-prop-types */
 import React from 'react';
-import { Dimensions, Image, StyleSheet, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, View } from 'react-native-web';
 // import Video from 'react-native-video';
 // import Image from 'react-native-scalable-image';
 import PropTypes from 'prop-types';
 
 const ScreenWidth = Dimensions.get('window').width;
 
-const Story = (props) => {
+const StoryView = (props) => {
 	const { story } = props;
 	const { url, type } = story || {};
 
@@ -45,7 +45,7 @@ const Story = (props) => {
 	);
 };
 
-Story.propTypes = {
+StoryView.propTypes = {
 	story: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
 };
 
@@ -56,6 +56,8 @@ const styles = StyleSheet.create({
 		backgroundColor: 'gray',
 		justifyContent: 'center',
 		alignItems: 'center',
+		borderRadius: 10,
+		overflow: 'hidden',
 	},
 	content: { width: '100%', height: '100%', flex: 1 },
 	imageContent: {
@@ -72,4 +74,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default Story;
+export default StoryView;

@@ -3,27 +3,28 @@ import {
 	ActivityIndicator,
 	Dimensions,
 	//Modal,
+	SafeAreaView,
 	StyleSheet,
 	TouchableOpacity,
 	View,
 	// WebView,
-} from 'react-native';
+} from 'react-native-web';
 // import Modal from 'react-native-modalbox';
 //import GestureRecognizer from 'react-native-swipe-gestures';
-import Story from './Story';
+import StoryView from './StoryView';
 import UserView from './UserView';
 import Readmore from './Readmore';
 import ProgressArray from './ProgressArray';
 
-const SCREEN_WIDTH = Dimensions.get('window').width;
+let SCREEN_WIDTH = Dimensions.get('window').width;
 
-const StoryContainer = (props) => {
+const StoryBlockContainer = (props) => {
 	const { user } = props;
 	const { stories = [] } = user || {};
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [isModelOpen, setModel] = useState(false);
 	const [isPause, setIsPause] = useState(false);
-	const [isLoaded, setLoaded] = useState(false);
+	const [isLoaded, setLoaded] = useState(true);
 	const [duration, setDuration] = useState(3);
 	const story = stories.length ? stories[currentIndex] : {};
 	const { isReadMore, url } = story || {};
@@ -33,7 +34,10 @@ const StoryContainer = (props) => {
 	// };
 
 	const changeStory = (evt) => {
-		if (evt.locationX > SCREEN_WIDTH / 2) {
+		//console.log(evt);
+		//console.log(SCREEN_WIDTH / 2);
+		// TODO: possibly make this screenX or layerX but idk
+		if (evt.clientX > SCREEN_WIDTH / 2) {
 			nextStory();
 		} else {
 			prevStory();
@@ -43,7 +47,7 @@ const StoryContainer = (props) => {
 	const nextStory = () => {
 		if (stories.length - 1 > currentIndex) {
 			setCurrentIndex(currentIndex + 1);
-			setLoaded(false);
+			// setLoaded(false);
 			setDuration(3);
 		} else {
 			setCurrentIndex(0);
@@ -54,7 +58,7 @@ const StoryContainer = (props) => {
 	const prevStory = () => {
 		if (currentIndex > 0 && stories.length) {
 			setCurrentIndex(currentIndex - 1);
-			setLoaded(false);
+			// setLoaded(false);
 			setDuration(3);
 		} else {
 			setCurrentIndex(0);
@@ -89,7 +93,7 @@ const StoryContainer = (props) => {
 			return (
 				<View style={styles.loading}>
 					<View style={{ width: 1, height: 1 }}>
-						<Story
+						<StoryView
 							onImageLoaded={onImageLoaded}
 							pause
 							onVideoLoaded={onVideoLoaded}
@@ -122,53 +126,62 @@ const StoryContainer = (props) => {
 	};
 
 	return (
-		// <GestureRecognizer
-		// 	onSwipeDown={onSwipeDown}
-		// 	onSwipeUp={onSwipeUp}
-		// 	config={config}
-		// 	style={styles.container}
-		// >
-		<TouchableOpacity
-			activeOpacity={1}
-			delayLongPress={500}
-			onPress={(e) => changeStory(e.nativeEvent)}
-			onLongPress={() => onPause(true)}
-			onPressOut={() => onPause(false)}
+		<SafeAreaView style={{ flex: 1 }}>
+			{/* <GestureRecognizer
+			onSwipeDown={onSwipeDown}
+			onSwipeUp={onSwipeUp}
+			config={config}
 			style={styles.container}
-		>
-			<View style={styles.container}>
-				<Story
-					onImageLoaded={onImageLoaded}
-					pause={isPause}
-					isNewStory={props.isNewStory}
-					onVideoLoaded={onVideoLoaded}
-					story={story}
-				/>
+		> */}
+			<TouchableOpacity
+				activeOpacity={1}
+				delayLongPress={500}
+				onPress={(e) => changeStory(e.nativeEvent)}
+				onLongPress={() => onPause(true)}
+				onPressOut={() => onPause(false)}
+				style={styles.container}
+			>
+				<View
+					style={styles.container}
+					onLayout={(event) => {
+						var { x, y, width, height } = event.nativeEvent.layout;
+						SCREEN_WIDTH = width;
+						console.log('width is noww ' + width);
+					}}
+				>
+					{/* <StoryView
+						onImageLoaded={onImageLoaded}
+						pause={isPause}
+						isNewStory={props.isNewStory}
+						onVideoLoaded={onVideoLoaded}
+						story={story}
+					/>
 
-				{loading()}
+					{loading()} */}
+					{props.renderStory(story)}
 
-				<UserView
-					name={user.username}
-					profile={user.profile}
-					onClosePress={props.onClose}
-				/>
+					<UserView
+						name={user.title}
+						profile={user.profile}
+						onClosePress={props.onClose}
+					/>
 
-				{isReadMore && <Readmore onReadMore={onReadMoreOpen} />}
+					{isReadMore && <Readmore onReadMore={onReadMoreOpen} />}
 
-				<ProgressArray
-					next={nextStory}
-					isLoaded={isLoaded}
-					duration={duration}
-					pause={isPause}
-					isNewStory={props.isNewStory}
-					stories={stories}
-					currentIndex={currentIndex}
-					currentStory={stories[currentIndex]}
-					length={stories.map((_, i) => i)}
-					progress={{ id: currentIndex }}
-				/>
-			</View>
-			{/* <Modal
+					<ProgressArray
+						next={nextStory}
+						isLoaded={isLoaded}
+						duration={duration}
+						pause={isPause}
+						isNewStory={props.isNewStory}
+						stories={stories}
+						currentIndex={currentIndex}
+						currentStory={stories[currentIndex]}
+						length={stories.map((_, i) => i)}
+						progress={{ id: currentIndex }}
+					/>
+				</View>
+				{/* <Modal
 				style={styles.modal}
 				position="bottom"
 				isOpen={isModelOpen}
@@ -177,8 +190,10 @@ const StoryContainer = (props) => {
 				<View style={styles.bar} />
 				<WebView source={{ uri: 'https://www.google.com' }} />
 			</Modal> */}
-		</TouchableOpacity>
-		// </GestureRecognizer>
+			</TouchableOpacity>
+			{/* </GestureRecognizer> */}
+			<View style={{ width: '100%', height: 100 }}></View>
+		</SafeAreaView>
 	);
 };
 
@@ -188,8 +203,6 @@ const styles = StyleSheet.create({
 		width: '100%',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
-		// paddingTop: 30,
-		backgroundColor: 'red',
 	},
 	progressBarArray: {
 		flexDirection: 'row',
@@ -245,4 +258,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default StoryContainer;
+export default StoryBlockContainer;

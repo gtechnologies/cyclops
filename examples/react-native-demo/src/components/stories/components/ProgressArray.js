@@ -50,8 +50,8 @@ const styles = StyleSheet.create({
 	progressBarArray: {
 		flexDirection: 'row',
 		position: 'absolute',
-		top: 30,
-		width: '98%',
+		top: 10,
+		width: '95%',
 		height: 10,
 		justifyContent: 'space-between',
 		alignItems: 'center',
