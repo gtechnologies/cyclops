@@ -46,9 +46,6 @@ const styles = StyleSheet.create({
 	},
 	userView: {
 		flexDirection: 'row',
-		position: 'absolute',
-		top: 55,
-		width: '98%',
 		alignItems: 'center',
 	},
 	name: {

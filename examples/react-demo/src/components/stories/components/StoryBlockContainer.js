@@ -13,7 +13,6 @@ import {
 //import GestureRecognizer from 'react-native-swipe-gestures';
 import StoryView from './StoryView';
 import UserView from './UserView';
-import Readmore from './Readmore';
 import ProgressArray from './ProgressArray';
 
 let SCREEN_WIDTH = Dimensions.get('window').width;
@@ -126,7 +125,7 @@ const StoryBlockContainer = (props) => {
 	};
 
 	return (
-		<SafeAreaView style={{ flex: 1 }}>
+		<SafeAreaView style={{ flex: 1, width: '100%' }}>
 			{/* <GestureRecognizer
 			onSwipeDown={onSwipeDown}
 			onSwipeUp={onSwipeUp}
@@ -135,7 +134,7 @@ const StoryBlockContainer = (props) => {
 		> */}
 			<TouchableOpacity
 				activeOpacity={1}
-				delayLongPress={500}
+				delayLongPress={300}
 				onPress={(e) => changeStory(e.nativeEvent)}
 				onLongPress={() => onPause(true)}
 				onPressOut={() => onPause(false)}
@@ -160,26 +159,51 @@ const StoryBlockContainer = (props) => {
 					{loading()} */}
 					{props.renderStory(story)}
 
-					<UserView
-						name={user.title}
-						profile={user.profile}
-						onClosePress={props.onClose}
-					/>
-
-					{isReadMore && <Readmore onReadMore={onReadMoreOpen} />}
-
-					<ProgressArray
-						next={nextStory}
-						isLoaded={isLoaded}
-						duration={duration}
-						pause={isPause}
-						isNewStory={props.isNewStory}
-						stories={stories}
-						currentIndex={currentIndex}
-						currentStory={stories[currentIndex]}
-						length={stories.map((_, i) => i)}
-						progress={{ id: currentIndex }}
-					/>
+					<View
+						style={{
+							position: 'absolute',
+							top: 10,
+							width: '95%',
+							minHeight: 100,
+							flexDirection: 'column',
+							alignItems: 'center',
+						}}
+					>
+						<ProgressArray
+							next={nextStory}
+							isLoaded={isLoaded}
+							duration={duration}
+							pause={isPause}
+							isNewStory={props.isNewStory}
+							stories={stories}
+							currentIndex={currentIndex}
+							currentStory={stories[currentIndex]}
+							length={stories.map((_, i) => i)}
+							progress={{ id: currentIndex }}
+						/>
+						<View
+							style={{
+								width: '100%',
+								flexDirection: 'row',
+							}}
+						>
+							<View style={{ flex: 1 }}>
+								<UserView
+									name={user.title}
+									profile={user.profile}
+									onClosePress={props.onClose}
+								/>
+							</View>
+							<TouchableOpacity
+								style={{
+									height: 50,
+									width: 50,
+									backgroundColor: 'green',
+								}}
+								onPress={props.onClose}
+							></TouchableOpacity>
+						</View>
+					</View>
 				</View>
 				{/* <Modal
 				style={styles.modal}
@@ -203,6 +227,8 @@ const styles = StyleSheet.create({
 		width: '100%',
 		justifyContent: 'flex-start',
 		alignItems: 'center',
+		borderRadius: 8,
+		overflow: 'hidden',
 	},
 	progressBarArray: {
 		flexDirection: 'row',

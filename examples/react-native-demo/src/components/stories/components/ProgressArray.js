@@ -49,9 +49,7 @@ const ProgressArray = (props) => {
 const styles = StyleSheet.create({
 	progressBarArray: {
 		flexDirection: 'row',
-		position: 'absolute',
-		top: 10,
-		width: '95%',
+		width: '100%',
 		height: 10,
 		justifyContent: 'space-between',
 		alignItems: 'center',

@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		backgroundColor: '#555',
 		margin: 2,
+		borderRadius: 2,
 	},
 });
 
