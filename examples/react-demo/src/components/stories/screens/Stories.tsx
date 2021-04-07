@@ -1,8 +1,10 @@
 import React, { useRef, useState } from 'react';
 import {
+	// @ts-ignore
 	FlatList,
 	Image,
 	Modal,
+	// @ts-ignore
 	StyleSheet,
 	Text,
 	TouchableOpacity,
@@ -16,13 +18,13 @@ import UserView from '../components/UserView';
 
 import { Dialog } from '@material-ui/core';
 
-const Stories = (props) => {
+const Stories = (props: any) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [currentUserIndex, setCurrentUserIndex] = useState(0);
 	const [currentScrollValue, setCurrentScrollValue] = useState(0);
 	const modalScroll = useRef(null);
 
-	const onStorySelect = (index) => {
+	const onStorySelect = (index: number) => {
 		setCurrentUserIndex(index);
 		setIsModalOpen(true);
 	};
@@ -31,11 +33,12 @@ const Stories = (props) => {
 		setIsModalOpen(false);
 	};
 
-	const onStoryNext = (isScroll) => {
+	const onStoryNext = (isScroll?: boolean) => {
 		const newIndex = currentUserIndex + 1;
 		if (AllStories.length - 1 > currentUserIndex) {
 			setCurrentUserIndex(newIndex);
 			if (!isScroll) {
+				// @ts-ignore
 				modalScroll.current.scrollTo(newIndex, true);
 			}
 		} else {
@@ -43,17 +46,18 @@ const Stories = (props) => {
 		}
 	};
 
-	const onStoryPrevious = (isScroll) => {
+	const onStoryPrevious = (isScroll?: boolean) => {
 		const newIndex = currentUserIndex - 1;
 		if (currentUserIndex > 0) {
 			setCurrentUserIndex(newIndex);
 			if (!isScroll) {
+				// @ts-ignore
 				modalScroll.current.scrollTo(newIndex, true);
 			}
 		}
 	};
 
-	const onScrollChange = (scrollValue) => {
+	const onScrollChange = (scrollValue: number) => {
 		if (currentScrollValue > scrollValue) {
 			onStoryNext(true);
 			console.log('next');
@@ -66,20 +70,22 @@ const Stories = (props) => {
 		}
 	};
 
-	const renderSeperator = () => (
-		<View style={{ height: 1, backgroundColor: '#ccc' }} />
-	);
-
 	return (
 		<View style={styles.container}>
 			<FlatList
 				data={AllStories}
 				horizontal
-				renderItem={({ item, index }) => (
+				renderItem={({
+					// @ts-ignore
+					item,
+					// @ts-ignore
+					index,
+				}) => (
 					<TouchableOpacity onPress={() => onStorySelect(index)}>
 						<Image
 							style={styles.circle}
 							source={{ uri: item.profile }}
+							// @ts-ignore
 							isHorizontal
 						/>
 						<Text style={styles.title}>{item.title}</Text>
@@ -92,6 +98,7 @@ const Stories = (props) => {
 					animationType="slide"
 					transparent={true}
 					visible={isModalOpen}
+					// @ts-ignore
 					style={styles.modal}
 					onRequestClose={onStoryClose}
 				>
@@ -121,7 +128,9 @@ const Stories = (props) => {
 							}}
 						>
 							<CubeNavigationHorizontal
-								callBackAfterSwipe={(g) => onScrollChange(g)}
+								callBackAfterSwipe={(g: any) =>
+									onScrollChange(g)
+								}
 								ref={modalScroll}
 								style={styles.container}
 								initialPage={currentUserIndex}
@@ -135,7 +144,7 @@ const Stories = (props) => {
 										onStoryPrevious={onStoryPrevious}
 										user={item}
 										isNewStory={index !== currentUserIndex}
-										renderStory={(story) => {
+										renderStory={(story: any) => {
 											return (
 												<View
 													style={{
@@ -148,8 +157,8 @@ const Stories = (props) => {
 											);
 										}}
 										renderStoryBlockHeader={(
-											storyBlock,
-											storyIndex,
+											storyBlock: any,
+											storyIndex: any,
 										) => {
 											return (
 												<UserView
