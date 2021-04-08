@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useState } from 'react';
 import {
 	TextStyle as RNWTextStyle,
@@ -38,6 +38,10 @@ export const Select: React.FunctionComponent<Props> = (props: Props) => {
 	const [selection, setSelection] = useState<string[] | undefined>(
 		props.defaultSelection,
 	);
+
+	useEffect(() => {
+		setSelection(props.defaultSelection);
+	}, [props.defaultSelection]);
 
 	if (props.multiSelect) {
 		// TODO: find a way to make useState type to string array that doesn't require filtering out the empty string later
