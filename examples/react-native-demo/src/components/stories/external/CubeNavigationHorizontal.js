@@ -1,3 +1,6 @@
+/**
+ * https://github.com/zehfernandes/react-native-3dcube-navigation
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {

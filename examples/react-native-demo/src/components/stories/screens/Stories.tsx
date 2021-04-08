@@ -14,11 +14,18 @@ import AllStories from '../constants/AllStories';
 import StoryBlockContainer from '../components/StoryBlockContainer';
 import UserView from '../components/UserView';
 
-const Stories = (props: any) => {
+import { StoryBlock } from '../types';
+interface StoriesProps {
+	storyBlocks: StoryBlock[] | undefined;
+}
+
+const Stories: React.FC<StoriesProps> = (props) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [currentUserIndex, setCurrentUserIndex] = useState(0);
 	const [currentScrollValue, setCurrentScrollValue] = useState(0);
 	const modalScroll = useRef(null);
+
+	const { storyBlocks } = props;
 
 	const onStorySelect = (index: number) => {
 		setCurrentUserIndex(index);
@@ -31,7 +38,7 @@ const Stories = (props: any) => {
 
 	const onStoryNext = (isScroll?: boolean) => {
 		const newIndex = currentUserIndex + 1;
-		if (AllStories.length - 1 > currentUserIndex) {
+		if (storyBlocks && storyBlocks.length - 1 > currentUserIndex) {
 			setCurrentUserIndex(newIndex);
 			if (!isScroll) {
 				// @ts-ignore
@@ -69,7 +76,7 @@ const Stories = (props: any) => {
 	return (
 		<View style={styles.container}>
 			<FlatList
-				data={AllStories}
+				data={storyBlocks}
 				horizontal
 				renderItem={({ item, index }) => (
 					<TouchableOpacity onPress={() => onStorySelect(index)}>
@@ -99,39 +106,40 @@ const Stories = (props: any) => {
 						style={styles.container}
 						initialPage={currentUserIndex}
 					>
-						{AllStories.map((item, index) => (
-							<StoryBlockContainer
-								onClose={onStoryClose}
-								onStoryNext={onStoryNext}
-								onStoryPrevious={onStoryPrevious}
-								user={item}
-								isNewStory={index !== currentUserIndex}
-								renderStory={(story: any) => {
-									return (
-										<View
-											style={{
-												flex: 1,
-												width: '100%',
-												backgroundColor: 'orange',
-											}}
-										></View>
-									);
-								}}
-								renderStoryBlockHeader={(
-									// @ts-ignore
-									storyBlock,
-									// @ts-ignore
-									storyIndex,
-								) => {
-									return (
-										<UserView
-											name={storyBlock.title}
-											profile={storyBlock.profile}
-										/>
-									);
-								}}
-							/>
-						))}
+						{storyBlocks &&
+							storyBlocks.map((item, index) => (
+								<StoryBlockContainer
+									onClose={onStoryClose}
+									onStoryNext={onStoryNext}
+									onStoryPrevious={onStoryPrevious}
+									user={item}
+									isNewStory={index !== currentUserIndex}
+									renderStory={(story: any) => {
+										return (
+											<View
+												style={{
+													flex: 1,
+													width: '100%',
+													backgroundColor: 'orange',
+												}}
+											></View>
+										);
+									}}
+									renderStoryBlockHeader={(
+										// @ts-ignore
+										storyBlock,
+										// @ts-ignore
+										storyIndex,
+									) => {
+										return (
+											<UserView
+												name={storyBlock.title}
+												profile={storyBlock.profile}
+											/>
+										);
+									}}
+								/>
+							))}
 					</CubeNavigationHorizontal>
 				</Modal>
 			)}
@@ -162,5 +170,9 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 });
+
+Stories.defaultProps = {
+	storyBlocks: AllStories,
+};
 
 export default Stories;
