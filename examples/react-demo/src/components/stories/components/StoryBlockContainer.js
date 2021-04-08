@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import {
 	ActivityIndicator,
 	Dimensions,
@@ -190,13 +191,13 @@ const StoryBlockContainer = (props) => {
 								)}
 							</View>
 							<TouchableOpacity
-								style={{
-									height: 50,
-									width: 50,
-									backgroundColor: 'green',
-								}}
+								style={{}}
 								onPress={props.onClose}
-							></TouchableOpacity>
+							>
+								<CloseRoundedIcon
+									style={{ fontSize: 40, color: 'white' }}
+								/>
+							</TouchableOpacity>
 						</View>
 					</View>
 				</View>
@@ -224,6 +225,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		borderRadius: 8,
 		overflow: 'hidden',
+		backgroundColor: '#5568E5',
 	},
 	progressBarArray: {
 		flexDirection: 'row',

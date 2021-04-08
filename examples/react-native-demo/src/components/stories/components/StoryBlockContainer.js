@@ -5,6 +5,7 @@ import {
 	//Modal,
 	SafeAreaView,
 	StyleSheet,
+	Text,
 	TouchableOpacity,
 	View,
 	// WebView,
@@ -200,7 +201,17 @@ const StoryBlockContainer = (props) => {
 			</Modal> */}
 			</TouchableOpacity>
 			{/* </GestureRecognizer> */}
-			<View style={{ width: '100%', height: 100 }}></View>
+			<View style={{ width: '100%', height: 100 }}>
+				<TouchableOpacity
+					onPress={() => {
+						onReadMoreOpen();
+					}}
+				>
+					<Text style={{ color: 'white', fontSize: 30 }}>
+						See More
+					</Text>
+				</TouchableOpacity>
+			</View>
 		</SafeAreaView>
 	);
 };
@@ -213,6 +224,7 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		borderRadius: 8,
 		overflow: 'hidden',
+		backgroundColor: '#5568E5',
 	},
 	userView: {
 		flexDirection: 'row',

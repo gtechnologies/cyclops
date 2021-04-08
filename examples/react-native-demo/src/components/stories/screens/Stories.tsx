@@ -99,7 +99,9 @@ const Stories: React.FC<StoriesProps> = (props) => {
 							// @ts-ignore
 							isHorizontal
 						/>
-						<Text style={styles.title}>{item.title}</Text>
+						<Text style={styles.title} numberOfLines={1}>
+							{item.title}
+						</Text>
 					</TouchableOpacity>
 				)}
 			/>

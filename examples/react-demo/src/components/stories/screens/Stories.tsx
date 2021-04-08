@@ -176,8 +176,6 @@ const Stories: React.FC<StoriesProps> = (props) => {
 														style={{
 															flex: 1,
 															width: '100%',
-															backgroundColor:
-																'orange',
 														}}
 													></View>
 												);
