@@ -17,7 +17,7 @@ const stories: StoryBlock[] = [
 	},
 	{
 		profile: 'https://avatars2.githubusercontent.com/u/45196619?s=460&v=4',
-		title: 'My Gallery',
+		title: 'My Gallery by the one and only Groot',
 		stories: [
 			{
 				id: 1,

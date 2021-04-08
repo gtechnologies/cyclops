@@ -33,10 +33,7 @@ const StoryBlockContainer = (props) => {
 	// };
 
 	const changeStory = (evt) => {
-		//console.log(evt);
-		//console.log(SCREEN_WIDTH / 2);
-		// TODO: possibly make this screenX or layerX but idk
-		if (evt.clientX > SCREEN_WIDTH / 2) {
+		if (evt.layerX > SCREEN_WIDTH / 2) {
 			nextStory();
 		} else {
 			prevStory();
@@ -145,7 +142,6 @@ const StoryBlockContainer = (props) => {
 					onLayout={(event) => {
 						var { x, y, width, height } = event.nativeEvent.layout;
 						SCREEN_WIDTH = width;
-						console.log('width is noww ' + width);
 					}}
 				>
 					{/* <StoryView

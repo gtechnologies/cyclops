@@ -32,6 +32,8 @@ const StoryBlockContainer = (props) => {
 	// };
 
 	const changeStory = (evt) => {
+		console.log(' a click just happened');
+		console.log(evt);
 		if (evt.locationX > SCREEN_WIDTH / 2) {
 			nextStory();
 		} else {

@@ -21,7 +21,9 @@ class UserView extends React.PureComponent {
 			<View style={styles.userView}>
 				<Image source={{ uri: props.profile }} style={styles.image} />
 				<View style={{ flex: 1 }}>
-					<Text style={styles.name}>{props.name}</Text>
+					<Text style={styles.name} numberOfLines={1}>
+						{props.name}
+					</Text>
 					<Text style={styles.time}>Posted 2h ago</Text>
 				</View>
 			</View>

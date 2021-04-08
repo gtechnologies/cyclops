@@ -16,10 +16,15 @@ import AllStories from '../constants/AllStories';
 import StoryBlockContainer from '../components/StoryBlockContainer';
 import UserView from '../components/UserView';
 
-import { StoryBlock } from '../types';
+import { Story, StoryBlock } from '../types';
 
 interface StoriesProps {
 	storyBlocks: StoryBlock[] | undefined;
+	renderStory?: (story: Story) => React.ReactNode;
+	renderStoryBlockHeader?: (
+		storyBlock: StoryBlock,
+		index: number,
+	) => React.ReactNode;
 }
 
 const Stories: React.FC<StoriesProps> = (props) => {
@@ -28,7 +33,7 @@ const Stories: React.FC<StoriesProps> = (props) => {
 	const [currentScrollValue, setCurrentScrollValue] = useState(0);
 	const modalScroll = useRef(null);
 
-	const { storyBlocks } = props;
+	const { storyBlocks, renderStory, renderStoryBlockHeader } = props;
 
 	const onStorySelect = (index: number) => {
 		setCurrentUserIndex(index);
@@ -87,14 +92,24 @@ const Stories: React.FC<StoriesProps> = (props) => {
 					// @ts-ignore
 					index,
 				}) => (
-					<TouchableOpacity onPress={() => onStorySelect(index)}>
+					<TouchableOpacity
+						onPress={() => onStorySelect(index)}
+						style={{
+							display: 'flex',
+							flexDirection: 'column',
+							alignItems: 'center',
+							width: 80,
+						}}
+					>
 						<Image
 							style={styles.circle}
 							source={{ uri: item.profile }}
 							// @ts-ignore
 							isHorizontal
 						/>
-						<Text style={styles.title}>{item.title}</Text>
+						<Text style={styles.title} numberOfLines={1}>
+							{item.title}
+						</Text>
 					</TouchableOpacity>
 				)}
 			/>
@@ -154,7 +169,9 @@ const Stories: React.FC<StoriesProps> = (props) => {
 												index !== currentUserIndex
 											}
 											renderStory={(story: any) => {
-												return (
+												return renderStory ? (
+													renderStory(story)
+												) : (
 													<View
 														style={{
 															flex: 1,
@@ -169,7 +186,12 @@ const Stories: React.FC<StoriesProps> = (props) => {
 												storyBlock: any,
 												storyIndex: any,
 											) => {
-												return (
+												return renderStoryBlockHeader ? (
+													renderStoryBlockHeader(
+														storyBlock,
+														storyIndex,
+													)
+												) : (
 													<UserView
 														name={storyBlock.title}
 														profile={
