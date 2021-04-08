@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
 	ActivityIndicator,
+	Animated,
 	Dimensions,
 	//Modal,
 	SafeAreaView,
@@ -201,17 +202,46 @@ const StoryBlockContainer = (props) => {
 			</Modal> */}
 			</TouchableOpacity>
 			{/* </GestureRecognizer> */}
-			<View style={{ width: '100%', height: 100 }}>
+			<View
+				style={{
+					width: '100%',
+					height: 100,
+					display: 'flex',
+					flexDirection: 'row',
+					justifyContent: 'center',
+					alignItems: 'center',
+					paddingBottom: 20,
+				}}
+			>
 				<TouchableOpacity
 					onPress={() => {
 						onReadMoreOpen();
 					}}
 				>
-					<Text style={{ color: 'white', fontSize: 30 }}>
+					<Text style={{ color: 'white', fontSize: 20 }}>
 						See More
 					</Text>
 				</TouchableOpacity>
 			</View>
+			{isModelOpen && (
+				<View
+					style={{
+						position: 'absolute',
+						bottom: 0,
+						width: '100%',
+						height: '100%',
+					}}
+				>
+					<TouchableOpacity
+						onPress={() => {
+							onReadMoreClose();
+						}}
+					>
+						<Text>Close</Text>
+					</TouchableOpacity>
+					{props.renderStoryModal(story)}
+				</View>
+			)}
 		</SafeAreaView>
 	);
 };

@@ -18,6 +18,7 @@ import { Story, StoryBlock } from '../types';
 interface StoriesProps {
 	storyBlocks: StoryBlock[] | undefined;
 	renderStory?: (story: Story) => React.ReactNode;
+	renderStoryModal?: (story: Story) => React.ReactNode;
 	renderStoryBlockHeader?: (
 		storyBlock: StoryBlock,
 		index: number,
@@ -30,7 +31,12 @@ const Stories: React.FC<StoriesProps> = (props) => {
 	const [currentScrollValue, setCurrentScrollValue] = useState(0);
 	const modalScroll = useRef(null);
 
-	const { storyBlocks, renderStory, renderStoryBlockHeader } = props;
+	const {
+		storyBlocks,
+		renderStory,
+		renderStoryModal,
+		renderStoryBlockHeader,
+	} = props;
 
 	const onStorySelect = (index: number) => {
 		setCurrentUserIndex(index);
@@ -141,6 +147,11 @@ const Stories: React.FC<StoriesProps> = (props) => {
 												}}
 											></View>
 										);
+									}}
+									renderStoryModal={(story: Story) => {
+										return renderStoryModal
+											? renderStoryModal(story)
+											: null;
 									}}
 									renderStoryBlockHeader={(
 										// @ts-ignore

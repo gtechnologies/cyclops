@@ -6,6 +6,7 @@ import {
 	//Modal,
 	SafeAreaView,
 	StyleSheet,
+	Text,
 	TouchableOpacity,
 	View,
 	// WebView,
@@ -13,7 +14,6 @@ import {
 // import Modal from 'react-native-modalbox';
 //import GestureRecognizer from 'react-native-swipe-gestures';
 import StoryView from './StoryView';
-import UserView from './UserView';
 import ProgressArray from './ProgressArray';
 
 let SCREEN_WIDTH = Dimensions.get('window').width;
@@ -212,7 +212,46 @@ const StoryBlockContainer = (props) => {
 			</Modal> */}
 			</TouchableOpacity>
 			{/* </GestureRecognizer> */}
-			<View style={{ width: '100%', height: 100 }}></View>
+			<View
+				style={{
+					width: '100%',
+					height: 100,
+					display: 'flex',
+					flexDirection: 'row',
+					justifyContent: 'center',
+					alignItems: 'center',
+					paddingBottom: 20,
+				}}
+			>
+				<TouchableOpacity
+					onPress={() => {
+						onReadMoreOpen();
+					}}
+				>
+					<Text style={{ color: 'white', fontSize: 20 }}>
+						See More
+					</Text>
+				</TouchableOpacity>
+			</View>
+			{isModelOpen && (
+				<View
+					style={{
+						position: 'absolute',
+						bottom: 0,
+						width: '100%',
+						height: '100%',
+					}}
+				>
+					<TouchableOpacity
+						onPress={() => {
+							onReadMoreClose();
+						}}
+					>
+						<Text>Close</Text>
+					</TouchableOpacity>
+					{props.renderStoryModal(story)}
+				</View>
+			)}
 		</SafeAreaView>
 	);
 };
