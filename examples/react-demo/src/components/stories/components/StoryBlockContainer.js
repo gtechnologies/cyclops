@@ -29,6 +29,10 @@ const StoryBlockContainer = (props) => {
 	const story = stories.length ? stories[currentIndex] : {};
 	const { isReadMore, url } = story || {};
 
+	React.useEffect(() => {
+		return;
+	}, []);
+
 	// const onVideoLoaded = (length) => {
 	//   props.onVideoLoaded(length.duration);
 	// };
@@ -154,14 +158,12 @@ const StoryBlockContainer = (props) => {
 					/>
 
 					{loading()} */}
-					{props.renderStory(story)}
 
 					<View
 						style={{
-							position: 'absolute',
-							top: 10,
+							marginTop: 10,
+							marginBottom: 10,
 							width: '95%',
-							minHeight: 100,
 							flexDirection: 'column',
 							alignItems: 'center',
 						}}
@@ -200,6 +202,7 @@ const StoryBlockContainer = (props) => {
 							</TouchableOpacity>
 						</View>
 					</View>
+					{props.renderStory(story)}
 				</View>
 				{/* <Modal
 				style={styles.modal}
@@ -240,6 +243,11 @@ const StoryBlockContainer = (props) => {
 						bottom: 0,
 						width: '100%',
 						height: '100%',
+						backgroundColor: 'white',
+						display: 'flex',
+						flexDirection: 'column',
+						alignItems: 'center',
+						overflow: 'hidden',
 					}}
 				>
 					<TouchableOpacity

@@ -182,6 +182,8 @@ const Stories: React.FC<StoriesProps> = (props) => {
 														style={{
 															flex: 1,
 															width: '100%',
+															backgroundColor:
+																'blue',
 														}}
 													></View>
 												);
@@ -189,9 +191,63 @@ const Stories: React.FC<StoriesProps> = (props) => {
 											renderStoryModal={(
 												story: Story,
 											) => {
-												return renderStoryModal
-													? renderStoryModal(story)
-													: null;
+												return (
+													<View>
+														<Text
+															style={{
+																fontSize: 100,
+															}}
+														>
+															haloo
+														</Text>
+														<Text
+															style={{
+																fontSize: 100,
+															}}
+														>
+															haloo
+														</Text>
+														<Text
+															style={{
+																fontSize: 100,
+															}}
+														>
+															haloo
+														</Text>
+
+														<Text
+															style={{
+																fontSize: 100,
+															}}
+														>
+															haloo
+														</Text>
+														<Text
+															style={{
+																fontSize: 100,
+															}}
+														>
+															haloo
+														</Text>
+														<Text
+															style={{
+																fontSize: 100,
+															}}
+														>
+															haloo
+														</Text>
+														<Text
+															style={{
+																fontSize: 100,
+															}}
+														>
+															haloo
+														</Text>
+													</View>
+												);
+												// return renderStoryModal
+												// 	? renderStoryModal(story)
+												// 	: null;
 											}}
 											renderStoryBlockHeader={(
 												storyBlock: any,
