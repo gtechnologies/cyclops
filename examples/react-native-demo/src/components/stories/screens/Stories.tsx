@@ -12,7 +12,6 @@ import ContentLoader, { Circle, Rect } from 'react-content-loader/native';
 // import Modal from 'react-native-modalbox';
 
 import CubeNavigationHorizontal from '../external/CubeNavigationHorizontal';
-import AllStories from '../constants/AllStories';
 import StoryBlockContainer from '../components/StoryBlockContainer';
 import UserView from '../components/UserView';
 
@@ -24,7 +23,7 @@ interface StoriesProps {
 	storyBlocks: StoryBlock[] | undefined;
 	/** Render a loading screen */
 	loading?: boolean;
-	renderStory?: (story: Story) => React.ReactNode;
+	renderStory: (story: Story) => React.ReactNode;
 	renderStoryModal?: (story: Story) => React.ReactNode;
 	renderStoryBlockHeader?: (
 		storyBlock: StoryBlock,
@@ -166,17 +165,7 @@ const Stories: React.FC<StoriesProps> = (props) => {
 									user={item}
 									isNewStory={index !== currentUserIndex}
 									renderStory={(story: any) => {
-										return renderStory ? (
-											renderStory(story)
-										) : (
-											<View
-												style={{
-													flex: 1,
-													width: '100%',
-													backgroundColor: 'blue',
-												}}
-											></View>
-										);
+										return renderStory(story);
 									}}
 									renderStoryModal={(story: Story) => {
 										return renderStoryModal
@@ -231,10 +220,5 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 });
-
-Stories.defaultProps = {
-	storyBlocks: AllStories,
-	loading: true,
-};
 
 export default Stories;

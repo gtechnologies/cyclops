@@ -17,7 +17,7 @@ import { PollPost } from './components/glimpse/cross/posts/PollPost';
 
 import { TestableModal } from './components/testable';
 
-import { Stories } from './components/stories';
+import { StoriesDemo } from './components/stories';
 
 interface AppProps {}
 interface AppState {
@@ -52,11 +52,7 @@ class App extends React.Component<AppProps, AppState> {
 	}
 	render() {
 		const { showTestableModal } = this.state;
-		return (
-			<VFlex style={{}}>
-				<Stories />
-			</VFlex>
-		);
+		return <StoriesDemo />;
 		return (
 			<div className="App">
 				<TestableModal visible={showTestableModal} />
