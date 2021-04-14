@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import {
+	ActivityIndicator,
 	// @ts-ignore
 	FlatList,
 	Image,
@@ -10,7 +11,9 @@ import {
 	TouchableOpacity,
 	View,
 } from 'react-native-web';
+import ContentLoader from 'react-content-loader';
 // import Modal from 'react-native-modalbox';
+
 import CubeNavigationHorizontal from '../external/CubeNavigationHorizontal';
 import AllStories from '../constants/AllStories';
 import StoryBlockContainer from '../components/StoryBlockContainer';
@@ -18,8 +21,12 @@ import UserView from '../components/UserView';
 
 import { Story, StoryBlock } from '../types';
 
+const CIRCLE_SIZE = 66;
+
 interface StoriesProps {
 	storyBlocks: StoryBlock[] | undefined;
+	/** Render a loading screen */
+	loading?: boolean;
 	renderStory?: (story: Story) => React.ReactNode;
 	renderStoryModal?: (story: Story) => React.ReactNode;
 	renderStoryBlockHeader?: (
@@ -36,6 +43,7 @@ const Stories: React.FC<StoriesProps> = (props) => {
 
 	const {
 		storyBlocks,
+		loading,
 		renderStory,
 		renderStoryModal,
 		renderStoryBlockHeader,
@@ -89,36 +97,58 @@ const Stories: React.FC<StoriesProps> = (props) => {
 
 	return (
 		<View style={styles.container}>
-			<FlatList
-				data={storyBlocks}
-				horizontal
-				renderItem={({
-					// @ts-ignore
-					item,
-					// @ts-ignore
-					index,
-				}) => (
-					<TouchableOpacity
-						onPress={() => onStorySelect(index)}
-						style={{
-							display: 'flex',
-							flexDirection: 'column',
-							alignItems: 'center',
-							width: 80,
-						}}
-					>
-						<Image
-							style={styles.circle}
-							source={{ uri: item.profile }}
-							// @ts-ignore
-							isHorizontal
-						/>
-						<Text style={styles.title} numberOfLines={1}>
-							{item.title}
-						</Text>
-					</TouchableOpacity>
-				)}
-			/>
+			{loading ? (
+				<ContentLoader
+					width={500}
+					height={100}
+					viewBox="0 0 500 100"
+					backgroundColor="#f3f3f3"
+					foregroundColor="#ecebeb"
+					{...props}
+				>
+					<circle cx="46" cy="38" r={CIRCLE_SIZE / 2} />
+					<rect x="34" y="83" rx="5" ry="5" width="25" height="10" />
+					<circle cx="137" cy="38" r={CIRCLE_SIZE / 2} />
+					<rect x="124" y="83" rx="5" ry="5" width="25" height="10" />
+					<circle cx="228" cy="38" r={CIRCLE_SIZE / 2} />
+					<rect x="215" y="83" rx="5" ry="5" width="25" height="10" />
+					<circle cx="320" cy="38" r={CIRCLE_SIZE / 2} />
+					<rect x="307" y="83" rx="5" ry="5" width="25" height="10" />
+					<circle cx="410" cy="38" r={CIRCLE_SIZE / 2} />
+					<rect x="398" y="83" rx="5" ry="5" width="25" height="10" />
+				</ContentLoader>
+			) : (
+				<FlatList
+					data={storyBlocks}
+					horizontal
+					renderItem={({
+						// @ts-ignore
+						item,
+						// @ts-ignore
+						index,
+					}) => (
+						<TouchableOpacity
+							onPress={() => onStorySelect(index)}
+							style={{
+								display: 'flex',
+								flexDirection: 'column',
+								alignItems: 'center',
+								width: 80,
+							}}
+						>
+							<Image
+								style={styles.circle}
+								source={{ uri: item.profile }}
+								// @ts-ignore
+								isHorizontal
+							/>
+							<Text style={styles.title} numberOfLines={1}>
+								{item.title}
+							</Text>
+						</TouchableOpacity>
+					)}
+				/>
+			)}
 
 			{isModalOpen && (
 				<Modal
@@ -191,63 +221,9 @@ const Stories: React.FC<StoriesProps> = (props) => {
 											renderStoryModal={(
 												story: Story,
 											) => {
-												return (
-													<View>
-														<Text
-															style={{
-																fontSize: 100,
-															}}
-														>
-															haloo
-														</Text>
-														<Text
-															style={{
-																fontSize: 100,
-															}}
-														>
-															haloo
-														</Text>
-														<Text
-															style={{
-																fontSize: 100,
-															}}
-														>
-															haloo
-														</Text>
-
-														<Text
-															style={{
-																fontSize: 100,
-															}}
-														>
-															haloo
-														</Text>
-														<Text
-															style={{
-																fontSize: 100,
-															}}
-														>
-															haloo
-														</Text>
-														<Text
-															style={{
-																fontSize: 100,
-															}}
-														>
-															haloo
-														</Text>
-														<Text
-															style={{
-																fontSize: 100,
-															}}
-														>
-															haloo
-														</Text>
-													</View>
-												);
-												// return renderStoryModal
-												// 	? renderStoryModal(story)
-												// 	: null;
+												return renderStoryModal
+													? renderStoryModal(story)
+													: null;
 											}}
 											renderStoryBlockHeader={(
 												storyBlock: any,
@@ -280,16 +256,14 @@ const Stories: React.FC<StoriesProps> = (props) => {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
+		display: 'flex',
 		justifyContent: 'flex-start',
-		paddingVertical: 50,
-		backgroundColor: 'rgba(255,255,255,255)',
 	},
 	circle: {
-		width: 66,
+		width: CIRCLE_SIZE,
 		margin: 4,
-		height: 66,
-		borderRadius: 33,
+		height: CIRCLE_SIZE,
+		borderRadius: CIRCLE_SIZE / 2,
 		borderWidth: 2,
 		borderColor: '#72bec5',
 	},
@@ -304,6 +278,7 @@ const styles = StyleSheet.create({
 
 Stories.defaultProps = {
 	storyBlocks: AllStories,
+	loading: true,
 };
 
 export default Stories;
