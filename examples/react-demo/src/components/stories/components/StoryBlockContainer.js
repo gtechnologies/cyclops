@@ -192,10 +192,7 @@ const StoryBlockContainer = (props) => {
 									currentIndex,
 								)}
 							</View>
-							<TouchableOpacity
-								style={{}}
-								onPress={props.onClose}
-							>
+							<TouchableOpacity onPress={props.onClose}>
 								<CloseRoundedIcon
 									style={{ fontSize: 40, color: 'white' }}
 								/>

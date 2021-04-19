@@ -1,3 +1,9 @@
+# Installation
+
+## @material-ui/icons
+
+`npm i @material-ui/core`
+
 # Reference Material
 
 ## React Native Stories
