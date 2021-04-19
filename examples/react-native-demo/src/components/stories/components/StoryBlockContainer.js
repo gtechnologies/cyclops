@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import MaterialIcon from 'react-native-vector-icons/dist/MaterialIcons';
+import MaterialIcon from 'react-native-vector-icons/dist/MaterialIcons';
 import {
 	ActivityIndicator,
 	Animated,
@@ -181,11 +181,11 @@ const StoryBlockContainer = (props) => {
 								)}
 							</View>
 							<TouchableOpacity onPress={props.onClose}>
-								{/* <MaterialIcon
+								<MaterialIcon
 									size={40}
 									name="close"
 									color="white"
-								/> */}
+								/>
 							</TouchableOpacity>
 						</View>
 					</View>
