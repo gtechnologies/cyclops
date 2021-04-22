@@ -51,7 +51,6 @@ export const Select: React.FunctionComponent<Props> = (props: Props) => {
 				<View
 					style={{
 						padding: Padding.ELEMENT_WEB,
-						...props.containerStyle,
 					}}
 				>
 					<TouchableOpacity
@@ -126,5 +125,9 @@ export const Select: React.FunctionComponent<Props> = (props: Props) => {
 	}
 	// need alignitems to something other than the default stretch, or the touchable opacity
 	// will expand far past the text and button for an option on the select
-	return <View style={{ alignItems: 'flex-start' }}>{optionElemets}</View>;
+	return (
+		<View style={{ alignItems: 'flex-start', ...props.containerStyle }}>
+			{optionElemets}
+		</View>
+	);
 };
