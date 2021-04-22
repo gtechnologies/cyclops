@@ -21,6 +21,7 @@ interface Props {
 	color?: string;
 	size?: number;
 	defaultSelection?: string[];
+	containerStyle?: RNWViewStyle;
 }
 
 const defaultLabelStyle = {
@@ -47,7 +48,12 @@ export const Select: React.FunctionComponent<Props> = (props: Props) => {
 		// TODO: find a way to make useState type to string array that doesn't require filtering out the empty string later
 		optionElemets = props.options.map((option) => {
 			return (
-				<View style={{ padding: Padding.ELEMENT_WEB }}>
+				<View
+					style={{
+						padding: Padding.ELEMENT_WEB,
+						...props.containerStyle,
+					}}
+				>
 					<TouchableOpacity
 						onPress={(e: any) => {
 							//need local var so it is updated immediately
