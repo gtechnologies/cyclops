@@ -13,3 +13,4 @@ export { Text } from '../src/components/Text/Text.web';
 export { TextInput } from '../src/components/TextInput/TextInput.web';
 export { TouchableOpacity } from '../src/components/TouchableOpacity/TouchableOpacity.web';
 export { View, VFlex, HFlex } from '../src/components/View/View.web';
+export { PlaceholderImage } from '../src/components/PlaceholderImage/PlaceholderImage.web';
