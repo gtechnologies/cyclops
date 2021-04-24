@@ -11,7 +11,7 @@ interface Props {
 	dimensions?: number;
 	// TODO: type this
 	style?: any;
-	euclidian?: boolean
+	euclidian?: boolean;
 }
 
 interface Point {
@@ -139,9 +139,6 @@ export const PlaceholderImage: React.FunctionComponent<Props> = (
 					points.push({ x: x - 1, y: y - 1, color });
 				}
 			}
-
-			points = points.slice(1, points.length);
-		}
 
 			points = points.slice(1, points.length);
 		}
