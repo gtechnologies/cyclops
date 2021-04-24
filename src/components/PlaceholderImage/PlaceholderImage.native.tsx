@@ -11,6 +11,7 @@ interface Props {
 	dimensions?: number;
 	// TODO: type this
 	style?: any;
+	euclidian?: boolean
 }
 
 interface Point {
@@ -120,6 +121,27 @@ export const PlaceholderImage: React.FunctionComponent<Props> = (
 			if (y > 0 && !canvas[x][y - 1]) {
 				points.push({ x, y: y - 1, color });
 			}
+			if (props.euclidian) {
+				if (
+					y < dimensions - 1 &&
+					x < dimensions - 1 &&
+					!canvas[x + 1][y + 1]
+				) {
+					points.push({ x: x + 1, y: y + 1, color });
+				}
+				if (y < dimensions - 1 && x > 0 && !canvas[x - 1][y + 1]) {
+					points.push({ x: x - 1, y: y + 1, color });
+				}
+				if (y > 0 && x < dimensions - 1 && !canvas[x + 1][y - 1]) {
+					points.push({ x: x + 1, y: y - 1, color });
+				}
+				if (y > 0 && x > 0 && !canvas[x - 1][y - 1]) {
+					points.push({ x: x - 1, y: y - 1, color });
+				}
+			}
+
+			points = points.slice(1, points.length);
+		}
 
 			points = points.slice(1, points.length);
 		}
