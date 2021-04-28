@@ -41,6 +41,7 @@
 	},
 	"dependencies": {
 		"@types/react-native": "^0.63.42",
+		"murmurhash-js": "^1.0.0",
 		"react-native-web": "^0.14.9"
 	}
 }
